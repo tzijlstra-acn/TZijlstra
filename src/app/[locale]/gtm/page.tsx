@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { GTM_MOTIONS, PILOT_DEFAULTS, EMPTY_PILOT } from "@/data/gtm";
 import { TACTICAL_PLAYS, REGIONAL_MATRIX, NO_FIT_SEGMENTS } from "@/data/swot";
+import { QUALIFIED_ACCOUNTS } from "@/data/targetCompanies";
 import type { PilotSpec } from "@/data/gtm";
 import { MODEL_PRICING } from "@/data/pricing";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
@@ -444,6 +445,65 @@ export default function GTMPage() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Qualified Account Intelligence */}
+      <div>
+        <h2 className="text-sm font-semibold mb-1 section-header">Target Account Intelligence</h2>
+        <p className="text-xs mb-4" style={{ color: "var(--lunar-text-muted)" }}>
+          {QUALIFIED_ACCOUNTS.length} qualified accounts across Tier 1 (ideal fit), Tier 2 (strong fit), and Tier 3 (self-hosted only). Source: Moonshot AI Europe Target Account Intelligence.
+        </p>
+        {([1, 2, 3] as const).map((tier) => {
+          const accounts = QUALIFIED_ACCOUNTS.filter((a) => a.tier === tier);
+          const subVerticals = [...new Set(accounts.map((a) => a.subVertical))];
+          const tierLabel = tier === 1 ? "Tier 1 — Ideal Fit" : tier === 2 ? "Tier 2 — Strong Fit" : "Tier 3 — Self-Hosted / Long-Cycle";
+          const tierColor = tier === 1 ? "var(--lunar-green)" : tier === 2 ? "var(--lunar-cyan)" : "var(--lunar-amber)";
+          const tierBg = tier === 1 ? "rgba(16,185,129,0.04)" : tier === 2 ? "rgba(0,212,255,0.04)" : "rgba(245,158,11,0.04)";
+          const tierBorder = tier === 1 ? "rgba(16,185,129,0.15)" : tier === 2 ? "rgba(0,212,255,0.15)" : "rgba(245,158,11,0.15)";
+          return (
+            <div key={tier} className="mb-6">
+              <div className="flex items-center gap-3 mb-3">
+                <span
+                  className="text-xs font-bold px-2 py-0.5 rounded"
+                  style={{ background: `${tierColor}15`, color: tierColor, border: `1px solid ${tierColor}30` }}
+                >
+                  T{tier}
+                </span>
+                <span className="text-xs font-semibold" style={{ color: "var(--lunar-text-primary)" }}>{tierLabel}</span>
+                <span className="text-xs" style={{ color: "var(--lunar-text-muted)" }}>{accounts.length} accounts</span>
+              </div>
+              {subVerticals.map((sv) => {
+                const svAccounts = accounts.filter((a) => a.subVertical === sv);
+                return (
+                  <div key={sv} className="mb-4">
+                    <div className="text-xs font-semibold mb-2 uppercase tracking-wide" style={{ color: "var(--lunar-text-muted)" }}>
+                      {sv}
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-xs" style={{ borderCollapse: "separate", borderSpacing: "0 3px" }}>
+                        <tbody>
+                          {svAccounts.map((acc) => (
+                            <tr key={acc.name} style={{ background: tierBg, border: `1px solid ${tierBorder}` }}>
+                              <td className="px-3 py-2 font-semibold rounded-l-lg whitespace-nowrap" style={{ color: "var(--lunar-text-primary)", minWidth: 120 }}>
+                                {acc.name}
+                              </td>
+                              <td className="px-3 py-2 whitespace-nowrap" style={{ color: "var(--lunar-text-muted)", minWidth: 130 }}>
+                                {acc.location}
+                              </td>
+                              <td className="px-3 py-2 rounded-r-lg" style={{ color: "var(--lunar-text-secondary)" }}>
+                                {acc.pitch}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
