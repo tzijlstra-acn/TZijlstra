@@ -100,7 +100,7 @@
   },
   "entry": {
     "title": "Kimi EU Strategy OS",
-    "subtitle": "Thomas Zijlstra → Moonshot AI · August 2026",
+    "subtitle": "Thomas Zijlstra · Moonshot AI · September 2026",
     "startBriefing": "Start 7-minute executive briefing",
     "exploreAnalysis": "Explore full analysis",
     "disclaimer": "Independent candidate analysis · Not commissioned or endorsed by Moonshot AI"
@@ -501,7 +501,19 @@
   },
   "strategy": {
     "title": "Strategic Thesis",
-    "subtitle": "Core thesis, principles, and strategic logic"
+    "subtitle": "Core thesis, principles, and strategic logic",
+    "narrativesTitle": "Three Narratives, One Strategy",
+    "boardNarrative": "For the Board",
+    "enterpriseBuyer": "For the Enterprise Buyer",
+    "developerCommunity": "For the Developer",
+    "deadline": "Deadline",
+    "navLinks": {
+      "marketSizing": "Market Sizing",
+      "countryNavigator": "Country Navigator",
+      "regulatoryRoadmap": "Regulatory Roadmap",
+      "phaseRoadmap": "Phase Roadmap",
+      "riskRegister": "Risk Register"
+    }
   },
   "mapLayers": {
     "priority": "Strategic Priority",

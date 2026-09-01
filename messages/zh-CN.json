@@ -100,7 +100,7 @@
   },
   "entry": {
     "title": "Kimi 欧洲战略 OS",
-    "subtitle": "Thomas Zijlstra → Moonshot AI · 2026年8月",
+    "subtitle": "Thomas Zijlstra · Moonshot AI · 2026年9月",
     "startBriefing": "开始 7 分钟高管简报",
     "exploreAnalysis": "浏览完整分析",
     "disclaimer": "独立候选人分析 · 非 Moonshot AI 委托或认可"
@@ -501,7 +501,19 @@
   },
   "strategy": {
     "title": "战略主张",
-    "subtitle": "核心论点、战略原则与战略逻辑"
+    "subtitle": "核心论点、战略原则与战略逻辑",
+    "narrativesTitle": "三种叙事，同一战略",
+    "boardNarrative": "面向董事会",
+    "enterpriseBuyer": "面向企业买家",
+    "developerCommunity": "面向开发者社区",
+    "deadline": "截止时间",
+    "navLinks": {
+      "marketSizing": "市场规模测算",
+      "countryNavigator": "国家导航",
+      "regulatoryRoadmap": "监管路线图",
+      "phaseRoadmap": "阶段路线图",
+      "riskRegister": "风险登记"
+    }
   },
   "mapLayers": {
     "priority": "战略优先级",

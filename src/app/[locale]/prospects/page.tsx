@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ACCOUNTS, Account } from '@/data/targetCompanies';
 import { CompanyLogo } from '@/components/ui/CompanyLogo';
 import { FlagIcon } from '@/components/ui/FlagIcon';
+import { ProspectRadar } from '@/components/ui/ProspectRadar';
 import { ChevronRight, X } from 'lucide-react';
 
 // ── Tier colours ───────────────────────────────────────────────────────────────
@@ -300,7 +301,7 @@ export default function ProspectsPage() {
 
               {/* Focus Points */}
               <div className="stat-label mb-2">Focus Points</div>
-              <div className="space-y-1.5">
+              <div className="space-y-1.5 mb-4">
                 {selected.useCases.map((uc, i) => (
                   <div
                     key={i}
@@ -321,6 +322,14 @@ export default function ProspectsPage() {
                     <span style={{ color: 'var(--lunar-text-secondary)' }}>{uc}</span>
                   </div>
                 ))}
+              </div>
+
+              {/* Account Score Radar */}
+              <div
+                className="p-3 rounded-xl"
+                style={{ background: 'var(--lunar-elevated)', border: '1px solid var(--lunar-border-subtle)' }}
+              >
+                <ProspectRadar account={selected} />
               </div>
             </div>
           ) : (

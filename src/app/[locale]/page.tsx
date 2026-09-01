@@ -8,6 +8,7 @@ import { WORKSTREAMS } from "@/data/compliance";
 import { STRATEGIC_THESIS, COMPETITIVE_MOAT } from "@/data/strategy";
 import { RISKS } from "@/data/risks";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { InfoTooltip } from "@/components/ui/InfoTooltip";
 import { useTranslations, useLocale } from "next-intl";
 import dynamic from "next/dynamic";
 import { AlertTriangle, CheckCircle2, Clock, TrendingUp, Globe2, ShieldCheck, ArrowRight, Shield, HelpCircle } from "lucide-react";
@@ -159,13 +160,13 @@ export default function CockpitPage() {
       >
         <div className="flex-1">
           <div className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: 'var(--lunar-cyan)', opacity: 0.8 }}>
-            A personal strategy deep-dive
+            Independent candidate analysis
           </div>
           <div className="text-sm font-bold mb-1" style={{ color: 'var(--lunar-text-primary)' }}>
-            Thomas Zijlstra → Moonshot AI · August 2026
+            Thomas Zijlstra · Moonshot AI · September 2026
           </div>
           <div className="text-xs leading-relaxed" style={{ color: 'var(--lunar-text-secondary)' }}>
-            You asked how much revenue I could bring in and how I&apos;d navigate Europe. I took that seriously — this is my answer.
+            Prepared as a foundation for shared exploration of Kimi&apos;s European opportunity — offered as a starting point for discussion, not a final answer.
           </div>
         </div>
       </div>

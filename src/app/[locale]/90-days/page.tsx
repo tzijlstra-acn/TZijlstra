@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useAppStore } from "@/store";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
 import {
   Trophy,
@@ -209,30 +208,6 @@ const BADGE_TYPE_MAP: Record<
 
 export default function NinetyDaysPage() {
   const t = useTranslations("ninetyDays");
-  const { addDecision } = useAppStore();
-
-  const handleAddToLog = (phase: Phase) => {
-    addDecision({
-      text: phase.logLabel,
-      status: "proposed",
-      owner: "Thomas Zijlstra",
-      date: new Date().toISOString().slice(0, 10),
-      rationale: `Phase ${phase.number} (${phase.days}): ${phase.mission} Key deliverable: ${phase.deliverable}`,
-      evidence: "90-Day Thesis",
-    });
-  };
-
-  const handleSaveNorthStar = () => {
-    addDecision({
-      text: "North Star: Committed European Expansion Plan by Day 90",
-      status: "proposed",
-      owner: "CEO / EU Strategy Lead",
-      date: new Date().toISOString().slice(0, 10),
-      rationale:
-        "By Day 90, Moonshot AI has a committed European expansion plan, signed design partners, a legal entity architecture, and a board-approved investment case. The first Kimi EU customer conversation has happened.",
-      evidence: "90-Day Thesis",
-    });
-  };
 
   return (
     <div className="space-y-8 max-w-[1400px] mx-auto">
@@ -644,18 +619,6 @@ export default function NinetyDaysPage() {
                     </>
                   )}
 
-                  {/* Add to Decision Log */}
-                  <button
-                    onClick={() => handleAddToLog(phase)}
-                    className="w-full py-2 rounded-lg text-xs font-medium transition-colors"
-                    style={{
-                      background: `${phase.accentColor}12`,
-                      color: phase.accentColor,
-                      border: `1px solid ${phase.accentColor}30`,
-                    }}
-                  >
-                    Add Phase {phase.number} to Decision Log
-                  </button>
                 </div>
               </div>
             );
@@ -698,17 +661,6 @@ export default function NinetyDaysPage() {
               board-approved investment case. The first Kimi EU customer
               conversation has happened.
             </p>
-            <button
-              onClick={handleSaveNorthStar}
-              className="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
-              style={{
-                background: "rgba(16,185,129,0.15)",
-                color: "var(--lunar-green)",
-                border: "1px solid rgba(16,185,129,0.3)",
-              }}
-            >
-              Save this plan to my Decision Log
-            </button>
           </div>
         </div>
       </div>

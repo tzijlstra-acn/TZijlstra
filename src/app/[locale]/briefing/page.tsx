@@ -892,7 +892,7 @@ export default function BriefingPage() {
             {SCENE_TITLES[sceneNum - 1]}
           </span>
           <span className="text-xs" style={{ color: "var(--lunar-text-muted)" }}>
-            — Scene {sceneNum} of {TOTAL_SCENES}
+            · Scene {sceneNum} of {TOTAL_SCENES}
           </span>
         </div>
 

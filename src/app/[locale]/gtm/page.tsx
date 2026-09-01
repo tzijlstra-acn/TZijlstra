@@ -43,7 +43,7 @@ export default function GTMPage() {
           My Strategic View
         </div>
         <p className="text-sm italic mb-4" style={{ color: "var(--lunar-text-secondary)" }}>
-          &ldquo;The mistake most AI companies make entering Europe is leading with enterprise sales. I would not. I would generate proof points first — paying pilot customers, signed LOIs, university reference cases — then use that evidence to make SI partnerships credible and enterprise sales cycles shorter.&rdquo;
+          &ldquo;A common approach to entering Europe is to lead immediately with enterprise sales. The more patient path is to generate proof points first: paying pilot customers, signed LOIs, university reference cases. That evidence then makes SI partnerships credible and enterprise sales cycles meaningfully shorter.&rdquo;
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="space-y-1">
@@ -407,13 +407,14 @@ export default function GTMPage() {
             </thead>
             <tbody>
               {REGIONAL_MATRIX.map((city) => {
-                const priorityColor = city.priority === "P0" ? "var(--lunar-red)" : city.priority === "P1" ? "var(--lunar-amber)" : "var(--lunar-text-muted)";
+                const priorityLabel = city.priority === "P0" ? "Priority 1" : city.priority === "P1" ? "Priority 2" : "Priority 3";
+                const priorityColor = city.priority === "P0" ? "var(--lunar-cyan)" : city.priority === "P1" ? "var(--lunar-violet)" : "var(--lunar-text-muted)";
                 return (
                   <tr key={city.region} className="rounded-lg" style={{ background: "var(--lunar-elevated)" }}>
                     <td className="px-3 py-2 font-semibold rounded-l-lg" style={{ color: "var(--lunar-text-primary)" }}>{city.region}</td>
                     <td className="px-3 py-2">
                       <span className="px-1.5 py-0.5 rounded text-xs font-mono font-bold" style={{ background: `${priorityColor}15`, color: priorityColor }}>
-                        {city.priority}
+                        {priorityLabel}
                       </span>
                     </td>
                     <td className="px-3 py-2" style={{ color: "var(--lunar-text-secondary)" }}>{city.density}</td>

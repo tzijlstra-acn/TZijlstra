@@ -10,6 +10,7 @@ import {
   REVENUE_COMPOSITION_LABELS,
 } from "@/data/market";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { InfoTooltip } from "@/components/ui/InfoTooltip";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import dynamic from "next/dynamic";
@@ -173,17 +174,17 @@ export default function MarketPage() {
       {/* KPIs */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="lunar-card">
-          <div className="stat-label">{t("tam2026")}</div>
+          <div className="stat-label flex items-center gap-1">{t("tam2026")} <InfoTooltip text="Total Addressable Market — the theoretical maximum revenue if Kimi captured 100% of European enterprise AI spend." /></div>
           <div className="stat-number" style={{ color: "var(--lunar-text-secondary)" }}>€{TAM_2026_BASE.toFixed(2)}B</div>
           <EvidenceBadge type="MODEL" formula="Sum of 5 spend pools" />
         </div>
         <div className="lunar-card">
-          <div className="stat-label">{t("tam2030")}</div>
+          <div className="stat-label flex items-center gap-1">{t("tam2030")} <InfoTooltip text="TAM projected to 2030, growing at ~37% CAGR driven by enterprise AI adoption across 9 priority markets." /></div>
           <div className="stat-number" style={{ color: "var(--lunar-cyan)" }}>€{TAM_2030_BASE.toFixed(1)}B</div>
           <EvidenceBadge type="MODEL" formula={`CAGR ~${marketAssumptions.tamGrowthRate}%`} />
         </div>
         <div className="lunar-card">
-          <div className="stat-label">{t("sam2030")}</div>
+          <div className="stat-label flex items-center gap-1">{t("sam2030")} <InfoTooltip text="Serviceable Addressable Market — the portion of TAM reachable given Kimi's target countries, product fit, and procurement constraints. Editable above." /></div>
           <div className="stat-number" style={{ color: "var(--lunar-violet)" }}>€{sam.toFixed(2)}B</div>
           <EvidenceBadge type="MODEL" formula="TAM × country × fit × procurement" />
         </div>

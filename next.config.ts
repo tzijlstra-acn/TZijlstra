@@ -11,9 +11,13 @@ const nextConfig: NextConfig = {
   basePath: isCI ? '/TZijlstra' : '',
   trailingSlash: true,
   images: { unoptimized: true },
-  // ESLint was added in this PR; pre-existing warnings do not block the build.
-  // Run `npx eslint src/` separately for a full lint report.
   eslint: { ignoreDuringBuilds: true },
+  experimental: {
+    // Serialize static generation to avoid webpack chunk race conditions
+    // that occur when parallel workers require dynamic chunks simultaneously.
+    workerThreads: false,
+    cpus: 1,
+  } as Record<string, unknown>,
 };
 
 export default withNextIntl(nextConfig);

@@ -3,6 +3,7 @@
 import { STRATEGIC_THESIS, STRATEGIC_NARRATIVES } from "@/data/strategy";
 import { SWOT_ANALYSIS } from "@/data/swot";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { InfoTooltip } from "@/components/ui/InfoTooltip";
 import { Link } from "@/lib/navigation";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -28,7 +29,7 @@ export default function StrategyPage() {
           My Strategic View
         </div>
         <p className="text-sm italic mb-4" style={{ color: "var(--lunar-text-secondary)" }}>
-          &ldquo;A single message will not land across a board, an enterprise procurement team, and a developer community simultaneously. I have designed three distinct narratives — each true, each tailored, each pointing at the same underlying strategic reality.&rdquo;
+          &ldquo;A single message cannot land equally well across a board, an enterprise procurement team, and a developer community. Three distinct narratives are needed: each tailored to its audience, each pointing toward the same underlying strategic reality.&rdquo;
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="space-y-1">
@@ -57,7 +58,7 @@ export default function StrategyPage() {
         <div className="flex items-start gap-4">
           <div className="text-5xl" aria-hidden="true">◎</div>
           <div>
-            <div className="stat-label mb-2">{tCockpit("strategicVerdict")}</div>
+            <div className="stat-label mb-2 flex items-center gap-1">{tCockpit("strategicVerdict")} <InfoTooltip text="The single overarching recommendation that should guide all EU market decisions. This is the north star, not a tagline." /></div>
             <div className="text-2xl font-bold mb-3" style={{ color: "var(--lunar-cyan)" }}>
               &ldquo;{STRATEGIC_THESIS.headline}&rdquo;
             </div>
@@ -118,7 +119,7 @@ export default function StrategyPage() {
 
       {/* Narrative cards by audience */}
       <div>
-        <h2 className="section-header mb-4">{t("narrativesTitle")}</h2>
+        <h2 className="section-header mb-4 flex items-center gap-1">{t("narrativesTitle")} <InfoTooltip text="The same underlying strategy is framed three ways — one for each audience. Each narrative is truthful; each speaks to different decision criteria." /></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="lunar-card">
             <div className="stat-label mb-2" style={{ color: "var(--lunar-violet)" }}>{t("boardNarrative")}</div>
@@ -181,7 +182,7 @@ export default function StrategyPage() {
 
       {/* SWOT Analysis */}
       <div>
-        <h2 className="text-sm font-semibold mb-1 section-header">SWOT Analysis</h2>
+        <h2 className="text-sm font-semibold mb-1 section-header flex items-center gap-1">SWOT Analysis <InfoTooltip text="Strengths/Weaknesses/Opportunities/Threats. Internal factors (S/W) are within Kimi's control; external factors (O/T) describe the European market environment." /></h2>
         <p className="text-xs mb-4" style={{ color: "var(--lunar-text-muted)" }}>
           Source: Moonshot AI Europe Target Account Intelligence
         </p>
