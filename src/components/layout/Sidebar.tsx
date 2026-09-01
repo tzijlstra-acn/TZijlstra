@@ -29,6 +29,7 @@ import {
   ChevronRight,
   Presentation,
   LogOut,
+  Crosshair,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -85,6 +86,7 @@ export function Sidebar({ open, isMobile = false, onNavClick }: SidebarProps) {
     { href: "/countries" as const, label: "Country Navigator", icon: Globe },
     { href: "/competition" as const, label: "Competition Arena", icon: Swords },
     { href: "/gtm" as const, label: "Go-to-Market", icon: Route },
+    { href: "/prospects" as const, label: "Prospect Intelligence", icon: Crosshair },
     { href: "/90-days" as const, label: "90-Day Thesis", icon: Trophy },
   ];
 

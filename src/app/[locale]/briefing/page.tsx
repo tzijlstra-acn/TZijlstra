@@ -109,14 +109,17 @@ function Scene1() {
             className="text-xs font-semibold uppercase tracking-wide mb-2"
             style={{ color: "var(--lunar-text-muted)" }}
           >
-            Decision requested
+            The immediate prerequisite
           </div>
-          <p className="text-sm" style={{ color: "var(--lunar-text-primary)" }}>
-            Authorize and fund Phase 0 (Foundation) — the minimum legal, infrastructure,
-            and commercial foundation required to operate lawfully in the EU/UK.
+          <p className="text-sm leading-relaxed" style={{ color: "var(--lunar-text-primary)" }}>
+            Phase 0 — legal entity, data centre path, GPAI classification, and initial
+            market listening — creates the conditions from which sustainable commercial
+            activity can grow with confidence. This foundation work allows Phase 1 to proceed
+            from genuine market understanding, with each legal and commercial prerequisite
+            in place before resources are deployed.
           </p>
-          <p className="text-xs mt-2" style={{ color: "var(--lunar-amber)" }}>
-            Investment: €5–8M · Timeline: Sep–Dec 2026 · No revenue target
+          <p className="text-xs mt-3" style={{ color: "var(--lunar-text-muted)" }}>
+            Estimated foundation investment: €5–8M · Timing follows role commencement · No revenue target
           </p>
         </div>
         <div
@@ -130,16 +133,17 @@ function Scene1() {
             className="text-xs font-semibold uppercase tracking-wide mb-2"
             style={{ color: "var(--lunar-text-muted)" }}
           >
-            How I would contribute
+            What I bring
           </div>
-          <p className="text-sm" style={{ color: "var(--lunar-text-primary)" }}>
-            Bridge between Beijing and Europe, embedded with the core team in Beijing for
-            the first 3–6 months before regional deployment. Reporting to the Head of
-            Commercialisation or President. The GTM structure is deliberately flat: sales,
-            solution, product, and engineering collaborate directly, without hierarchical layers.
+          <p className="text-sm leading-relaxed" style={{ color: "var(--lunar-text-primary)" }}>
+            What I hope to contribute is careful, evidence-based market development — not a
+            pre-set plan. My background across European enterprise markets gives me familiarity
+            with how AI is being evaluated and procured in this region, and with the regulatory
+            context that shapes those decisions. The first 90 days would be spent listening and
+            learning, before presenting a considered market sequence for leadership's review.
           </p>
-          <p className="text-xs mt-2" style={{ color: "var(--lunar-text-muted)" }}>
-            Thomas Zijlstra · Independent candidate analysis · August 2026
+          <p className="text-xs mt-3" style={{ color: "var(--lunar-amber)" }}>
+            Beijing onboarding first · Market sequence for leadership's review at day 60
           </p>
         </div>
       </div>
@@ -155,7 +159,7 @@ function Scene2() {
       observation:
         "EU AI Act GPAI obligations took effect in 2025–2026, with enforcement ramping through 2027.",
       implication:
-        "The first AI provider to publish a complete, audited EU compliance architecture earns shortlisting advantage at every enterprise RFP — before competitors can catch up.",
+        "An organisation that establishes a complete, audited EU compliance architecture now will earn meaningful shortlisting consideration at enterprise level — while this remains a genuine differentiator rather than table stakes.",
       color: "var(--lunar-violet)",
     },
     {
@@ -163,7 +167,7 @@ function Scene2() {
       label: "Market Data",
       observation: `EU AI spend pools are growing at ~37% CAGR. Total addressable market reaches €${TAM_2030_BASE.toFixed(0)}B by 2030 across five spend pools.`,
       implication:
-        "2026–2027 is the strategic window to establish market presence and partner ecosystem depth before US hyperscalers complete their EU data-residency builds.",
+        "2026–2027 represents an important window for establishing market presence and ecosystem depth, while EU-native data residency remains a genuine differentiator rather than an expected standard.",
       color: "var(--lunar-cyan)",
     },
     {
@@ -172,7 +176,7 @@ function Scene2() {
       observation:
         "EU enterprises face growing pressure to reduce dependence on US-only AI hyperscalers, combined with reluctance to adopt China-origin models without EU data controls.",
       implication:
-        "Kimi's combination of frontier capability + open weights + EU data residency is structurally unique — no current provider occupies this position.",
+        "Kimi's combination of frontier capability, open weights, and EU data residency creates a structurally distinctive position — one that no current provider has yet established.",
       color: "var(--lunar-green)",
     },
   ];
@@ -432,7 +436,7 @@ function Scene4() {
   ];
 
   const keyAssumptions = [
-    { label: "EU data residency live", value: "Gate A — Dec 2026", confidence: "CRITICAL PATH" },
+    { label: "EU data residency live", value: "Gate A — follows onboarding", confidence: "CRITICAL PATH" },
     { label: "Enterprise sales cycle", value: "~120 days", confidence: "ASSUMPTION" },
     { label: "Benchmark customer usage growth", value: "Leading indicator at 6 months", confidence: "KEY METRIC" },
     { label: "Avg contract value (planning proxy)", value: "€250K ARR", confidence: "ASSUMPTION" },
@@ -656,7 +660,7 @@ function Scene5() {
                   </div>
                   <div>
                     <div className="text-xs font-semibold uppercase tracking-wide mb-0.5" style={{ color: "var(--lunar-red)" }}>
-                      Kill criterion
+                      Stopping condition
                     </div>
                     <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>
                       {killCriterion}
@@ -686,25 +690,25 @@ function Scene6() {
   const thirtyDays = [
     { output: "Beijing core-team alignment: product depth, team relationships, strategic intent", kpi: "Shared understanding of product and European vision", decision: "Working hypothesis for Europe jointly confirmed with leadership" },
     { output: "GPAI classification legal opinion initiated, EU data centre path agreed", kpi: "Gate A prerequisites moving", decision: "Compliance scope and infrastructure route clear" },
-    { output: "Initial market listening: 10+ conversations in target geographies", kpi: "Country sequence signal emerging from real feedback", decision: "Hypothesis calibrated from real feedback, before resources committed" },
+    { output: "Initial market listening: 10+ conversations in target geographies", kpi: "Country sequence signal emerging from real conversations", decision: "Market hypothesis refined through real feedback, providing a sound basis for resource decisions" },
   ];
 
   const sixtyDays = [
-    { output: "Country sequence recommendation presented to leadership for joint decision", kpi: "Agreed starting markets, shaped by real feedback", decision: "Leadership and candidate aligned before Phase 1 resources deployed" },
-    { output: "First benchmark customer profiles defined from real conversations", kpi: "ICP documented from evidence, not desk research", decision: "Sales team has validated, not assumed, targets" },
+    { output: "Country sequence recommendation presented to leadership for joint decision", kpi: "Agreed starting markets, shaped by real feedback", decision: "Leadership and market entry lead in agreement on starting markets before Phase 1 resources are deployed" },
+    { output: "First benchmark customer profiles defined from real conversations", kpi: "Customer profiles grounded in evidence from direct conversations", decision: "Sales team has a reliable, evidence-based foundation for initial engagement" },
     { output: "K3 license confirmed, DPA template v1 approved by counsel", kpi: "Gate A prerequisites satisfied", decision: "Commercial activity can proceed lawfully" },
   ];
 
   const ninetyDays = [
-    { output: "Gate A complete: all prerequisites met", kpi: "Go/No-Go for Phase 1 (Jan 2027)", decision: "Phase 1 authorised on verified, not assumed, foundation" },
-    { output: "First 3 to 5 design-partner conversations active, usage potential visible", kpi: "Consumption signal from benchmark customers", decision: "Growth trajectory established; first indicators of actual usage, not contracts" },
-    { output: "6-month and 12-month success milestones agreed with leadership", kpi: "Shared definition of what good looks like", decision: "Measurement framework grounded in customer consumption growth, not rigid quotas" },
+    { output: "Gate A complete: all prerequisites met", kpi: "Go/No-Go for Phase 1 — timing agreed following onboarding", decision: "Phase 1 proceeds from a verified foundation, with each prerequisite genuinely confirmed" },
+    { output: "First 3 to 5 design-partner conversations active, usage potential visible", kpi: "Early consumption signals from benchmark customers", decision: "Growth trajectory begins to take shape; first indicators of genuine usage emerging" },
+    { output: "6-month and 12-month success milestones agreed with leadership", kpi: "Shared and jointly agreed definition of progress", decision: "Measurement framework centred on consumption growth, agreed together with leadership" },
   ];
 
   const executiveQuestions = [
     "What signals within the first 90 days would confirm — or reshape — the country sequence? What would a good outcome at that joint decision point look like?",
     "How should we define benchmark customer usage at 6 months — what consumption growth validates the approach before scaling resources?",
-    "Are you prepared to invest €5–8M in Phase 0 with no revenue target, knowing the value is in becoming launchable and validating the right markets together?",
+    "How should we understand the value created by Phase 0, given that its contribution is a verified foundation and a shared view of the right markets — and what would give leadership confidence that this preparation had been well placed?",
   ];
 
   return (
@@ -714,7 +718,7 @@ function Scene6() {
           className="text-xs font-semibold uppercase tracking-widest mb-2"
           style={{ color: "var(--lunar-cyan)" }}
         >
-          {phase0 ? `${phase0.label} · ${phase0.dateRange}` : "Phase 0 · Sep–Dec 2026"}
+          {phase0?.label ?? "Phase 0"} · Timing follows role commencement
         </div>
         <h2
           className="text-2xl font-bold leading-snug mb-1"
@@ -724,8 +728,9 @@ function Scene6() {
         </h2>
         <p className="text-sm" style={{ color: "var(--lunar-text-secondary)" }}>
           Phase 0 is a preparation phase with no revenue target. It begins with Beijing
-          alignment, then moves into market discovery. Success is measured by customer
-          consumption growth, not contracted amounts. Gate A triggers Phase 1 (Jan 2027).
+          alignment, then moves into careful market discovery. Progress is understood through
+          customer consumption growth over time. Gate A completion enables Phase 1 — timing
+          to be agreed following role commencement.
         </p>
       </div>
 

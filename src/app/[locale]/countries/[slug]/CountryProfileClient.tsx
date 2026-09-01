@@ -31,33 +31,7 @@ import {
   COUNTRY_ID_TO_ISO2,
 } from '@/data/countries';
 import { USE_CASES } from '@/data/usecases';
-import { TARGET_COMPANIES, QUALIFIED_ACCOUNTS } from '@/data/targetCompanies';
-
-const LOCATION_ISO2_MAP: Record<string, string> = {
-  UK: 'GB', GB: 'GB', DE: 'DE', FR: 'FR', NL: 'NL', CH: 'CH',
-  SE: 'SE', DK: 'DK', IE: 'IE', ES: 'ES', BE: 'BE', IT: 'IT', PL: 'PL', NO: 'NO',
-};
-
-function extractISO2s(location: string): string[] {
-  const codes = new Set<string>();
-  for (const seg of location.split('/')) {
-    const m = seg.trim().match(/,\s*([A-Z]{2})\s*$/);
-    if (m && LOCATION_ISO2_MAP[m[1]]) codes.add(LOCATION_ISO2_MAP[m[1]]);
-  }
-  if (codes.size === 0) {
-    if (/London|Oxford|Cambridge/i.test(location)) codes.add('GB');
-    if (/Paris|Sophia Antipolis|Rueil|Roubaix/i.test(location)) codes.add('FR');
-    if (/Frankfurt|Munich|Berlin|Hamburg|Stuttgart|Cologne|Bonn|Ditzingen|Mainz|Heidelberg|Neckarsulm|Montabaur|Tübingen|Saarbrücken/i.test(location)) codes.add('DE');
-    if (/Amsterdam|Delft|Leiden|Veldhoven/i.test(location)) codes.add('NL');
-    if (/Zurich|Geneva|Lausanne|Stans/i.test(location)) codes.add('CH');
-    if (/Stockholm|Gothenburg|Malmö/i.test(location)) codes.add('SE');
-    if (/Copenhagen/i.test(location)) codes.add('DK');
-    if (/Dublin/i.test(location)) codes.add('IE');
-    if (/Barcelona|Madrid/i.test(location)) codes.add('ES');
-    if (/Ghent/i.test(location)) codes.add('BE');
-  }
-  return Array.from(codes);
-}
+import { ACCOUNTS } from '@/data/targetCompanies';
 import { EvidenceBadge } from '@/components/EvidenceBadge';
 import { FlagIcon } from '@/components/ui/FlagIcon';
 import { CompanyLogo } from '@/components/ui/CompanyLogo';
@@ -350,32 +324,36 @@ export default function CountryPage() {
               <EvidenceBadge type="ASSUMPTION" className="mt-3" reasoning="Revenue estimates are analyst planning assumptions based on market size, AI readiness, and competitive positioning" />
             </div>
 
-            {/* Top target accounts (Tier A only) */}
-            {TARGET_COMPANIES[iso2] && TARGET_COMPANIES[iso2].filter(c => c.tier === 'A').length > 0 && (
-              <div className="lunar-card">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="stat-label">Top Target Accounts</div>
-                  <button onClick={() => setActiveTab('market')} className="text-xs" style={{ color: 'var(--lunar-cyan)' }}>
-                    View all + Tier B →
-                  </button>
-                </div>
-                <div className="space-y-2">
-                  {TARGET_COMPANIES[iso2].filter(c => c.tier === 'A').map(company => (
-                    <div key={company.name} className="flex items-center gap-3 p-2 rounded-lg" style={{ background: 'var(--lunar-elevated)', border: '1px solid var(--lunar-border-subtle)' }}>
-                      <CompanyLogo domain={company.domain} name={company.name} size={32} />
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold" style={{ color: 'var(--lunar-text-primary)' }}>{company.name}</span>
-                          <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: 'var(--lunar-surface)', color: 'var(--lunar-text-muted)', border: '1px solid var(--lunar-border-subtle)' }}>{company.sector}</span>
+            {/* Top target accounts (Tier 1 only) */}
+            {(() => {
+              const tier1 = ACCOUNTS.filter(a => a.iso2.includes(iso2) && a.tier === 1);
+              if (tier1.length === 0) return null;
+              return (
+                <div className="lunar-card">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="stat-label">Top Target Accounts</div>
+                    <button onClick={() => setActiveTab('market')} className="text-xs" style={{ color: 'var(--lunar-cyan)' }}>
+                      View full list →
+                    </button>
+                  </div>
+                  <div className="space-y-2">
+                    {tier1.map(company => (
+                      <div key={company.name} className="flex items-center gap-3 p-2 rounded-lg" style={{ background: 'var(--lunar-elevated)', border: '1px solid var(--lunar-border-subtle)' }}>
+                        <CompanyLogo domain={company.domain} name={company.name} size={32} />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-semibold" style={{ color: 'var(--lunar-text-primary)' }}>{company.name}</span>
+                            <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: 'var(--lunar-surface)', color: 'var(--lunar-text-muted)', border: '1px solid var(--lunar-border-subtle)' }}>{company.subVertical}</span>
+                          </div>
+                          <p className="text-xs truncate" style={{ color: 'var(--lunar-text-secondary)' }}>{company.pitch}</p>
                         </div>
-                        <p className="text-xs truncate" style={{ color: 'var(--lunar-text-secondary)' }}>{company.why}</p>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  <div className="mt-2 text-xs" style={{ color: 'var(--lunar-text-muted)' }}>Illustrative targets — not confirmed customers</div>
                 </div>
-                <div className="mt-2 text-xs" style={{ color: 'var(--lunar-text-muted)' }}>Illustrative targets — not confirmed customers</div>
-              </div>
-            )}
+              );
+            })()}
 
             {/* What would change */}
             <div className="lunar-card">
@@ -447,104 +425,89 @@ export default function CountryPage() {
                 </div>
               )}
             </div>
-            {TARGET_COMPANIES[iso2] && (
-              <div className="lunar-card">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-sm font-semibold" style={{ color: 'var(--lunar-text-primary)' }}>
-                    Priority Target Accounts
-                  </h3>
-                  <span className="text-xs px-2 py-0.5 rounded" style={{ background: 'rgba(239,68,68,0.1)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.2)' }}>
-                    Illustrative — not confirmed customers
-                  </span>
-                </div>
-                {/* Tier A */}
-                <div className="mb-4">
-                  <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-cyan)' }}>Tier A — Top Priority</div>
-                  <div className="space-y-2">
-                    {TARGET_COMPANIES[iso2].filter(c => c.tier === 'A').map(company => (
-                      <div
-                        key={company.name}
-                        className="flex items-start gap-3 p-3 rounded-lg"
-                        style={{ background: 'var(--lunar-elevated)', border: '1px solid var(--lunar-border-subtle)' }}
-                      >
-                        <CompanyLogo domain={company.domain} name={company.name} size={36} />
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 mb-0.5">
-                            <span className="text-sm font-semibold" style={{ color: 'var(--lunar-text-primary)' }}>{company.name}</span>
-                            <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: 'var(--lunar-elevated)', color: 'var(--lunar-text-muted)', border: '1px solid var(--lunar-border-subtle)' }}>{company.sector}</span>
-                          </div>
-                          <p className="text-xs" style={{ color: 'var(--lunar-text-secondary)' }}>{company.why}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                {/* Tier B */}
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-text-muted)' }}>Tier B — Secondary</div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {TARGET_COMPANIES[iso2].filter(c => c.tier === 'B').map(company => (
-                      <div
-                        key={company.name}
-                        className="flex items-center gap-2 p-2 rounded-lg"
-                        style={{ background: 'var(--lunar-elevated)', border: '1px solid var(--lunar-border-subtle)' }}
-                      >
-                        <CompanyLogo domain={company.domain} name={company.name} size={28} />
-                        <div className="flex-1 min-w-0">
-                          <div className="text-xs font-semibold truncate" style={{ color: 'var(--lunar-text-primary)' }}>{company.name}</div>
-                          <div className="text-xs" style={{ color: 'var(--lunar-text-muted)' }}>{company.sector}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Qualified Prospects — Intelligence */}
             {(() => {
-              const prospects = QUALIFIED_ACCOUNTS.filter(a => extractISO2s(a.location).includes(iso2));
-              if (prospects.length === 0) return null;
-              const t1 = prospects.filter(a => a.tier === 1);
-              const t2 = prospects.filter(a => a.tier === 2);
-              const t3 = prospects.filter(a => a.tier === 3);
+              const countryAccounts = ACCOUNTS.filter(a => a.iso2.includes(iso2));
+              if (countryAccounts.length === 0) return null;
+              const tier1 = countryAccounts.filter(a => a.tier === 1);
+              const tier2 = countryAccounts.filter(a => a.tier === 2);
+              const tier3 = countryAccounts.filter(a => a.tier === 3);
               return (
                 <div className="lunar-card">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-sm font-semibold" style={{ color: 'var(--lunar-text-primary)' }}>
-                      Qualified Prospects
+                      Target Accounts
                     </h3>
-                    <span className="text-xs" style={{ color: 'var(--lunar-text-muted)' }}>
-                      {prospects.length} accounts · EU Intelligence, Sept 2026
+                    <span className="text-xs px-2 py-0.5 rounded" style={{ background: 'rgba(239,68,68,0.1)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.2)' }}>
+                      Illustrative — not confirmed customers
                     </span>
                   </div>
-                  {[
-                    { accounts: t1, tier: 1, label: 'Tier 1 — Immediate Priority', color: 'var(--lunar-green)' },
-                    { accounts: t2, tier: 2, label: 'Tier 2 — Secondary', color: 'var(--lunar-cyan)' },
-                    { accounts: t3, tier: 3, label: 'Tier 3 — Self-Hosted Enterprise', color: 'var(--lunar-amber)' },
-                  ].filter(g => g.accounts.length > 0).map(({ accounts, tier, label, color }) => (
-                    <div key={tier} className="mb-4 last:mb-0">
-                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color }}>{label}</div>
-                      <div className="space-y-1.5">
-                        {accounts.map(a => (
+
+                  {/* Tier 1 */}
+                  {tier1.length > 0 && (
+                    <div className="mb-4">
+                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-green)' }}>Tier 1 — Strategic Priority</div>
+                      <div className="space-y-2">
+                        {tier1.map(company => (
                           <div
-                            key={a.name}
-                            className="flex items-start gap-3 p-2 rounded-lg"
+                            key={company.name}
+                            className="flex items-start gap-3 p-3 rounded-lg"
                             style={{ background: 'var(--lunar-elevated)', border: '1px solid var(--lunar-border-subtle)' }}
                           >
+                            <CompanyLogo domain={company.domain} name={company.name} size={36} />
                             <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-2 flex-wrap">
-                                <span className="text-xs font-semibold" style={{ color: 'var(--lunar-text-primary)' }}>{a.name}</span>
-                                <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: 'var(--lunar-surface)', color: 'var(--lunar-text-muted)', border: '1px solid var(--lunar-border-subtle)' }}>{a.subVertical}</span>
-                                <span className="text-xs" style={{ color: 'var(--lunar-text-muted)' }}>{a.location}</span>
+                              <div className="flex items-center gap-2 mb-0.5 flex-wrap">
+                                <span className="text-sm font-semibold" style={{ color: 'var(--lunar-text-primary)' }}>{company.name}</span>
+                                <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: 'var(--lunar-elevated)', color: 'var(--lunar-text-muted)', border: '1px solid var(--lunar-border-subtle)' }}>{company.subVertical}</span>
                               </div>
-                              <p className="text-xs mt-0.5 leading-relaxed" style={{ color: 'var(--lunar-text-secondary)' }}>{a.pitch}</p>
+                              <p className="text-xs" style={{ color: 'var(--lunar-text-secondary)' }}>{company.pitch}</p>
                             </div>
                           </div>
                         ))}
                       </div>
                     </div>
-                  ))}
+                  )}
+
+                  {/* Tier 2 */}
+                  {tier2.length > 0 && (
+                    <div className="mb-4">
+                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-cyan)' }}>Tier 2 — Secondary</div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {tier2.map(company => (
+                          <div
+                            key={company.name}
+                            className="flex items-center gap-2 p-2 rounded-lg"
+                            style={{ background: 'var(--lunar-elevated)', border: '1px solid var(--lunar-border-subtle)' }}
+                          >
+                            <CompanyLogo domain={company.domain} name={company.name} size={28} />
+                            <div className="flex-1 min-w-0">
+                              <div className="text-xs font-semibold truncate" style={{ color: 'var(--lunar-text-primary)' }}>{company.name}</div>
+                              <div className="text-xs truncate" style={{ color: 'var(--lunar-text-muted)' }}>{company.subVertical}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Tier 3 */}
+                  {tier3.length > 0 && (
+                    <div>
+                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-text-muted)' }}>Tier 3 — Longer Arc</div>
+                      <div className="flex flex-wrap gap-2">
+                        {tier3.map(company => (
+                          <div
+                            key={company.name}
+                            className="flex items-center gap-2 px-2 py-1 rounded-lg"
+                            style={{ background: 'var(--lunar-elevated)', border: '1px solid var(--lunar-border-subtle)' }}
+                          >
+                            <CompanyLogo domain={company.domain} name={company.name} size={20} />
+                            <span className="text-xs" style={{ color: 'var(--lunar-text-secondary)' }}>{company.name}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   <div className="mt-3 text-xs" style={{ color: 'var(--lunar-text-muted)' }}>
                     Moonshot AI Europe Target Account Intelligence · Illustrative — not confirmed customers
                   </div>
