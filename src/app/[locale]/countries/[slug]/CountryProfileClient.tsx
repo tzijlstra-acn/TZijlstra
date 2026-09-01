@@ -31,7 +31,33 @@ import {
   COUNTRY_ID_TO_ISO2,
 } from '@/data/countries';
 import { USE_CASES } from '@/data/usecases';
-import { TARGET_COMPANIES } from '@/data/targetCompanies';
+import { TARGET_COMPANIES, QUALIFIED_ACCOUNTS } from '@/data/targetCompanies';
+
+const LOCATION_ISO2_MAP: Record<string, string> = {
+  UK: 'GB', GB: 'GB', DE: 'DE', FR: 'FR', NL: 'NL', CH: 'CH',
+  SE: 'SE', DK: 'DK', IE: 'IE', ES: 'ES', BE: 'BE', IT: 'IT', PL: 'PL', NO: 'NO',
+};
+
+function extractISO2s(location: string): string[] {
+  const codes = new Set<string>();
+  for (const seg of location.split('/')) {
+    const m = seg.trim().match(/,\s*([A-Z]{2})\s*$/);
+    if (m && LOCATION_ISO2_MAP[m[1]]) codes.add(LOCATION_ISO2_MAP[m[1]]);
+  }
+  if (codes.size === 0) {
+    if (/London|Oxford|Cambridge/i.test(location)) codes.add('GB');
+    if (/Paris|Sophia Antipolis|Rueil|Roubaix/i.test(location)) codes.add('FR');
+    if (/Frankfurt|Munich|Berlin|Hamburg|Stuttgart|Cologne|Bonn|Ditzingen|Mainz|Heidelberg|Neckarsulm|Montabaur|Tübingen|Saarbrücken/i.test(location)) codes.add('DE');
+    if (/Amsterdam|Delft|Leiden|Veldhoven/i.test(location)) codes.add('NL');
+    if (/Zurich|Geneva|Lausanne|Stans/i.test(location)) codes.add('CH');
+    if (/Stockholm|Gothenburg|Malmö/i.test(location)) codes.add('SE');
+    if (/Copenhagen/i.test(location)) codes.add('DK');
+    if (/Dublin/i.test(location)) codes.add('IE');
+    if (/Barcelona|Madrid/i.test(location)) codes.add('ES');
+    if (/Ghent/i.test(location)) codes.add('BE');
+  }
+  return Array.from(codes);
+}
 import { EvidenceBadge } from '@/components/EvidenceBadge';
 import { FlagIcon } from '@/components/ui/FlagIcon';
 import { CompanyLogo } from '@/components/ui/CompanyLogo';
@@ -474,6 +500,57 @@ export default function CountryPage() {
                 </div>
               </div>
             )}
+
+            {/* Qualified Prospects — Intelligence */}
+            {(() => {
+              const prospects = QUALIFIED_ACCOUNTS.filter(a => extractISO2s(a.location).includes(iso2));
+              if (prospects.length === 0) return null;
+              const t1 = prospects.filter(a => a.tier === 1);
+              const t2 = prospects.filter(a => a.tier === 2);
+              const t3 = prospects.filter(a => a.tier === 3);
+              return (
+                <div className="lunar-card">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-sm font-semibold" style={{ color: 'var(--lunar-text-primary)' }}>
+                      Qualified Prospects
+                    </h3>
+                    <span className="text-xs" style={{ color: 'var(--lunar-text-muted)' }}>
+                      {prospects.length} accounts · EU Intelligence, Sept 2026
+                    </span>
+                  </div>
+                  {[
+                    { accounts: t1, tier: 1, label: 'Tier 1 — Immediate Priority', color: 'var(--lunar-green)' },
+                    { accounts: t2, tier: 2, label: 'Tier 2 — Secondary', color: 'var(--lunar-cyan)' },
+                    { accounts: t3, tier: 3, label: 'Tier 3 — Self-Hosted Enterprise', color: 'var(--lunar-amber)' },
+                  ].filter(g => g.accounts.length > 0).map(({ accounts, tier, label, color }) => (
+                    <div key={tier} className="mb-4 last:mb-0">
+                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color }}>{label}</div>
+                      <div className="space-y-1.5">
+                        {accounts.map(a => (
+                          <div
+                            key={a.name}
+                            className="flex items-start gap-3 p-2 rounded-lg"
+                            style={{ background: 'var(--lunar-elevated)', border: '1px solid var(--lunar-border-subtle)' }}
+                          >
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className="text-xs font-semibold" style={{ color: 'var(--lunar-text-primary)' }}>{a.name}</span>
+                                <span className="text-xs px-1.5 py-0.5 rounded" style={{ background: 'var(--lunar-surface)', color: 'var(--lunar-text-muted)', border: '1px solid var(--lunar-border-subtle)' }}>{a.subVertical}</span>
+                                <span className="text-xs" style={{ color: 'var(--lunar-text-muted)' }}>{a.location}</span>
+                              </div>
+                              <p className="text-xs mt-0.5 leading-relaxed" style={{ color: 'var(--lunar-text-secondary)' }}>{a.pitch}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                  <div className="mt-3 text-xs" style={{ color: 'var(--lunar-text-muted)' }}>
+                    Moonshot AI Europe Target Account Intelligence · Illustrative — not confirmed customers
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         )}
 
