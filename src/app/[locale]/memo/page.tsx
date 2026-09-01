@@ -44,7 +44,6 @@ export default function MemoPage() {
     market: true,
     countries: true,
     revenue: true,
-    competition: true,
     regulation: true,
     roadmap: true,
     risks: true,
@@ -76,7 +75,7 @@ export default function MemoPage() {
               titleEn: "Executive Recommendation",
               titleZh: "高管建议",
               contentEn: STRATEGIC_THESIS.headline,
-              contentZh: STRATEGIC_THESIS.headline,
+              contentZh: STRATEGIC_THESIS.headlineZh,
             },
             market: {
               titleEn: "Market Opportunity",
@@ -125,7 +124,6 @@ export default function MemoPage() {
     market: t("sections.market"),
     countries: t("sections.countries"),
     revenue: t("sections.revenue"),
-    competition: t("sections.competition"),
     regulation: t("sections.regulation"),
     roadmap: t("sections.roadmap"),
     risks: t("sections.risks"),
@@ -314,10 +312,10 @@ export default function MemoPage() {
                 zhContent={
                   <>
                     <p className="text-sm mb-3" style={{ color: memoLang === "bilingual" ? "var(--lunar-text-muted)" : "var(--lunar-text-secondary)" }}>
-                      <strong style={{ color: memoLang === "bilingual" ? "var(--lunar-text-secondary)" : "var(--lunar-text-primary)" }}>战略结论：</strong> {STRATEGIC_THESIS.headline}
+                      <strong style={{ color: memoLang === "bilingual" ? "var(--lunar-text-secondary)" : "var(--lunar-text-primary)" }}>战略结论：</strong> {STRATEGIC_THESIS.headlineZh}
                     </p>
                     <p className="text-sm" style={{ color: memoLang === "bilingual" ? "var(--lunar-text-muted)" : "var(--lunar-text-secondary)" }}>
-                      {STRATEGIC_THESIS.subheadline}
+                      {STRATEGIC_THESIS.subheadlineZh}
                     </p>
                   </>
                 }

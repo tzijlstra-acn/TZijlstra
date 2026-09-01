@@ -1,8 +1,12 @@
 export const STRATEGIC_THESIS = {
   headline:
     "Lead with workload performance, not cheapest model",
+  headlineZh:
+    "以工作负载性能为核心，而非最低价竞争",
   subheadline:
     "The EU AI market will not be won on price. It will be won by the provider that earns trust, delivers verifiable performance on real workloads, and builds the deepest EU-native ecosystem of partners, integrators, and sovereign deployments.",
+  subheadlineZh:
+    "欧盟人工智能市场的竞争胜负不在于价格，而在于谁能赢得信任、在真实工作负载上提供可验证的性能，并构建最深厚的欧盟本地合作伙伴生态——涵盖系统集成商、开发者与主权部署方。",
   moonshot: {
     title: "The Moonshot",
     text: "Kimi becomes the EU's most trusted high-capability AI platform — the default choice for enterprises, governments, and developers seeking frontier AI with verifiable European data governance.",
