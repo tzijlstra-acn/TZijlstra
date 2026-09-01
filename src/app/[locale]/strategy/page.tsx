@@ -1,6 +1,7 @@
 "use client";
 
 import { STRATEGIC_THESIS, STRATEGIC_NARRATIVES } from "@/data/strategy";
+import { SWOT_ANALYSIS } from "@/data/swot";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { Link } from "@/lib/navigation";
 import { ArrowRight } from "lucide-react";
@@ -19,6 +20,30 @@ export default function StrategyPage() {
         <p className="text-sm mt-1" style={{ color: "var(--lunar-text-secondary)" }}>
           {t("subtitle")}
         </p>
+      </div>
+
+      {/* Strategic View Callout */}
+      <div className="p-5 rounded-xl" style={{ background: "rgba(0,212,255,0.03)", border: "1px solid rgba(0,212,255,0.15)", borderLeft: "4px solid var(--lunar-cyan)" }}>
+        <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "var(--lunar-cyan)" }}>
+          My Strategic View
+        </div>
+        <p className="text-sm italic mb-4" style={{ color: "var(--lunar-text-secondary)" }}>
+          &ldquo;A single message will not land across a board, an enterprise procurement team, and a developer community simultaneously. I have designed three distinct narratives — each true, each tailored, each pointing at the same underlying strategic reality.&rdquo;
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="space-y-1">
+            <div className="text-xs font-semibold" style={{ color: "var(--lunar-cyan)" }}>Board: first-mover in a defined window</div>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>The EU enterprise AI API market is €2.8B by 2028. Kimi has a 12–18 month window to establish a compliance moat before US hyperscalers complete their EU Act adjustments. This is the investment case.</p>
+          </div>
+          <div className="space-y-1">
+            <div className="text-xs font-semibold" style={{ color: "#a855f7" }}>Enterprise buyer: compliant by design</div>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>EU procurement teams are not buying AI — they are managing risk. The narrative is not &apos;best model&apos; but &apos;only model with a native EU data trust architecture that procurement can sign off without a 6-month legal review.&apos;</p>
+          </div>
+          <div className="space-y-1">
+            <div className="text-xs font-semibold" style={{ color: "var(--lunar-amber)" }}>Developer: best context per dollar</div>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>1M-token context window at sub-GPT-4o pricing. For developers building document-intensive applications — legal, financial, pharma — this is not a marginal improvement; it is the only model that makes their use case technically feasible.</p>
+          </div>
+        </div>
       </div>
 
       {/* Headline thesis */}
@@ -93,22 +118,22 @@ export default function StrategyPage() {
 
       {/* Narrative cards by audience */}
       <div>
-        <h2 className="section-header mb-4">Strategic Narratives by Audience</h2>
+        <h2 className="section-header mb-4">{t("narrativesTitle")}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="lunar-card">
-            <div className="stat-label mb-2" style={{ color: "var(--lunar-violet)" }}>Board Narrative</div>
+            <div className="stat-label mb-2" style={{ color: "var(--lunar-violet)" }}>{t("boardNarrative")}</div>
             <p className="text-sm" style={{ color: "var(--lunar-text-secondary)" }}>
               {STRATEGIC_NARRATIVES.forBoard}
             </p>
           </div>
           <div className="lunar-card">
-            <div className="stat-label mb-2" style={{ color: "var(--lunar-cyan)" }}>Enterprise Buyer</div>
+            <div className="stat-label mb-2" style={{ color: "var(--lunar-cyan)" }}>{t("enterpriseBuyer")}</div>
             <p className="text-sm" style={{ color: "var(--lunar-text-secondary)" }}>
               {STRATEGIC_NARRATIVES.forEnterpriseBuyer}
             </p>
           </div>
           <div className="lunar-card">
-            <div className="stat-label mb-2" style={{ color: "var(--lunar-green)" }}>Developer Community</div>
+            <div className="stat-label mb-2" style={{ color: "var(--lunar-green)" }}>{t("developerCommunity")}</div>
             <p className="text-sm" style={{ color: "var(--lunar-text-secondary)" }}>
               {STRATEGIC_NARRATIVES.forDeveloper}
             </p>
@@ -142,7 +167,7 @@ export default function StrategyPage() {
                   {d.decision}
                 </div>
                 <div className="flex items-center gap-4 mt-1 text-xs" style={{ color: "var(--lunar-text-muted)" }}>
-                  <span>Deadline: {d.deadline}</span>
+                  <span>{t("deadline")}: {d.deadline}</span>
                   <span>{tCockpit("owner")}: {d.owner}</span>
                 </div>
                 <div className="text-xs mt-1" style={{ color: "var(--lunar-red)" }}>
@@ -154,14 +179,57 @@ export default function StrategyPage() {
         </div>
       </div>
 
+      {/* SWOT Analysis */}
+      <div>
+        <h2 className="text-sm font-semibold mb-1 section-header">SWOT Analysis</h2>
+        <p className="text-xs mb-4" style={{ color: "var(--lunar-text-muted)" }}>
+          Source: Moonshot AI Europe Target Account Intelligence
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {(
+            [
+              { key: "strengths" as const, label: "Strengths", accent: "var(--lunar-green)", bg: "rgba(16,185,129,0.04)" },
+              { key: "weaknesses" as const, label: "Weaknesses", accent: "var(--lunar-red)", bg: "rgba(239,68,68,0.04)" },
+              { key: "opportunities" as const, label: "Opportunities", accent: "var(--lunar-cyan)", bg: "rgba(0,212,255,0.04)" },
+              { key: "threats" as const, label: "Threats", accent: "var(--lunar-amber)", bg: "rgba(245,158,11,0.04)" },
+            ] as const
+          ).map(({ key, label, accent, bg }) => (
+            <div
+              key={key}
+              className="rounded-xl p-4"
+              style={{ background: bg, border: `1px solid ${accent}30` }}
+            >
+              <div
+                className="text-xs font-bold uppercase tracking-widest mb-3"
+                style={{ color: accent }}
+              >
+                {label}
+              </div>
+              <div className="space-y-2">
+                {SWOT_ANALYSIS[key].map((item) => (
+                  <div key={item.title}>
+                    <div className="text-xs font-semibold" style={{ color: "var(--lunar-text-primary)" }}>
+                      {item.title}
+                    </div>
+                    <div className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>
+                      {item.body}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Navigation links */}
       <div className="flex gap-3 flex-wrap">
         {[
-          { href: "/market" as const, label: "Market Sizing" },
-          { href: "/countries" as const, label: "Country Navigator" },
-          { href: "/regulation" as const, label: "Regulatory Roadmap" },
-          { href: "/roadmap" as const, label: "Phase Roadmap" },
-          { href: "/risks" as const, label: "Risk Register" },
+          { href: "/market" as const, label: t("navLinks.marketSizing") },
+          { href: "/countries" as const, label: t("navLinks.countryNavigator") },
+          { href: "/regulation" as const, label: t("navLinks.regulatoryRoadmap") },
+          { href: "/roadmap" as const, label: t("navLinks.phaseRoadmap") },
+          { href: "/risks" as const, label: t("navLinks.riskRegister") },
         ].map((link) => (
           <Link
             key={link.href}

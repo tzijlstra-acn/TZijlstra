@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { GTM_MOTIONS, PILOT_DEFAULTS, EMPTY_PILOT } from "@/data/gtm";
+import { TACTICAL_PLAYS, REGIONAL_MATRIX, NO_FIT_SEGMENTS } from "@/data/swot";
 import type { PilotSpec } from "@/data/gtm";
 import { MODEL_PRICING } from "@/data/pricing";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
@@ -33,6 +34,30 @@ export default function GTMPage() {
         <p className="text-sm mt-1" style={{ color: "var(--lunar-text-secondary)" }}>
           {t("subtitle")}
         </p>
+      </div>
+
+      {/* Strategic View Callout */}
+      <div className="p-5 rounded-xl" style={{ background: "rgba(0,212,255,0.03)", border: "1px solid rgba(0,212,255,0.15)", borderLeft: "4px solid var(--lunar-cyan)" }}>
+        <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "var(--lunar-cyan)" }}>
+          My Strategic View
+        </div>
+        <p className="text-sm italic mb-4" style={{ color: "var(--lunar-text-secondary)" }}>
+          &ldquo;The mistake most AI companies make entering Europe is leading with enterprise sales. I would not. I would generate proof points first — paying pilot customers, signed LOIs, university reference cases — then use that evidence to make SI partnerships credible and enterprise sales cycles shorter.&rdquo;
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="space-y-1">
+            <div className="text-xs font-semibold" style={{ color: "var(--lunar-cyan)" }}>PLG and paid pilots before direct sales</div>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>Product-led growth creates the customer references that make every subsequent enterprise conversation faster. A single paid pilot at a recognisable company is worth ten cold outreach sequences.</p>
+          </div>
+          <div className="space-y-1">
+            <div className="text-xs font-semibold" style={{ color: "#a855f7" }}>Academic licensing is underrated</div>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>Universities at KTH, ETH Zurich, TU Delft and Imperial pay £5–50K/year for institutional API access and generate peer-reviewed citations — the highest-credibility reference in enterprise AI procurement.</p>
+          </div>
+          <div className="space-y-1">
+            <div className="text-xs font-semibold" style={{ color: "var(--lunar-amber)" }}>SI embedding is the scaling lever</div>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>Once two reference customers exist, SI partners will embed Kimi in their delivery practices. That multiplies reach without multiplying headcount — the only way to win enterprise distribution before a large EU sales team exists.</p>
+          </div>
+        </div>
       </div>
 
       {/* Tabs */}
@@ -94,16 +119,16 @@ export default function GTMPage() {
                   </p>
                   <div className="flex gap-4 text-xs">
                     <div>
-                      <span className="stat-label">Target</span>
+                      <span className="stat-label">{t("target")}</span>
                       <div style={{ color: "var(--lunar-text-secondary)" }}>{motion.targetSegment}</div>
                     </div>
                     <div>
-                      <span className="stat-label">Channels</span>
+                      <span className="stat-label">{t("channels")}</span>
                       <div style={{ color: "var(--lunar-text-secondary)" }}>{motion.channels.join(", ")}</div>
                     </div>
                   </div>
                   <div className="mt-2">
-                    <span className="stat-label">KPIs</span>
+                    <span className="stat-label">{t("kpis")}</span>
                     <div className="flex flex-wrap gap-1 mt-1">
                       {motion.kpis.map((kpi) => (
                         <span
@@ -133,18 +158,18 @@ export default function GTMPage() {
             </h2>
             <div className="space-y-4">
               {[
-                { key: "customer" as const, label: "Customer Name", type: "text" },
-                { key: "country" as const, label: "Country", type: "text" },
-                { key: "industry" as const, label: "Industry", type: "text" },
-                { key: "workflow" as const, label: "Workflow Being Piloted", type: "text" },
-                { key: "currentBaseline" as const, label: "Current Baseline Metric", type: "text" },
-                { key: "humanReviewers" as const, label: "Human Reviewers (role + count)", type: "text" },
-                { key: "productionDecisionDate" as const, label: "Production Decision Date", type: "text" },
+                { key: "customer" as const, label: t("pilot.customer") },
+                { key: "country" as const, label: t("pilot.country") },
+                { key: "industry" as const, label: t("pilot.industry") },
+                { key: "workflow" as const, label: t("pilot.workflow") },
+                { key: "currentBaseline" as const, label: t("pilot.currentBaseline") },
+                { key: "humanReviewers" as const, label: t("pilot.humanReviewers") },
+                { key: "productionDecisionDate" as const, label: t("pilot.productionDecisionDate") },
               ].map((field) => (
                 <div key={field.key}>
                   <label className="stat-label mb-1 block">{field.label}</label>
                   <input
-                    type={field.type}
+                    type="text"
                     value={pilot[field.key]}
                     onChange={(e) => setPilot({ ...pilot, [field.key]: e.target.value })}
                     className="w-full px-3 py-2 rounded-lg text-sm"
@@ -159,7 +184,7 @@ export default function GTMPage() {
               ))}
 
               <div>
-                <label className="stat-label mb-1 block">Kimi Model</label>
+                <label className="stat-label mb-1 block">{t("pilot.kimiModelLabel")}</label>
                 <select
                   value={pilot.kimiModel}
                   onChange={(e) => setPilot({ ...pilot, kimiModel: e.target.value })}
@@ -173,23 +198,23 @@ export default function GTMPage() {
               </div>
 
               <div>
-                <label className="stat-label mb-1 block">Data Sensitivity</label>
+                <label className="stat-label mb-1 block">{t("pilot.dataSensitivity")}</label>
                 <select
                   value={pilot.dataSensitivity}
                   onChange={(e) => setPilot({ ...pilot, dataSensitivity: e.target.value as PilotSpec["dataSensitivity"] })}
                   className="w-full px-3 py-2 rounded-lg text-sm"
                   style={{ background: "var(--lunar-elevated)", border: "1px solid var(--lunar-border-subtle)", color: "var(--lunar-text-primary)" }}
                 >
-                  <option value="public">Public</option>
-                  <option value="internal">Internal</option>
-                  <option value="confidential">Confidential</option>
-                  <option value="restricted">Restricted</option>
+                  <option value="public">{t("pilot.dataSensitivityPublic")}</option>
+                  <option value="internal">{t("pilot.dataSensitivityInternal")}</option>
+                  <option value="confidential">{t("pilot.dataSensitivityConfidential")}</option>
+                  <option value="restricted">{t("pilot.dataSensitivityRestricted")}</option>
                 </select>
               </div>
 
               <div>
                 <div className="flex justify-between mb-1">
-                  <label className="stat-label">Duration (weeks)</label>
+                  <label className="stat-label">{t("pilot.duration")}</label>
                   <span className="text-xs font-mono" style={{ color: "var(--lunar-cyan)" }}>{pilot.durationWeeks}</span>
                 </div>
                 <input
@@ -205,7 +230,7 @@ export default function GTMPage() {
 
               <div>
                 <div className="flex justify-between mb-1">
-                  <label className="stat-label">Budget (€)</label>
+                  <label className="stat-label">{t("pilot.budget")}</label>
                   <span className="text-xs font-mono" style={{ color: "var(--lunar-cyan)" }}>€{pilot.budget.toLocaleString()}</span>
                 </div>
                 <input
@@ -235,27 +260,27 @@ export default function GTMPage() {
               <h3 className="stat-label mb-3">{t("pilotSummary")}</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span style={{ color: "var(--lunar-text-muted)" }}>Customer</span>
+                  <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.customerLabel")}</span>
                   <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.customer || "—"}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span style={{ color: "var(--lunar-text-muted)" }}>Country</span>
+                  <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.countryLabel")}</span>
                   <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.country || "—"}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span style={{ color: "var(--lunar-text-muted)" }}>Model</span>
+                  <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.modelLabel")}</span>
                   <span style={{ color: "var(--lunar-cyan)" }}>{pilot.kimiModel}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span style={{ color: "var(--lunar-text-muted)" }}>Duration</span>
-                  <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.durationWeeks} weeks</span>
+                  <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.durationLabel")}</span>
+                  <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.durationWeeks} {t("pilot.weeksUnit")}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span style={{ color: "var(--lunar-text-muted)" }}>Budget</span>
+                  <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.budgetLabel")}</span>
                   <span style={{ color: "var(--lunar-text-primary)" }}>€{pilot.budget.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span style={{ color: "var(--lunar-text-muted)" }}>Data sensitivity</span>
+                  <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.dataSensitivityLabel")}</span>
                   <span
                     style={{
                       color: pilot.dataSensitivity === "restricted" ? "var(--lunar-red)" : pilot.dataSensitivity === "confidential" ? "var(--lunar-amber)" : "var(--lunar-green)",
@@ -272,18 +297,18 @@ export default function GTMPage() {
                 style={{ borderTop: "1px solid var(--lunar-border-subtle)" }}
               >
                 <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "var(--lunar-cyan)" }}>
-                  Cost estimate
+                  {t("pilot.costEstimate")}
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span style={{ color: "var(--lunar-text-muted)" }}>Budget / week</span>
+                  <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.budgetPerWeek")}</span>
                   <span style={{ color: "var(--lunar-text-primary)" }}>€{budgetPerWeek.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span style={{ color: "var(--lunar-text-muted)" }}>Input token budget (70%)</span>
+                  <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.inputTokenBudget")}</span>
                   <span style={{ color: "var(--lunar-text-primary)" }}>{(inputTokenBudget / 1_000_000).toFixed(1)}M tokens</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span style={{ color: "var(--lunar-text-muted)" }}>Output token budget (30%)</span>
+                  <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.outputTokenBudget")}</span>
                   <span style={{ color: "var(--lunar-text-primary)" }}>{(outputTokenBudget / 1_000_000).toFixed(1)}M tokens</span>
                 </div>
                 {selectedModel && (
@@ -323,6 +348,103 @@ export default function GTMPage() {
           </div>
         </div>
       )}
+
+      {/* Tactical BD Plays */}
+      <div>
+        <h2 className="text-sm font-semibold mb-1 section-header">Tactical BD Plays</h2>
+        <p className="text-xs mb-4" style={{ color: "var(--lunar-text-muted)" }}>
+          Five execution-ready plays for the first 90 days in Europe.
+        </p>
+        <div className="space-y-3">
+          {TACTICAL_PLAYS.map((play) => (
+            <div
+              key={play.number}
+              className="lunar-card"
+              style={{ borderLeft: "3px solid var(--lunar-cyan)" }}
+            >
+              <div className="flex items-start gap-4">
+                <span
+                  className="w-7 h-7 rounded flex items-center justify-center text-xs font-mono font-bold flex-shrink-0"
+                  style={{ background: "rgba(0,212,255,0.1)", color: "var(--lunar-cyan)", border: "1px solid rgba(0,212,255,0.2)" }}
+                >
+                  {play.number}
+                </span>
+                <div>
+                  <div className="text-sm font-semibold mb-1" style={{ color: "var(--lunar-text-primary)" }}>
+                    {play.title}
+                  </div>
+                  <p className="text-xs italic leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>
+                    &ldquo;{play.quote}&rdquo;
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Regional Prioritisation Matrix */}
+      <div>
+        <h2 className="text-sm font-semibold mb-1 section-header">Regional Prioritisation Matrix</h2>
+        <p className="text-xs mb-4" style={{ color: "var(--lunar-text-muted)" }}>
+          City-level priorities for the first 12 months of European expansion.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs" style={{ borderCollapse: "separate", borderSpacing: "0 4px" }}>
+            <thead>
+              <tr>
+                {["Region", "Priority", "Density", "Key Verticals", "Why"].map((h) => (
+                  <th
+                    key={h}
+                    className="text-left px-3 py-2"
+                    style={{ color: "var(--lunar-text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}
+                  >
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {REGIONAL_MATRIX.map((city) => {
+                const priorityColor = city.priority === "P0" ? "var(--lunar-red)" : city.priority === "P1" ? "var(--lunar-amber)" : "var(--lunar-text-muted)";
+                return (
+                  <tr key={city.region} className="rounded-lg" style={{ background: "var(--lunar-elevated)" }}>
+                    <td className="px-3 py-2 font-semibold rounded-l-lg" style={{ color: "var(--lunar-text-primary)" }}>{city.region}</td>
+                    <td className="px-3 py-2">
+                      <span className="px-1.5 py-0.5 rounded text-xs font-mono font-bold" style={{ background: `${priorityColor}15`, color: priorityColor }}>
+                        {city.priority}
+                      </span>
+                    </td>
+                    <td className="px-3 py-2" style={{ color: "var(--lunar-text-secondary)" }}>{city.density}</td>
+                    <td className="px-3 py-2" style={{ color: "var(--lunar-text-secondary)" }}>{city.verticals}</td>
+                    <td className="px-3 py-2 rounded-r-lg" style={{ color: "var(--lunar-text-muted)" }}>{city.why}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* No-Fit Segments */}
+      <div>
+        <h2 className="text-sm font-semibold mb-1 section-header">Do Not Pursue: No-Fit Segments</h2>
+        <p className="text-xs mb-4" style={{ color: "var(--lunar-text-muted)" }}>
+          Segments where geopolitical, compliance, or competitive constraints make near-term wins unlikely.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {NO_FIT_SEGMENTS.map((seg) => (
+            <div
+              key={seg.name}
+              className="rounded-xl p-4"
+              style={{ background: "rgba(239,68,68,0.04)", border: "1px solid rgba(239,68,68,0.15)" }}
+            >
+              <div className="text-xs font-semibold mb-1" style={{ color: "var(--lunar-red)" }}>{seg.name}</div>
+              <div className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>{seg.reason}</div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
