@@ -11,6 +11,8 @@ import { OFFERS } from "@/data/offers";
 import { SOURCES } from "@/data/sources";
 
 const PAGES = [
+  { href: "/briefing", label: "Executive Briefing", group: "Pages" },
+  { href: "/entry", label: "Welcome / Entry", group: "Pages" },
   { href: "/", label: "Executive Cockpit", group: "Pages" },
   { href: "/strategy", label: "Strategic Thesis", group: "Pages" },
   { href: "/market", label: "Market Sizing Lab", group: "Pages" },
@@ -28,6 +30,7 @@ const PAGES = [
   { href: "/sources", label: "Source Library", group: "Pages" },
   { href: "/memo", label: "Board Memo & Export", group: "Pages" },
   { href: "/decisions", label: "Decision Log", group: "Pages" },
+  { href: "/90-days", label: "90-Day Thesis", group: "Pages" },
 ];
 
 interface CommandPaletteProps {

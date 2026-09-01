@@ -1,19 +1,34 @@
 "use client";
 
+import { useState } from "react";
 import { usePathname } from "@/lib/navigation";
 import { Link } from "@/lib/navigation";
+import { useRouter } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
-import { useTranslations } from "next-intl";
+import { useAuthStore } from "@/store/auth";
 import {
   LayoutDashboard,
   Target,
   BarChart2,
   Globe,
   Swords,
-  Shield,
   Route,
-  Users,
   Trophy,
+  Shield,
+  Users,
+  Calendar,
+  Building2,
+  TrendingUp,
+  AlertTriangle,
+  Package,
+  Lightbulb,
+  BookOpen,
+  FileText,
+  CheckSquare,
+  ChevronDown,
+  ChevronRight,
+  Presentation,
+  LogOut,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -23,10 +38,19 @@ interface SidebarProps {
 }
 
 function SectionHeader({ label, open }: { label: string; open: boolean }) {
-  if (!open) return <div className="my-1 border-t" style={{ borderColor: 'var(--lunar-border-subtle)' }} />;
+  if (!open)
+    return (
+      <div
+        className="my-1 border-t"
+        style={{ borderColor: "var(--lunar-border-subtle)" }}
+      />
+    );
   return (
     <div className="px-3 pt-3 pb-1">
-      <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--lunar-text-muted)', fontSize: '0.6rem' }}>
+      <span
+        className="text-xs font-semibold uppercase tracking-widest"
+        style={{ color: "var(--lunar-text-muted)", fontSize: "0.6rem" }}
+      >
         {label}
       </span>
     </div>
@@ -35,44 +59,97 @@ function SectionHeader({ label, open }: { label: string; open: boolean }) {
 
 export function Sidebar({ open, isMobile = false, onNavClick }: SidebarProps) {
   const pathname = usePathname();
-  const t = useTranslations("nav");
+  const [appendixOpen, setAppendixOpen] = useState(false);
+  const { logout } = useAuthStore();
+  const router = useRouter();
 
-  const NAV_GROUPS = [
-    {
-      header: null,
-      items: [
-        { href: "/" as const, label: t("cockpit"), icon: LayoutDashboard },
-        { href: "/strategy" as const, label: t("strategy"), icon: Target },
-      ],
-    },
-    {
-      header: "MARKET",
-      items: [
-        { href: "/market" as const, label: t("market"), icon: BarChart2 },
-        { href: "/countries" as const, label: t("countries"), icon: Globe },
-      ],
-    },
-    {
-      header: "COMPETITIVE",
-      items: [
-        { href: "/competition" as const, label: t("competition"), icon: Swords },
-        { href: "/regulation" as const, label: t("regulation"), icon: Shield },
-      ],
-    },
-    {
-      header: "GO-TO-MARKET",
-      items: [
-        { href: "/gtm" as const, label: t("gtm"), icon: Route },
-        { href: "/partners" as const, label: t("partners"), icon: Users },
-      ],
-    },
-    {
-      header: "PERSONAL",
-      items: [
-        { href: "/90-days" as const, label: t("ninetyDays"), icon: Trophy },
-      ],
-    },
+  function handleLock() {
+    logout();
+    router.replace("/gate");
+    if (onNavClick) onNavClick();
+  }
+
+  function isActive(href: string) {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  }
+
+  const executiveItems = [
+    { href: "/briefing" as const, label: "Executive Briefing", icon: Presentation },
+    { href: "/" as const, label: "Executive Cockpit", icon: LayoutDashboard },
+    { href: "/strategy" as const, label: "Strategic Thesis", icon: Target },
   ];
+
+  const strategyItems = [
+    { href: "/market" as const, label: "Market Sizing Lab", icon: BarChart2 },
+    { href: "/countries" as const, label: "Country Navigator", icon: Globe },
+    { href: "/competition" as const, label: "Competition Arena", icon: Swords },
+    { href: "/gtm" as const, label: "Go-to-Market", icon: Route },
+    { href: "/90-days" as const, label: "90-Day Thesis", icon: Trophy },
+  ];
+
+  const appendixItems = [
+    { href: "/regulation" as const, label: "Regulatory & Trust", icon: Shield },
+    { href: "/partners" as const, label: "Partner Ecosystem", icon: Users },
+    { href: "/roadmap" as const, label: "Roadmap & Gates", icon: Calendar },
+    { href: "/organization" as const, label: "Organization", icon: Building2 },
+    { href: "/financials" as const, label: "Financials", icon: TrendingUp },
+    { href: "/risks" as const, label: "Risk Register", icon: AlertTriangle },
+    { href: "/portfolio" as const, label: "Product & Revenue", icon: Package },
+    { href: "/use-cases" as const, label: "Use-Case Atlas", icon: Lightbulb },
+    { href: "/sources" as const, label: "Source Library", icon: BookOpen },
+    { href: "/memo" as const, label: "Board Memo", icon: FileText },
+    { href: "/decisions" as const, label: "Decision Log", icon: CheckSquare },
+  ];
+
+  // Check if any appendix item is active (to auto-open appendix)
+  const anyAppendixActive = appendixItems.some((item) => isActive(item.href));
+
+  function NavItem({
+    href,
+    label,
+    icon: Icon,
+    small = false,
+  }: {
+    href: string;
+    label: string;
+    icon: React.ElementType;
+    small?: boolean;
+  }) {
+    const active = isActive(href);
+    return (
+      <Link
+        href={href as Parameters<typeof Link>[0]["href"]}
+        onClick={onNavClick}
+        className={cn(
+          "nav-item mb-0.5",
+          active && "active",
+          !open && "justify-center",
+          small && open && "py-1"
+        )}
+        aria-label={!open ? label : undefined}
+        aria-current={active ? "page" : undefined}
+      >
+        <Icon
+          size={small ? 13 : 16}
+          className="flex-shrink-0"
+          aria-hidden="true"
+        />
+        {open && (
+          <span
+            className={cn("flex-1 truncate", small ? "text-xs" : "text-sm")}
+            style={
+              small
+                ? { color: active ? undefined : "var(--lunar-text-muted)" }
+                : undefined
+            }
+          >
+            {label}
+          </span>
+        )}
+      </Link>
+    );
+  }
 
   return (
     <aside
@@ -113,17 +190,17 @@ export function Sidebar({ open, isMobile = false, onNavClick }: SidebarProps) {
               <div
                 className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center font-bold"
                 style={{
-                  background: 'rgba(0,212,255,0.15)',
-                  border: '1px solid rgba(0,212,255,0.35)',
-                  color: 'var(--lunar-cyan)',
-                  fontSize: '0.42rem',
+                  background: "rgba(0,212,255,0.15)",
+                  border: "1px solid rgba(0,212,255,0.35)",
+                  color: "var(--lunar-cyan)",
+                  fontSize: "0.42rem",
                   lineHeight: 1,
                 }}
                 aria-hidden="true"
               >
                 TZ
               </div>
-              <span style={{ color: 'var(--lunar-text-muted)', fontSize: '0.6rem' }}>
+              <span style={{ color: "var(--lunar-text-muted)", fontSize: "0.6rem" }}>
                 Thomas Zijlstra · Candidate
               </span>
             </div>
@@ -133,52 +210,88 @@ export function Sidebar({ open, isMobile = false, onNavClick }: SidebarProps) {
 
       {/* Navigation */}
       <div className="flex-1 overflow-hidden relative">
-      <nav className="h-full overflow-y-auto py-3 px-2" aria-label="Pages">
-        {NAV_GROUPS.map((group, groupIdx) => (
-          <div key={groupIdx}>
-            {group.header !== null && (
-              <SectionHeader label={group.header} open={open} />
-            )}
-            {group.items.map((item) => {
-              const isActive =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={onNavClick}
-                  className={cn(
-                    "nav-item mb-0.5",
-                    isActive && "active",
-                    !open && "justify-center",
-                  )}
-                  aria-label={!open ? item.label : undefined}
-                  aria-current={isActive ? "page" : undefined}
+        <nav className="h-full overflow-y-auto py-3 px-2" aria-label="Pages">
+          {/* EXECUTIVE */}
+          <SectionHeader label="EXECUTIVE" open={open} />
+          {executiveItems.map((item) => (
+            <NavItem key={item.href} {...item} />
+          ))}
+
+          {/* STRATEGY */}
+          <SectionHeader label="STRATEGY" open={open} />
+          {strategyItems.map((item) => (
+            <NavItem key={item.href} {...item} />
+          ))}
+
+          {/* APPENDIX — collapsible */}
+          <div className="mt-1">
+            {open ? (
+              <button
+                onClick={() => setAppendixOpen((v) => !v)}
+                className="w-full flex items-center justify-between px-3 pt-3 pb-1 focus:outline-none"
+                aria-expanded={appendixOpen || anyAppendixActive}
+              >
+                <span
+                  className="text-xs font-semibold uppercase tracking-widest"
+                  style={{ color: "var(--lunar-text-muted)", fontSize: "0.6rem" }}
                 >
-                  <item.icon
-                    size={16}
-                    className="flex-shrink-0"
-                    aria-hidden="true"
-                  />
-                  {open && (
-                    <span className="flex-1 text-sm truncate">{item.label}</span>
-                  )}
-                </Link>
-              );
-            })}
+                  APPENDIX
+                </span>
+                {appendixOpen || anyAppendixActive ? (
+                  <ChevronDown size={10} style={{ color: "var(--lunar-text-muted)" }} />
+                ) : (
+                  <ChevronRight size={10} style={{ color: "var(--lunar-text-muted)" }} />
+                )}
+              </button>
+            ) : (
+              <div
+                className="my-1 border-t"
+                style={{ borderColor: "var(--lunar-border-subtle)" }}
+              />
+            )}
+
+            {(appendixOpen || anyAppendixActive || !open) && (
+              <div>
+                {appendixItems.map((item) => (
+                  <NavItem key={item.href} {...item} small={open} />
+                ))}
+              </div>
+            )}
           </div>
-        ))}
-      </nav>
-      {/* Bottom scroll-fade indicator */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-8 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, var(--lunar-surface))' }}
-        aria-hidden="true"
-      />
+        </nav>
+
+        {/* Bottom scroll-fade indicator */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-8 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, var(--lunar-surface))",
+          }}
+          aria-hidden="true"
+        />
       </div>
 
+      {/* Lock Dashboard button */}
+      <div
+        className="border-t px-2 py-3"
+        style={{ borderColor: "var(--lunar-border-subtle)" }}
+      >
+        <button
+          onClick={handleLock}
+          className={cn(
+            "nav-item w-full mb-0",
+            !open && "justify-center"
+          )}
+          style={{ color: "var(--lunar-red)" }}
+          aria-label="Lock dashboard and return to gate"
+          title="Lock dashboard"
+        >
+          <LogOut size={16} className="flex-shrink-0" aria-hidden="true" />
+          {open && (
+            <span className="text-sm">Lock dashboard</span>
+          )}
+        </button>
+      </div>
     </aside>
   );
 }

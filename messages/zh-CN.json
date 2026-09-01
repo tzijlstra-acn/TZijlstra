@@ -69,7 +69,41 @@
     "sources": "来源与假设库",
     "memo": "董事会备忘录",
     "decisions": "决策日志",
-    "ninetyDays": "90 天战略方案"
+    "ninetyDays": "90 天战略方案",
+    "briefing": "高管简报",
+    "entry": "欢迎"
+  },
+  "gate": {
+    "title": "访问验证",
+    "label": "会话密码",
+    "submit": "进入",
+    "submitting": "验证中……",
+    "placeholder": "请输入密码",
+    "error": "密码错误，请重试。",
+    "disclaimer": "独立候选人分析 · 非 Moonshot AI 委托或认可"
+  },
+  "briefing": {
+    "title": "高管简报",
+    "sceneCounter": "第 {current} 场，共 {total} 场",
+    "exit": "退出简报",
+    "explore": "查看完整分析",
+    "previous": "上一页",
+    "next": "下一页",
+    "scenes": {
+      "proposition": "战略主张",
+      "whyNow": "为何此刻",
+      "beachhead": "登陆阵地",
+      "economics": "财务测算",
+      "redTeam": "风险审视",
+      "execution": "执行计划"
+    }
+  },
+  "entry": {
+    "title": "Kimi 欧洲战略 OS",
+    "subtitle": "Thomas Zijlstra → Moonshot AI · 2026年8月",
+    "startBriefing": "开始 7 分钟高管简报",
+    "exploreAnalysis": "浏览完整分析",
+    "disclaimer": "独立候选人分析 · 非 Moonshot AI 委托或认可"
   },
   "cockpit": {
     "title": "高管决策中心",

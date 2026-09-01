@@ -69,7 +69,41 @@
     "sources": "Source Library",
     "memo": "Board Memo",
     "decisions": "Decision Log",
-    "ninetyDays": "90-Day Thesis"
+    "ninetyDays": "90-Day Thesis",
+    "briefing": "Executive Briefing",
+    "entry": "Welcome"
+  },
+  "gate": {
+    "title": "Protected Access",
+    "label": "Session password",
+    "submit": "Enter",
+    "submitting": "Verifying…",
+    "placeholder": "Enter password",
+    "error": "Incorrect password. Please try again.",
+    "disclaimer": "Independent candidate analysis · Not commissioned or endorsed by Moonshot AI"
+  },
+  "briefing": {
+    "title": "Executive Briefing",
+    "sceneCounter": "Scene {current} of {total}",
+    "exit": "Exit briefing",
+    "explore": "Explore full analysis",
+    "previous": "Previous",
+    "next": "Next",
+    "scenes": {
+      "proposition": "Proposition",
+      "whyNow": "Why Now",
+      "beachhead": "Beachhead",
+      "economics": "Economics",
+      "redTeam": "Red Team",
+      "execution": "Execution"
+    }
+  },
+  "entry": {
+    "title": "Kimi EU Strategy OS",
+    "subtitle": "Thomas Zijlstra → Moonshot AI · August 2026",
+    "startBriefing": "Start 7-minute executive briefing",
+    "exploreAnalysis": "Explore full analysis",
+    "disclaimer": "Independent candidate analysis · Not commissioned or endorsed by Moonshot AI"
   },
   "cockpit": {
     "title": "Executive Decision Room",
