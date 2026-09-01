@@ -16,16 +16,16 @@ export const COMPETITOR_DIMENSIONS = [
 export type CompetitorDimension = (typeof COMPETITOR_DIMENSIONS)[number];
 
 export const DIMENSION_SOURCES: Record<CompetitorDimension, string> = {
-  frontier_quality: "BenchLM BenchAlign v5.2 — 27 benchmarks, Sept 2026 (benchlm.ai). Normalised: score ÷ 83.57 × 5. Mistral / DeepSeek not in top 25; analyst estimate.",
-  agentic_coding: "BenchLM Agentic (AG) + Coding (CO) categories, Sept 2026. Formula: (AG÷80 × 2.5) + (CO÷82 × 2.5). Benchmarks: Terminal-Bench 2.0, BrowseComp, SWE-bench Verified, SWE-Rebench, LiveCodeBench. Mistral / DeepSeek not in top 25.",
-  long_context: "BenchLM Reasoning (RE) category Sept 2026 — LongBench v2, MRCRv2, ARC-AGI-2 (RE÷96 × 5). Kimi K3 score is specification-based (1M-token context window, unmatched in open weights).",
-  task_economics: "Public API pricing pages, verified Aug 2026",
-  open_deployment: "Model license terms; Hugging Face availability",
-  eu_hosting: "Provider datacenter location pages (public)",
-  enterprise_controls: "SOC 2 / ISO 27001 status; analyst assessment",
-  distribution: "Enterprise customer estimates; analyst judgment",
-  trust_compliance: "EU AI Act self-assessment; regulatory filings",
-  eu_partnerability: "Partner ecosystem signals; analyst judgment",
+  frontier_quality: "BenchLM BenchAlign v5.2, Sept 2026",
+  agentic_coding: "BenchLM AG + CO categories, Sept 2026",
+  long_context: "BenchLM Reasoning (LongBench v2); Kimi: 1M-token spec",
+  task_economics: "Public API pricing pages, Aug 2026",
+  open_deployment: "License terms; Hugging Face",
+  eu_hosting: "Provider datacenter pages",
+  enterprise_controls: "SOC 2 / ISO 27001; analyst",
+  distribution: "Analyst judgment",
+  trust_compliance: "EU AI Act filings; analyst",
+  eu_partnerability: "Analyst judgment",
 };
 
 export const DIMENSION_LABELS: Record<CompetitorDimension, string> = {
