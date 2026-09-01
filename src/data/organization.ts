@@ -4,7 +4,7 @@ import { z } from "zod";
 export const GTM_STRUCTURE = {
   reportingLine: "Head of Commercialisation or President",
   structure: "Deliberately flat — sales, solution, product, and engineering collaborate directly, without hierarchical layers",
-  beijingOnboarding: "International hires work embedded with the core team in Beijing for the first 3–6 months (travel and accommodation covered by the company), then return to their respective regions.",
+  beijingOnboarding: "International hires work embedded with the core team in Beijing for the first 3 to 6 months, then return to their respective regions.",
   successMeasurement: "Measured by actual customer consumption (usage), not contracted amounts. No rigid quotas — the priority is the growth trajectory established over 6 and 12 months.",
   milestones: {
     sixMonths: "Clear customer profiles established; target market coverage demonstrated; first benchmark customers showing continuous, growing usage",
