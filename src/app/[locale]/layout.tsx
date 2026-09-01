@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const notoSansSC = Noto_Sans_SC({
@@ -57,7 +58,9 @@ export default async function LocaleLayout({
           <a href="#main-content" className="skip-nav">
             Skip to main content
           </a>
-          <AuthGate>{children}</AuthGate>
+          <NuqsAdapter>
+            <AuthGate>{children}</AuthGate>
+          </NuqsAdapter>
         </div>
       </ThemeProvider>
     </NextIntlClientProvider>

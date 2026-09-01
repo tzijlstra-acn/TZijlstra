@@ -1,5 +1,18 @@
 import { z } from "zod";
 
+// Reflects Alan Pak (Moonshot AI), 31 Aug 2026 — HR alignment conversation
+export const GTM_STRUCTURE = {
+  reportingLine: "Head of Commercialisation or President",
+  structure: "Deliberately flat — sales, solution, product, and engineering collaborate directly, without hierarchical layers",
+  beijingOnboarding: "International hires work embedded with the core team in Beijing for the first 3–6 months (travel and accommodation covered by the company), then return to their respective regions.",
+  successMeasurement: "Measured by actual customer consumption (usage), not contracted amounts. No rigid quotas — the priority is the growth trajectory established over 6 and 12 months.",
+  milestones: {
+    sixMonths: "Clear customer profiles established; target market coverage demonstrated; first benchmark customers showing continuous, growing usage",
+    twelveMonths: "Replicable advancement paths; verified cooperation models with SI partners; clear regulatory position confirmed",
+  },
+  countrySequence: "The specific sequence of countries will be determined jointly by this role and the leadership team within the first 90 days, shaped by real market feedback rather than pre-specified.",
+};
+
 export const HEADCOUNT_PLAN = {
   h1_2027: { low: 35, high: 45, label: "H1 2027" },
   end_2028: { low: 90, high: 110, label: "End 2028" },
@@ -15,6 +28,17 @@ export const FUNCTIONAL_SPLIT = {
 };
 
 export const ROLES = [
+  {
+    id: "eu_market_lead",
+    title: "EU Market Entry Lead",
+    function: "leadership_ops",
+    priority: "critical",
+    hiringPhase: "Phase 0",
+    rationale: "Bridge between Beijing and Europe. Shapes country sequence with leadership in first 90 days based on real market feedback. Begins with 3–6 month Beijing alignment before regional deployment.",
+    reportingTo: "Head of Commercialisation or President",
+    locationRequirement: "Beijing (first 3–6 months), then EU-based",
+    beijingOnboarding: true,
+  },
   {
     id: "vp_trust",
     title: "VP Trust & Safety",
@@ -82,7 +106,7 @@ export const ROLES = [
     priority: "critical",
     hiringPhase: "Phase 1",
     rationale: "Owns all EU revenue. Manages AEs and partner sales.",
-    reportingTo: "CEO / CRO (HQ)",
+    reportingTo: "Head of Commercialisation or President (HQ)",
     locationRequirement: "UK or Netherlands",
   },
   {

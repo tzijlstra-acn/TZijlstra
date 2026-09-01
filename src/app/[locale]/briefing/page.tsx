@@ -130,14 +130,17 @@ function Scene1() {
             className="text-xs font-semibold uppercase tracking-wide mb-2"
             style={{ color: "var(--lunar-text-muted)" }}
           >
-            Role I am proposing to play
+            How I would contribute
           </div>
           <p className="text-sm" style={{ color: "var(--lunar-text-primary)" }}>
-            European Market Entry Lead — the person who builds the beachhead,
-            signs the first enterprise accounts, and assembles the EU go-to-market motion.
+            Bridge between Beijing and Europe — embedded with the core team in Beijing for
+            the first 3–6 months (travel covered by the company), then deployed in-market.
+            Reporting to the Head of Commercialisation or President. The GTM structure is
+            deliberately flat: sales, solution, product, and engineering collaborate directly,
+            without hierarchical layers.
           </p>
           <p className="text-xs mt-2" style={{ color: "var(--lunar-text-muted)" }}>
-            Thomas Zijlstra · Candidate analysis · August 2026
+            Thomas Zijlstra · Independent candidate analysis · August 2026
           </p>
         </div>
       </div>
@@ -297,16 +300,18 @@ function Scene3() {
           className="text-xs font-semibold uppercase tracking-widest mb-2"
           style={{ color: "var(--lunar-cyan)" }}
         >
-          Phase 1 beachhead — 2027H1
+          Phase 1 beachhead — hypothesis to validate together
         </div>
         <h2
           className="text-2xl font-bold leading-snug mb-1"
           style={{ color: "var(--lunar-text-primary)" }}
         >
-          Three markets, deliberate sequence
+          Three markets, working hypothesis
         </h2>
         <p className="text-sm" style={{ color: "var(--lunar-text-secondary)" }}>
           UK for speed, Germany for enterprise credibility, Netherlands for EU operating model.
+          The final sequence will be shaped jointly with leadership in the first 90 days —
+          guided by real market conversations, not pre-specified assumptions.
         </p>
       </div>
 
@@ -430,8 +435,8 @@ function Scene4() {
   const keyAssumptions = [
     { label: "EU data residency live", value: "Gate A — Dec 2026", confidence: "CRITICAL PATH" },
     { label: "Enterprise sales cycle", value: "~120 days", confidence: "ASSUMPTION" },
-    { label: "AE quota attainment", value: "75%", confidence: "ASSUMPTION" },
-    { label: "Avg contract value", value: "€250K ARR", confidence: "ASSUMPTION" },
+    { label: "Benchmark customer usage growth", value: "Leading indicator at 6 months", confidence: "KEY METRIC" },
+    { label: "Avg contract value (planning proxy)", value: "€250K ARR", confidence: "ASSUMPTION" },
     { label: "Partner contribution", value: "20% of revenue", confidence: "ASSUMPTION" },
   ];
 
@@ -513,8 +518,16 @@ function Scene4() {
                 <span
                   className="text-xs px-1.5 py-0.5 rounded font-mono"
                   style={{
-                    background: a.confidence === "CRITICAL PATH" ? "rgba(245,158,11,0.1)" : "rgba(100,140,200,0.1)",
-                    color: a.confidence === "CRITICAL PATH" ? "var(--lunar-amber)" : "var(--lunar-text-muted)",
+                    background: a.confidence === "CRITICAL PATH"
+                      ? "rgba(245,158,11,0.1)"
+                      : a.confidence === "KEY METRIC"
+                      ? "rgba(0,212,255,0.1)"
+                      : "rgba(100,140,200,0.1)",
+                    color: a.confidence === "CRITICAL PATH"
+                      ? "var(--lunar-amber)"
+                      : a.confidence === "KEY METRIC"
+                      ? "var(--lunar-cyan)"
+                      : "var(--lunar-text-muted)",
                   }}
                 >
                   {a.confidence}
@@ -523,6 +536,14 @@ function Scene4() {
             </div>
           ))}
         </div>
+        <p
+          className="text-xs leading-relaxed mt-3 pt-3"
+          style={{ color: "var(--lunar-text-muted)", borderTop: "1px solid var(--lunar-border-subtle)" }}
+        >
+          Note: Success is measured by actual customer consumption (usage), not contracted amounts —
+          consistent with a MaaS model. ARR figures above are a planning proxy; real traction is
+          validated by benchmark customers showing continuous, growing usage over time.
+        </p>
       </div>
     </div>
   );
@@ -664,27 +685,27 @@ function Scene6() {
   const phase0 = PHASES.find((p) => p.id === "phase_0");
 
   const thirtyDays = [
-    { output: "Hire VP Trust & Safety + EU legal counsel", kpi: "Roles filled", decision: "Owners for compliance workstreams" },
-    { output: "EU data centre agreement signed (Amsterdam/Frankfurt)", kpi: "Gate A prerequisite #1", decision: "Phase 1 infrastructure foundation" },
-    { output: "GPAI classification legal opinion received", kpi: "Gate A prerequisite #2", decision: "Compliance obligation scope known" },
+    { output: "Beijing core-team alignment — product depth, team relationships, strategic intent", kpi: "Shared understanding of product and European vision", decision: "Working hypothesis for Europe jointly confirmed with leadership" },
+    { output: "GPAI classification legal opinion initiated + EU data centre path agreed", kpi: "Gate A prerequisites moving", decision: "Compliance scope and infrastructure route clear" },
+    { output: "Initial market listening: 10+ conversations in target geographies", kpi: "Country sequence signal emerging from real feedback", decision: "Hypothesis calibrated — not assumed — before resources committed" },
   ];
 
   const sixtyDays = [
-    { output: "K3 license EU commercial use confirmed", kpi: "Gate A prerequisite #3", decision: "OEM and enterprise revenue lines unlocked" },
-    { output: "DPA template v1 approved by counsel", kpi: "Contractual compliance", decision: "Sales can begin data agreements" },
-    { output: "ICP definition and top-20 account list finalized", kpi: "Enterprise pipeline readiness", decision: "Sales team has targets" },
+    { output: "Country sequence recommendation presented to leadership for joint decision", kpi: "Agreed starting markets — shaped by real feedback, not plan", decision: "Leadership and candidate aligned before Phase 1 resources deployed" },
+    { output: "First benchmark customer profiles defined from real conversations", kpi: "ICP documented from evidence, not desk research", decision: "Sales team has validated, not assumed, targets" },
+    { output: "K3 license confirmed + DPA template v1 approved by counsel", kpi: "Gate A prerequisites satisfied", decision: "Commercial activity can proceed lawfully" },
   ];
 
   const ninetyDays = [
-    { output: "Gate A satisfied: all prerequisites met", kpi: "Go/No-Go for Phase 1", decision: "Authorize Phase 1 launch (Jan 2027)" },
-    { output: "First 3 design-partner conversations initiated", kpi: "Pipeline signal", decision: "Proof scenario validated or hypothesis killed" },
-    { output: "Revenue model stress-tested vs. real conversations", kpi: "Assumptions validated", decision: "Board presentation ready" },
+    { output: "Gate A complete — all prerequisites met", kpi: "Go/No-Go for Phase 1 (Jan 2027)", decision: "Phase 1 authorised on verified, not assumed, foundation" },
+    { output: "First 3–5 design-partner conversations active — usage potential visible", kpi: "Consumption signal from benchmark customers", decision: "Growth trajectory established; first indicators of actual usage, not just contracts" },
+    { output: "6-month and 12-month success milestones agreed with leadership", kpi: "Shared definition of what good looks like", decision: "No rigid quotas — measurement framework grounded in customer consumption growth" },
   ];
 
   const executiveQuestions = [
-    "Are you prepared to invest €5–8M in Phase 0 with no revenue target — purely to become launchable?",
-    "Which of the three commercialization hypotheses (UK developer beachhead, EU AI Act compliance premium, or SI open-weight ecosystem) should we prioritize first?",
-    "What is the acceptable timeline for EU data residency — and who in Moonshot AI owns that decision?",
+    "What signals within the first 90 days would confirm — or reshape — the country sequence? What would a good outcome at that joint decision point look like?",
+    "How should we define benchmark customer usage at 6 months — what consumption growth validates the approach before scaling resources?",
+    "Are you prepared to invest €5–8M in Phase 0 with no revenue target, knowing the value is in becoming launchable and validating the right markets together?",
   ];
 
   return (
@@ -703,7 +724,9 @@ function Scene6() {
           30/60/90-day execution plan
         </h2>
         <p className="text-sm" style={{ color: "var(--lunar-text-secondary)" }}>
-          Phase 0 is a preparation phase — no revenue target. Gate A triggers Phase 1 (Jan 2027).
+          Phase 0 is a preparation phase — no revenue target. Begins with Beijing alignment,
+          then market discovery. Success is measured by customer consumption growth,
+          not contracted amounts. Gate A triggers Phase 1 (Jan 2027).
         </p>
       </div>
 
