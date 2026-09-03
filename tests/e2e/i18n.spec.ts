@@ -13,8 +13,13 @@ async function setAuth(page: import("@playwright/test").Page) {
 
 test("gate page renders without auth", async ({ page }) => {
   await page.goto("/en/gate");
-  await expect(page.getByRole("heading", { name: /moonshot/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /independent candidate briefing/i })).toBeVisible();
   await expect(page.getByLabel("Session password")).toBeVisible();
+});
+
+test("zh-CN gate heading renders in Chinese", async ({ page }) => {
+  await page.goto("/zh-CN/gate");
+  await expect(page.getByRole("heading", { name: /候选人独立交流材料/ })).toBeVisible();
 });
 
 test("gate password input has visible label", async ({ page }) => {
@@ -56,6 +61,27 @@ test("entry page shows briefing and analysis choices", async ({ page }) => {
   await expect(
     page.getByRole("link", { name: /full analysis/i })
   ).toBeVisible();
+});
+
+test("entry page EN title is candidate working view", async ({ page }) => {
+  await setAuth(page);
+  await page.goto("/en/entry");
+  await expect(page.getByRole("heading", { name: /moonshot ai europe: candidate working view/i })).toBeVisible();
+});
+
+test("entry page zh-CN title renders in Chinese", async ({ page }) => {
+  await setAuth(page);
+  await page.goto("/zh-CN/entry");
+  await expect(page.getByRole("heading", { name: /moonshot ai 欧洲业务拓展/ })).toBeVisible();
+});
+
+test("entry page CV link opens externally with noopener", async ({ page }) => {
+  await setAuth(page);
+  await page.goto("/en/entry");
+  const cvLink = page.locator('a[href="https://tzijlstra-acn.github.io/CV/cv.html"]');
+  await expect(cvLink).toBeVisible();
+  await expect(cvLink).toHaveAttribute("rel", "noopener noreferrer");
+  await expect(cvLink).toHaveAttribute("target", "_blank");
 });
 
 // ---------------------------------------------------------------------------

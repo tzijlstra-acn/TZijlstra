@@ -66,14 +66,14 @@ export default function MemoPage() {
           metadata: { exportDate: new Date().toISOString(), scenario: activeScenario, lang: "bilingual" },
           sections: {
             decisionRequired: {
-              titleEn: "Decision Required",
-              titleZh: "待决策事项",
+              titleEn: "Topic for Leadership Discussion",
+              titleZh: "供管理层讨论的议题",
               contentEn: `Approve the Kimi EU Expansion programme and Phase 0 investment (estimated €5–8M) to build the legal, infrastructure, and commercial foundations required to launch in the EU/UK market by H1 2027, targeting €${scenario.revenue2030}M ARR by 2030 (${scenario.samShare}% of the €${sam.toFixed(1)}B SAM).`,
               contentZh: `批准 Kimi 欧洲拓展计划及第零阶段投资（预计 500–800 万欧元），以建立进入欧盟/英国市场所需的法律、基础设施和商业基础，目标于 2027 年上半年启动，到 2030 年实现年经常性收入 ${scenario.revenue2030}M 欧元（占 ${sam.toFixed(1)}B 欧元 SAM 的 ${scenario.samShare}%）。`,
             },
             recommendation: {
-              titleEn: "Executive Recommendation",
-              titleZh: "高管建议",
+              titleEn: "Candidate Working View",
+              titleZh: "候选人初步思路",
               contentEn: STRATEGIC_THESIS.headline,
               contentZh: STRATEGIC_THESIS.headlineZh,
             },
@@ -248,9 +248,9 @@ export default function MemoPage() {
                 Moonshot AI / Kimi
               </div>
               <div className="text-xl font-bold" style={{ color: "var(--lunar-text-primary)" }}>
-                {showEn && "EU Market Expansion: Board Memorandum"}
+                {showEn && "EU Market Expansion: Leadership Discussion Memo"}
                 {showZh && showEn && " / "}
-                {showZh && "欧洲市场拓展：董事会备忘录"}
+                {showZh && "欧洲市场拓展：管理层讨论稿"}
               </div>
             </div>
           </div>
@@ -266,9 +266,9 @@ export default function MemoPage() {
           {sections.decision && (
             <section aria-labelledby="memo-decision" className="memo-section">
               <h2 id="memo-decision" className="text-base font-bold mb-3 pb-1" style={{ color: "var(--lunar-cyan)", borderBottom: "1px solid var(--lunar-border-subtle)" }}>
-                {showEn && "Decision Required"}
+                {showEn && "Topic for Leadership Discussion"}
                 {showZh && showEn && " / "}
-                {showZh && "待决策事项"}
+                {showZh && "供管理层讨论的议题"}
               </h2>
               <div
                 className="p-4 rounded-lg"
@@ -294,9 +294,9 @@ export default function MemoPage() {
           {sections.recommendation && (
             <section aria-labelledby="memo-recommendation" className="memo-section">
               <h2 id="memo-recommendation" className="text-base font-bold mb-3 pb-1" style={{ color: "var(--lunar-cyan)", borderBottom: "1px solid var(--lunar-border-subtle)" }}>
-                {showEn && "Executive Recommendation"}
+                {showEn && "Candidate Working View"}
                 {showZh && showEn && " / "}
-                {showZh && "高管建议"}
+                {showZh && "候选人初步思路"}
               </h2>
               <BilingualSection
                 enContent={

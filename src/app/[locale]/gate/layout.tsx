@@ -1,7 +1,7 @@
 ﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Access: Moonshot AI Strategy OS",
+  title: "Access: Moonshot AI Europe",
   robots: { index: false, follow: false },
 };
 

@@ -16,6 +16,7 @@ import {
   ShieldAlert,
   Calendar,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { STRATEGIC_THESIS } from "@/data/strategy";
 import { REVENUE_SCENARIOS, TAM_2030_BASE, calcSAM, SAM_DEFAULTS } from "@/data/market";
 import { RISKS } from "@/data/risks";
@@ -26,9 +27,9 @@ const TOTAL_SCENES = 6;
 const SCENE_TITLES = [
   "Proposition",
   "Why Now",
-  "Beachhead",
+  "Initial Market Entry",
   "Economics",
-  "Red Team",
+  "Assumptions and Risk Review",
   "Execution",
 ];
 
@@ -58,6 +59,7 @@ function SceneChip({
 }
 
 function Scene1() {
+  const t = useTranslations("briefing.whatIBring");
   return (
     <div className="space-y-6 max-w-3xl mx-auto">
       <div>
@@ -132,17 +134,13 @@ function Scene1() {
             className="text-xs font-semibold uppercase tracking-wide mb-2"
             style={{ color: "var(--lunar-text-muted)" }}
           >
-            What I bring
+            {t("heading")}
           </div>
           <p className="text-sm leading-relaxed" style={{ color: "var(--lunar-text-primary)" }}>
-            What I hope to contribute is careful, evidence-based market development; not a
-            pre-set plan. My background across European enterprise markets gives me familiarity
-            with how AI is being evaluated and procured in this region, and with the regulatory
-            context that shapes those decisions. The first 90 days would be spent listening and
-            learning, before presenting a considered market sequence for leadership's review.
+            {t("body")}
           </p>
-          <p className="text-xs mt-3" style={{ color: "var(--lunar-amber)" }}>
-            Beijing onboarding first · Market sequence for leadership's review at day 60
+          <p className="text-xs mt-3" style={{ color: "var(--lunar-text-muted)" }}>
+            {t("supportingLine")}
           </p>
         </div>
       </div>
@@ -322,7 +320,7 @@ function Scene3() {
           className="text-xs font-semibold uppercase tracking-widest mb-2"
           style={{ color: "var(--lunar-cyan)" }}
         >
-          Phase 1 beachhead: hypothesis to validate together
+          Phase 1 initial entry: hypothesis to validate together
         </div>
         <h2
           className="text-2xl font-bold leading-snug mb-1"
@@ -630,7 +628,7 @@ function Scene5() {
           className="text-xs font-semibold uppercase tracking-widest mb-2"
           style={{ color: "var(--lunar-red)" }}
         >
-          Red team: top 3 risks
+          Assumptions and risk review: three key tests
         </div>
         <h2
           className="text-2xl font-bold leading-snug mb-1"

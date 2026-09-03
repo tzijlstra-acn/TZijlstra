@@ -147,7 +147,7 @@ export default function MemoPage() {
                 Moonshot AI / Kimi
               </div>
               <div className="text-xl font-bold" style={{ color: "var(--lunar-text-primary)" }}>
-                EU Market Expansion: Board Memorandum
+                EU Market Expansion: Leadership Discussion Memo
               </div>
             </div>
           </div>
@@ -163,7 +163,7 @@ export default function MemoPage() {
           {sections.decision && (
             <section aria-labelledby="memo-decision">
               <h2 id="memo-decision" className="text-base font-bold mb-3 pb-1" style={{ color: "var(--lunar-cyan)", borderBottom: "1px solid var(--lunar-border-subtle)" }}>
-                Decision Required
+                Topic for Leadership Discussion
               </h2>
               <div
                 className="p-4 rounded-lg"
@@ -180,7 +180,7 @@ export default function MemoPage() {
           {sections.recommendation && (
             <section aria-labelledby="memo-recommendation">
               <h2 id="memo-recommendation" className="text-base font-bold mb-3 pb-1" style={{ color: "var(--lunar-cyan)", borderBottom: "1px solid var(--lunar-border-subtle)" }}>
-                Executive Recommendation
+                Candidate Working View
               </h2>
               <p className="text-sm mb-3" style={{ color: "var(--lunar-text-secondary)" }}>
                 <strong style={{ color: "var(--lunar-text-primary)" }}>Strategic verdict:</strong> {STRATEGIC_THESIS.headline}

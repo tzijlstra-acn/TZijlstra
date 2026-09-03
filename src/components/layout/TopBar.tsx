@@ -112,7 +112,7 @@ export function TopBar({ onCommandPalette, isMobile = false }: TopBarProps) {
           className="text-xs whitespace-nowrap"
           style={{ color: "var(--lunar-text-muted)", fontSize: "0.6rem" }}
         >
-          Thomas Zijlstra — Candidate Analysis, Aug 2026
+          Thomas Zijlstra, Candidate Analysis, August 2026
         </span>
       </div>
 

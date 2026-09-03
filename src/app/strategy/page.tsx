@@ -28,7 +28,7 @@ export default function StrategyPage() {
         <div className="flex items-start gap-4">
           <div className="text-5xl" aria-hidden="true">◎</div>
           <div>
-            <div className="stat-label mb-2">Strategic Verdict</div>
+            <div className="stat-label mb-2">Working View Based on Public Evidence</div>
             <div className="text-2xl font-bold mb-3" style={{ color: "var(--lunar-cyan)" }}>
               &ldquo;{STRATEGIC_THESIS.headline}&rdquo;
             </div>
@@ -115,7 +115,7 @@ export default function StrategyPage() {
       {/* Immediate Decisions */}
       <div className="lunar-card">
         <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--lunar-text-primary)" }}>
-          Immediate Decisions Required
+          Topics for Leadership Discussion
         </h2>
         <div className="space-y-3">
           {STRATEGIC_THESIS.immediateDecisions.map((d) => (

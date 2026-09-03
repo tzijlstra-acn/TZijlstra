@@ -67,7 +67,7 @@
     "financials": "Financials",
     "risks": "Risk Register",
     "sources": "Source Library",
-    "memo": "Board Memo",
+    "memo": "Leadership Memo",
     "decisions": "Decision Log",
     "ninetyDays": "90-Day Thesis",
     "briefing": "Executive Briefing",
@@ -80,7 +80,10 @@
     "submitting": "Verifying…",
     "placeholder": "Enter password",
     "error": "Incorrect password. Please try again.",
-    "disclaimer": "Independent candidate analysis · Not commissioned or endorsed by Moonshot AI"
+    "disclaimer": "Independent candidate analysis · Not commissioned or endorsed by Moonshot AI",
+    "subLabel": "CANDIDATE WORKING VIEW",
+    "heading": "Independent Candidate Briefing",
+    "body": "Prepared independently by Thomas Zijlstra for discussion with Moonshot AI. Based solely on public information and experience in European enterprise markets."
   },
   "briefing": {
     "title": "Executive Briefing",
@@ -92,30 +95,38 @@
     "scenes": {
       "proposition": "Proposition",
       "whyNow": "Why Now",
-      "beachhead": "Beachhead",
+      "beachhead": "Initial Market Entry",
       "economics": "Economics",
-      "redTeam": "Red Team",
+      "redTeam": "Assumptions and Risk Review",
       "execution": "Execution"
+    },
+    "whatIBring": {
+      "heading": "What I bring",
+      "body": "Six years with Accenture Financial Services in Zurich, currently designing and piloting enterprise AI workflows in regulated environments. Previously, I worked in FIG investment banking across DACH and Benelux. I combine senior-stakeholder engagement, commercial and financial judgement, hands-on AI workflow delivery, and experience operating across European markets.",
+      "supportingLine": "Native German, Dutch and English · Worked across Zurich, London, Paris and Vienna · Visited China · Ready to work closely with the Beijing team"
     }
   },
   "entry": {
-    "title": "Kimi EU Strategy OS",
+    "title": "Moonshot AI Europe: Candidate Working View",
+    "eyebrow": "Candidate Working View",
+    "body": "Prepared independently for discussion with Moonshot AI leadership, based solely on public information and external European market experience. Intended as a starting point for conversation, not a definition of internal strategy.",
+    "cvLink": "Candidate profile and selected AI work",
     "subtitle": "Thomas Zijlstra · Independent candidate analysis · September 2026",
     "startBriefing": "Start 7-minute executive briefing",
     "exploreAnalysis": "Explore full analysis",
-    "disclaimer": "Independent candidate analysis · Not commissioned or endorsed by Moonshot AI"
+    "disclaimer": "Not commissioned or endorsed by Moonshot AI. Based on public information and illustrative assumptions."
   },
   "cockpit": {
     "title": "Executive Decision Room",
     "subtitle": "Kimi Europe Expansion: Decision System",
-    "strategicVerdict": "Strategic Verdict",
+    "strategicVerdict": "Working View Based on Public Evidence",
     "revenueScenarios": "Revenue Scenarios 2027–2030",
     "complianceStatus": "Compliance Status",
     "workstreamsNeedAttention": "{count} workstreams need attention before EU GA",
     "viewAllWorkstreams": "View all workstreams",
     "priorityCountries": "Priority Countries: 2027 H1 Launch",
     "strategicPrinciples": "5 Strategic Principles",
-    "immediateDecisions": "Immediate Decisions Required",
+    "immediateDecisions": "Topics for Leadership Discussion",
     "owner": "Owner",
     "recommendation": {
       "title": "Strategic Recommendation",
@@ -420,8 +431,8 @@
       "bilingual": "双语 Bilingual"
     },
     "sections": {
-      "decision": "Decision Required",
-      "recommendation": "Executive Recommendation",
+      "decision": "Topic for Leadership Discussion",
+      "recommendation": "Candidate Working View",
       "market": "Market Opportunity",
       "countries": "Country Sequence",
       "revenue": "Financial Scenarios",
@@ -431,7 +442,7 @@
       "risks": "Principal Risks",
       "decisionsLog": "Decision Log",
       "assumptions": "Key Assumptions",
-      "decisionRequired": "Decision Required",
+      "decisionRequired": "Topic for Leadership Discussion",
       "marketOpportunity": "Market Opportunity",
       "countrySequence": "Country Sequence",
       "regulatoryReadiness": "Regulatory Readiness",

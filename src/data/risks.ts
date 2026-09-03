@@ -21,9 +21,9 @@ export type Risk = z.infer<typeof RiskSchema>;
 export const RISKS: Risk[] = [
   {
     id: "r01",
-    title: "Geopolitical & trust risk (Chinese-origin model)",
+    title: "European buyer trust and cross-border governance requirements",
     description:
-      "EU enterprise and government buyers perceive China-origin AI as high trust risk due to data sovereignty concerns and geopolitical tensions. This may limit addressable market particularly in government, defense-adjacent, and critical infrastructure sectors.",
+      "Some European organisations, particularly in regulated or data-sensitive sectors, may require additional assurance regarding data location, contractual accountability, auditability, security controls, and cross-border governance. This may narrow the initial suitable workload set and lengthen procurement cycles in selected segments, including sectors with close government ties.",
     category: "Market",
     defaultSeverity: "critical",
     likelihood: "high",

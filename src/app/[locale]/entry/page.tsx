@@ -1,9 +1,12 @@
-﻿"use client";
+"use client";
 
 import { Link } from "@/lib/navigation";
-import { BookOpen, ArrowRight, Shield } from "lucide-react";
+import { BookOpen, ArrowRight, Shield, ExternalLink } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function EntryPage() {
+  const t = useTranslations("entry");
+
   return (
     <div className="min-h-[85vh] flex items-center justify-center px-4">
       <div className="max-w-xl w-full space-y-8 text-center">
@@ -13,17 +16,28 @@ export default function EntryPage() {
             className="text-xs font-semibold uppercase tracking-widest"
             style={{ color: "var(--lunar-cyan)" }}
           >
-            Independent candidate analysis
+            {t("eyebrow")}
           </div>
           <h1
             className="text-3xl font-bold"
             style={{ color: "var(--lunar-text-primary)" }}
           >
-            Kimi EU Strategy OS
+            {t("title")}
           </h1>
           <p className="text-sm" style={{ color: "var(--lunar-text-secondary)" }}>
-            Thomas Zijlstra · Independent candidate analysis · September 2026
+            {t("subtitle")}
           </p>
+          <a
+            href="https://tzijlstra-acn.github.io/CV/cv.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-xs hover:underline focus:outline-none focus-visible:ring-1 rounded mt-1"
+            style={{ color: "var(--lunar-text-muted)" }}
+          >
+            {t("cvLink")}
+            <ExternalLink size={10} aria-hidden="true" />
+            <span className="sr-only">(opens in new tab)</span>
+          </a>
         </div>
 
         {/* Description */}
@@ -31,9 +45,7 @@ export default function EntryPage() {
           className="text-sm leading-relaxed max-w-md mx-auto"
           style={{ color: "var(--lunar-text-secondary)" }}
         >
-          A structured analysis of Kimi&apos;s European market entry, covering market
-          sizing, country prioritization, regulatory requirements, GTM strategy,
-          and a 90-day execution plan.
+          {t("body")}
         </p>
 
         {/* Choice buttons */}
@@ -47,7 +59,7 @@ export default function EntryPage() {
             }}
           >
             <BookOpen size={16} aria-hidden="true" />
-            Start 7-minute executive briefing
+            {t("startBriefing")}
           </Link>
           <Link
             href="/"
@@ -58,7 +70,7 @@ export default function EntryPage() {
               border: "1px solid var(--lunar-border-strong)",
             }}
           >
-            Explore full analysis
+            {t("exploreAnalysis")}
             <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
@@ -78,8 +90,7 @@ export default function EntryPage() {
             aria-hidden="true"
           />
           <p className="text-xs text-left" style={{ color: "var(--lunar-text-muted)" }}>
-            Not commissioned or endorsed by Moonshot AI. Based on public information
-            and illustrative assumptions.
+            {t("disclaimer")}
           </p>
         </div>
       </div>

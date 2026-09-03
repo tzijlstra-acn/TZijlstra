@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback, Suspense } from "react";
 import { useRouter } from "@/lib/navigation";
 import { useAuthStore } from "@/store/auth";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -172,6 +173,7 @@ function GateForm() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [shake, setShake] = useState(false);
+  const t = useTranslations("gate");
   const { login, isAuthenticated } = useAuthStore();
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -264,7 +266,7 @@ function GateForm() {
               className="text-xs tracking-widest"
               style={{ color: "rgba(120,145,180,0.7)", letterSpacing: "0.15em" }}
             >
-              EU STRATEGY OS
+              {t("subLabel")}
             </div>
           </div>
 
@@ -278,13 +280,13 @@ function GateForm() {
             className="text-xl font-bold mb-1"
             style={{ color: "#e8eef8", letterSpacing: "-0.01em" }}
           >
-            Restricted Access
+            {t("heading")}
           </div>
           <div
             className="text-xs mb-8 leading-relaxed"
             style={{ color: "rgba(120,145,180,0.75)", maxWidth: 260 }}
           >
-            Confidential strategy analysis prepared for Moonshot AI. Enter your access code to continue.
+            {t("body")}
           </div>
 
           <form onSubmit={handleSubmit} noValidate className="w-full">
@@ -346,7 +348,7 @@ function GateForm() {
             className="mt-8 text-xs"
             style={{ color: "rgba(90,110,145,0.6)", letterSpacing: "0.05em" }}
           >
-            Independent analysis · Not commissioned by Moonshot AI
+            {t("disclaimer")}
           </div>
         </div>
       </div>

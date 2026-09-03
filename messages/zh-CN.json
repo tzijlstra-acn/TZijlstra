@@ -67,7 +67,7 @@
     "financials": "财务与销售产能",
     "risks": "风险清单",
     "sources": "来源与假设库",
-    "memo": "董事会备忘录",
+    "memo": "管理层讨论稿",
     "decisions": "决策日志",
     "ninetyDays": "90 天战略方案",
     "briefing": "高管简报",
@@ -80,7 +80,10 @@
     "submitting": "验证中……",
     "placeholder": "请输入密码",
     "error": "密码错误，请重试。",
-    "disclaimer": "独立候选人分析 · 非 Moonshot AI 委托或认可"
+    "disclaimer": "独立候选人分析 · 非 Moonshot AI 委托或认可",
+    "subLabel": "候选人初步思路",
+    "heading": "候选人独立交流材料",
+    "body": "本材料由 Thomas Zijlstra 基于公开信息及欧洲企业市场经验独立准备，仅供与 Moonshot AI 面试及业务交流使用。"
   },
   "briefing": {
     "title": "高管简报",
@@ -92,30 +95,38 @@
     "scenes": {
       "proposition": "战略主张",
       "whyNow": "为何此刻",
-      "beachhead": "登陆阵地",
+      "beachhead": "首个市场切入点",
       "economics": "财务测算",
-      "redTeam": "风险审视",
+      "redTeam": "假设验证与风险审视",
       "execution": "执行计划"
+    },
+    "whatIBring": {
+      "heading": "我能带来的执行优势",
+      "body": "我在苏黎世拥有六年埃森哲金融服务咨询经验，目前负责在受监管环境中设计并试点企业级 AI 工作流。此前，我曾在伦敦从事金融机构投行业务，覆盖德语区和荷比卢市场。我能够将高层沟通、商业与财务判断、AI 工作流落地经验以及跨欧洲市场协作结合起来。",
+      "supportingLine": "德语、荷兰语和英语母语水平 · 曾在苏黎世、伦敦、巴黎和维也纳工作 · 曾到访中国 · 愿意先在北京与总部团队深入协作"
     }
   },
   "entry": {
-    "title": "Kimi 欧洲战略 OS",
+    "title": "Moonshot AI 欧洲业务拓展：候选人初步思路",
+    "eyebrow": "候选人初步思路",
+    "body": "本材料由 Thomas Zijlstra 独立准备，基于公开信息及在欧洲企业市场的外部经验，供与 Moonshot AI 管理层交流讨论。旨在提供一个对话起点，并不预设公司内部战略方向。",
+    "cvLink": "候选人简介与精选 AI 项目",
     "subtitle": "Thomas Zijlstra · 候选人独立分析 · 2026年9月",
     "startBriefing": "开始 7 分钟高管简报",
     "exploreAnalysis": "浏览完整分析",
-    "disclaimer": "独立候选人分析 · 非 Moonshot AI 委托或认可"
+    "disclaimer": "非 Moonshot AI 委托或认可。基于公开信息及示意性假设。"
   },
   "cockpit": {
     "title": "高管决策中心",
     "subtitle": "Kimi 欧洲拓展：决策支持系统",
-    "strategicVerdict": "战略结论",
+    "strategicVerdict": "初步判断",
     "revenueScenarios": "收入情景预测（2027–2030）",
     "complianceStatus": "合规状态",
     "workstreamsNeedAttention": "{count} 个合规工作流在欧盟正式发布前需要关注",
     "viewAllWorkstreams": "查看全部工作流",
     "priorityCountries": "优先进入市场（2027 年上半年建议顺序）",
     "strategicPrinciples": "五大战略原则",
-    "immediateDecisions": "当前待决策事项",
+    "immediateDecisions": "供管理层讨论的议题",
     "owner": "负责人",
     "recommendation": {
       "title": "高管建议",
@@ -420,8 +431,8 @@
       "bilingual": "双语 Bilingual"
     },
     "sections": {
-      "decision": "待决策事项",
-      "recommendation": "高管建议",
+      "decision": "供管理层讨论的议题",
+      "recommendation": "候选人初步思路",
       "market": "市场机遇",
       "countries": "国家进入顺序",
       "revenue": "财务情景",
@@ -431,7 +442,7 @@
       "risks": "主要风险",
       "decisionsLog": "决策日志",
       "assumptions": "核心假设",
-      "decisionRequired": "待决策事项",
+      "decisionRequired": "供管理层讨论的议题",
       "marketOpportunity": "市场机遇",
       "countrySequence": "国家进入顺序",
       "regulatoryReadiness": "监管准备度",

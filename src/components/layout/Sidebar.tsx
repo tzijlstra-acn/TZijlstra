@@ -100,7 +100,7 @@ export function Sidebar({ open, isMobile = false, onNavClick }: SidebarProps) {
     { href: "/portfolio" as const, label: "Product & Revenue", icon: Package },
     { href: "/use-cases" as const, label: "Use-Case Atlas", icon: Lightbulb },
     { href: "/sources" as const, label: "Source Library", icon: BookOpen },
-    { href: "/memo" as const, label: "Board Memo", icon: FileText },
+    { href: "/memo" as const, label: "Leadership Memo", icon: FileText },
     { href: "/decisions" as const, label: "Decision Log", icon: CheckSquare },
   ];
 
