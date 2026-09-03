@@ -22,7 +22,7 @@ export default function EntryPage() {
             Kimi EU Strategy OS
           </h1>
           <p className="text-sm" style={{ color: "var(--lunar-text-secondary)" }}>
-            Thomas Zijlstra · Moonshot AI · September 2026
+            Thomas Zijlstra · Independent candidate analysis · September 2026
           </p>
         </div>
 

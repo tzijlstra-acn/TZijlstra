@@ -298,6 +298,26 @@ function Scene3() {
 
   return (
     <div className="space-y-6 max-w-3xl mx-auto">
+      {/* Initial wedge hypothesis summary */}
+      <div
+        className="px-4 py-3 rounded-xl text-sm"
+        style={{
+          background: "rgba(0,212,255,0.06)",
+          border: "1px solid rgba(0,212,255,0.18)",
+        }}
+      >
+        <span
+          className="text-xs font-semibold uppercase tracking-widest mr-2"
+          style={{ color: "var(--lunar-cyan)" }}
+        >
+          Initial wedge hypothesis:
+        </span>
+        <span style={{ color: "var(--lunar-text-secondary)" }}>
+          UK developers (API traction) → EU enterprise compliance moat (Germany) → SI ecosystem scale (Netherlands hub).
+          Lead metric: monthly API consumption growth among benchmark customers.
+        </span>
+      </div>
+
       <div>
         <div
           className="text-xs font-semibold uppercase tracking-widest mb-2"
@@ -445,6 +465,26 @@ function Scene4() {
 
   return (
     <div className="space-y-6 max-w-3xl mx-auto">
+      {/* Consumption-led success statement */}
+      <div
+        className="px-4 py-3 rounded-xl text-sm"
+        style={{
+          background: "rgba(16,185,129,0.06)",
+          border: "1px solid rgba(16,185,129,0.18)",
+        }}
+      >
+        <span
+          className="text-xs font-semibold uppercase tracking-widest mr-2"
+          style={{ color: "var(--lunar-green)" }}
+        >
+          Lead metric:
+        </span>
+        <span style={{ color: "var(--lunar-text-secondary)" }}>
+          Monthly customer consumption — qualified workloads running on Kimi, usage growing month on month.
+          ARR is a planning proxy. The real validation is a benchmark customer showing continuous, increasing usage at six months.
+        </span>
+      </div>
+
       <div>
         <div
           className="text-xs font-semibold uppercase tracking-widest mb-2"
