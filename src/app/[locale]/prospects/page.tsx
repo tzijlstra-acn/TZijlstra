@@ -80,7 +80,7 @@ export default function ProspectsPage() {
           Prospect Intelligence
         </h1>
         <p className="text-sm mt-1" style={{ color: 'var(--lunar-text-secondary)' }}>
-          {ACCOUNTS.length} accounts across Europe — enterprise anchors and API pipeline, unified by strategic tier
+          {ACCOUNTS.length} accounts across Europe: enterprise anchors and API pipeline, unified by strategic tier
         </p>
       </div>
 
@@ -101,7 +101,7 @@ export default function ProspectsPage() {
                   style={filterBtn(tierFilter === t)}
                   aria-pressed={tierFilter === t}
                 >
-                  {t === 'all' ? 'All tiers' : `T${t} — ${TIER_LABELS[t]}`}
+                  {t === 'all' ? 'All tiers' : `T${t}: ${TIER_LABELS[t]}`}
                 </button>
               ))}
             </div>
@@ -283,7 +283,7 @@ export default function ProspectsPage() {
                   className="text-xs px-2 py-0.5 rounded-full"
                   style={{ background: `${TIER_COLORS[selected.tier]}18`, color: TIER_COLORS[selected.tier] }}
                 >
-                  Tier {selected.tier} — {TIER_LABELS[selected.tier]}
+                  Tier {selected.tier}: {TIER_LABELS[selected.tier]}
                 </span>
               </div>
               <div className="text-xs mb-3 font-medium" style={{ color: 'var(--lunar-text-muted)' }}>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
@@ -108,7 +108,7 @@ export default function CompetitionPage() {
         </h1>
         <p className="text-sm mt-1" style={{ color: "var(--lunar-text-secondary)" }}>
           {t("subtitle")}
-          <EvidenceBadge type="RECOMMENDATION" className="ml-2" reasoning="Directional analyst assessments — not independently verified benchmarks" />
+          <EvidenceBadge type="RECOMMENDATION" className="ml-2" reasoning="Directional analyst assessments; not independently verified benchmarks" />
         </p>
       </div>
 
@@ -215,7 +215,7 @@ export default function CompetitionPage() {
                         <div style={{ color: "var(--lunar-text-muted)" }}>{m.provider}</div>
                       </td>
                       <td className="text-right px-2 py-2 font-mono" style={{ color: "var(--lunar-text-secondary)" }}>
-                        {m.cachedInputPer1M != null ? `$${m.cachedInputPer1M}` : "—"}
+                        {m.cachedInputPer1M != null ? `${m.cachedInputPer1M}` : "–"}
                       </td>
                       <td className="text-right px-2 py-2 font-mono" style={{ color: cheaperThanK3 && !isKimi ? "var(--lunar-green)" : "var(--lunar-text-primary)" }}>
                         ${m.inputPer1M}
@@ -224,7 +224,7 @@ export default function CompetitionPage() {
                         ${m.outputPer1M}
                       </td>
                       <td className="px-2 py-2" style={{ color: "var(--lunar-text-muted)" }}>
-                        {m.contextWindow || "—"}
+                        {m.contextWindow || "–"}
                       </td>
                     </tr>
                   );

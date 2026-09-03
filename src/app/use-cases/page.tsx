@@ -138,7 +138,7 @@ export default function UseCasesPage() {
             {Object.entries(TIER_COLORS).map(([tier, color]) => (
               <span key={tier} className="flex items-center gap-1" style={{ color: "var(--lunar-text-muted)" }}>
                 <span className="w-2 h-2 rounded-full" style={{ background: color }} />
-                {getTierLabel(tier as "tier1" | "tier2" | "tier3" | "excluded").split("—")[0].trim()}
+                {getTierLabel(tier as "tier1" | "tier2" | "tier3" | "excluded").split(":")[0].trim()}
               </span>
             ))}
           </div>

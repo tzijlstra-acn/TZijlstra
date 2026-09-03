@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
@@ -52,11 +52,11 @@ export default function GTMPage() {
           </div>
           <div className="space-y-1">
             <div className="text-xs font-semibold" style={{ color: "#a855f7" }}>Academic licensing is underrated</div>
-            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>Universities at KTH, ETH Zurich, TU Delft and Imperial pay £5–50K/year for institutional API access and generate peer-reviewed citations — the highest-credibility reference in enterprise AI procurement.</p>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>Universities at KTH, ETH Zurich, TU Delft and Imperial pay £5–50K/year for institutional API access and generate peer-reviewed citations: the highest-credibility reference in enterprise AI procurement.</p>
           </div>
           <div className="space-y-1">
             <div className="text-xs font-semibold" style={{ color: "var(--lunar-amber)" }}>SI embedding is the scaling lever</div>
-            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>Once two reference customers exist, SI partners will embed Kimi in their delivery practices. That multiplies reach without multiplying headcount — the only way to win enterprise distribution before a large EU sales team exists.</p>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>Once two reference customers exist, SI partners will embed Kimi in their delivery practices. That multiplies reach without multiplying headcount; the only way to win enterprise distribution before a large EU sales team exists.</p>
           </div>
         </div>
       </div>
@@ -155,7 +155,7 @@ export default function GTMPage() {
           <div className="lunar-card">
             <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--lunar-text-primary)" }}>
               {t("buildPilot")}
-              <EvidenceBadge type="ASSUMPTION" className="ml-2" reasoning="Illustrative pilot template — adapt to each customer" />
+              <EvidenceBadge type="ASSUMPTION" className="ml-2" reasoning="Illustrative pilot template; adapt to each customer" />
             </h2>
             <div className="space-y-4">
               {[
@@ -262,11 +262,11 @@ export default function GTMPage() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.customerLabel")}</span>
-                  <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.customer || "—"}</span>
+                  <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.customer || "–"}</span>
                 </div>
                 <div className="flex justify-between">
                   <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.countryLabel")}</span>
-                  <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.country || "—"}</span>
+                  <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.country || "–"}</span>
                 </div>
                 <div className="flex justify-between">
                   <span style={{ color: "var(--lunar-text-muted)" }}>{t("pilot.modelLabel")}</span>
@@ -457,7 +457,7 @@ export default function GTMPage() {
         {([1, 2, 3] as const).map((tier) => {
           const accounts = ACCOUNTS.filter((a) => a.tier === tier);
           const subVerticals = [...new Set(accounts.map((a) => a.subVertical))];
-          const tierLabel = tier === 1 ? "Tier 1 — Ideal Fit" : tier === 2 ? "Tier 2 — Strong Fit" : "Tier 3 — Self-Hosted / Long-Cycle";
+          const tierLabel = tier === 1 ? "Tier 1: Ideal Fit" : tier === 2 ? "Tier 2: Strong Fit" : "Tier 3: Self-Hosted / Long-Cycle";
           const tierColor = tier === 1 ? "var(--lunar-green)" : tier === 2 ? "var(--lunar-cyan)" : "var(--lunar-amber)";
           const tierBg = tier === 1 ? "rgba(16,185,129,0.04)" : tier === 2 ? "rgba(0,212,255,0.04)" : "rgba(245,158,11,0.04)";
           const tierBorder = tier === 1 ? "rgba(16,185,129,0.15)" : tier === 2 ? "rgba(0,212,255,0.15)" : "rgba(245,158,11,0.15)";

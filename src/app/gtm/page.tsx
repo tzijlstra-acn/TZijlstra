@@ -121,7 +121,7 @@ export default function GTMPage() {
           <div className="lunar-card">
             <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--lunar-text-primary)" }}>
               Build a Pilot
-              <EvidenceBadge type="ASSUMPTION" className="ml-2" reasoning="Illustrative pilot template — adapt to each customer" />
+              <EvidenceBadge type="ASSUMPTION" className="ml-2" reasoning="Illustrative pilot template; adapt to each customer" />
             </h2>
             <div className="space-y-4">
               {[
@@ -228,11 +228,11 @@ export default function GTMPage() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span style={{ color: "var(--lunar-text-muted)" }}>Customer</span>
-                  <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.customer || "—"}</span>
+                  <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.customer || "–"}</span>
                 </div>
                 <div className="flex justify-between">
                   <span style={{ color: "var(--lunar-text-muted)" }}>Country</span>
-                  <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.country || "—"}</span>
+                  <span style={{ color: "var(--lunar-text-primary)" }}>{pilot.country || "–"}</span>
                 </div>
                 <div className="flex justify-between">
                   <span style={{ color: "var(--lunar-text-muted)" }}>Model</span>

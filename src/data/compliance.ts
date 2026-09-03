@@ -58,14 +58,14 @@ export const REGULATORY_DATES = [
     date: "2026-08-02",
     label: "Annex III high-risk system obligations",
     description:
-      "Obligations for high-risk AI systems listed in Annex III (e.g. critical infrastructure, employment, education, law enforcement) apply. Verify with EU counsel — dates per enacted text of Regulation (EU) 2024/1689.",
+      "Obligations for high-risk AI systems listed in Annex III (e.g. critical infrastructure, employment, education, law enforcement) apply. Verify with EU counsel; dates per enacted text of Regulation (EU) 2024/1689.",
     sourceId: "S7",
   },
   {
     date: "2027-08-02",
     label: "Product-safety Annex I high-risk obligations",
     description:
-      "High-risk AI systems covered by existing product safety legislation (Annex I) must comply. Verify with EU counsel — dates per enacted text of Regulation (EU) 2024/1689.",
+      "High-risk AI systems covered by existing product safety legislation (Annex I) must comply. Verify with EU counsel; dates per enacted text of Regulation (EU) 2024/1689.",
     sourceId: "S7",
   },
 ];
@@ -357,7 +357,7 @@ export const TRUST_ARCHITECTURE = {
     "SCIM 2.0 automated provisioning",
     "Role-based access control (RBAC) with custom roles",
     "Audit log export (SIEM-compatible)",
-    "Customer-managed encryption keys (CMEK) — roadmap",
+    "Customer-managed encryption keys (CMEK, roadmap)",
     "IP allowlist and VPC peering",
   ],
   evaluationProgram: [
@@ -372,7 +372,7 @@ export const TRUST_ARCHITECTURE = {
 export const STAGE_GATES = [
   {
     id: "gate_a",
-    label: "Gate A — EU GA",
+    label: "Gate A: EU GA",
     condition: "Before EU General Availability",
     requirements: [
       "Data boundary implemented and verified",
@@ -384,7 +384,7 @@ export const STAGE_GATES = [
   },
   {
     id: "gate_b",
-    label: "Gate B — Broad Enterprise",
+    label: "Gate B: Broad Enterprise",
     condition: "Before broad enterprise sales motion",
     requirements: [
       "SSO + SCIM + RBAC implemented",
@@ -396,7 +396,7 @@ export const STAGE_GATES = [
   },
   {
     id: "gate_c",
-    label: "Gate C — Regulated Verticals",
+    label: "Gate C: Regulated Verticals",
     condition: "Before deploying into regulated industries",
     requirements: [
       "Risk assessment framework for high-risk use cases",
@@ -407,7 +407,7 @@ export const STAGE_GATES = [
   },
   {
     id: "gate_d",
-    label: "Gate D — Sovereignty Claim",
+    label: "Gate D: Sovereignty Claim",
     condition: "Before making sovereignty marketing claims",
     requirements: [
       "Technical data residency verification",
@@ -418,7 +418,7 @@ export const STAGE_GATES = [
   },
   {
     id: "gate_e",
-    label: "Gate E — Private K3 Deployment",
+    label: "Gate E: Private K3 Deployment",
     condition: "Before offering on-premise or private VPC K3",
     requirements: [
       "Compute infrastructure agreement with EU partner",

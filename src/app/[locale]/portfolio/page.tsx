@@ -66,7 +66,7 @@ export default function PortfolioPage() {
       <div className="lunar-card">
         <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--lunar-text-primary)" }}>
           Commercial Offer Ladder
-          <EvidenceBadge type="ASSUMPTION" className="ml-2" reasoning="Illustrative price ranges — subject to market validation" />
+          <EvidenceBadge type="ASSUMPTION" className="ml-2" reasoning="Illustrative price ranges; subject to market validation" />
         </h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm" aria-label="Commercial offer ladder">
@@ -104,7 +104,7 @@ export default function PortfolioPage() {
                   <td className="py-2 px-3 text-xs" style={{ color: "var(--lunar-text-secondary)" }}>{offer.revenueModel}</td>
                   <td className="py-2 px-3 text-right font-mono text-xs" style={{ color: "var(--lunar-cyan)" }}>{offer.priceRange}</td>
                   <td className="py-2 px-3 text-xs" style={{ color: "var(--lunar-text-secondary)" }}>{offer.launchDate}</td>
-                  <td className="py-2 px-3 text-xs" style={{ color: "var(--lunar-amber)" }}>{offer.gateRequired || "—"}</td>
+                  <td className="py-2 px-3 text-xs" style={{ color: "var(--lunar-amber)" }}>{offer.gateRequired || "–"}</td>
                 </tr>
               ))}
             </tbody>
@@ -117,7 +117,7 @@ export default function PortfolioPage() {
         <div className="lunar-card">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-sm font-semibold" style={{ color: "var(--lunar-text-primary)" }}>
-              Revenue Mix — {scenario.label} 2030
+              Revenue Mix: {scenario.label} 2030
             </h2>
             <EvidenceBadge type="ASSUMPTION" />
           </div>
@@ -130,7 +130,7 @@ export default function PortfolioPage() {
                   <span style={{ color: "var(--lunar-text-secondary)" }}>{label}</span>
                 </div>
                 <span className="font-mono" style={{ color: "var(--lunar-text-primary)" }}>
-                  {compValues[i]}% — €{((compValues[i] / 100) * scenario.revenue2030).toFixed(0)}M
+                  {compValues[i]}%: €{((compValues[i] / 100) * scenario.revenue2030).toFixed(0)}M
                 </span>
               </div>
             ))}
@@ -186,7 +186,7 @@ export default function PortfolioPage() {
                 aria-label="Select model"
               >
                 {MODEL_PRICING.map((m) => (
-                  <option key={m.id} value={m.id}>{m.name} — {m.provider}</option>
+                  <option key={m.id} value={m.id}>{m.name}: {m.provider}</option>
                 ))}
               </select>
             </div>

@@ -107,13 +107,13 @@
   },
   "cockpit": {
     "title": "Executive Decision Room",
-    "subtitle": "Kimi Europe Expansion — Decision System",
+    "subtitle": "Kimi Europe Expansion: Decision System",
     "strategicVerdict": "Strategic Verdict",
     "revenueScenarios": "Revenue Scenarios 2027–2030",
     "complianceStatus": "Compliance Status",
     "workstreamsNeedAttention": "{count} workstreams need attention before EU GA",
     "viewAllWorkstreams": "View all workstreams",
-    "priorityCountries": "Priority Countries — 2027H1 Launch",
+    "priorityCountries": "Priority Countries: 2027 H1 Launch",
     "strategicPrinciples": "5 Strategic Principles",
     "immediateDecisions": "Immediate Decisions Required",
     "owner": "Owner",
@@ -140,7 +140,7 @@
   },
   "market": {
     "title": "Market Sizing Lab",
-    "subtitle": "European AI commercial spend — all assumptions editable",
+    "subtitle": "European AI commercial spend, all assumptions editable",
     "modelNote": "All figures are internal planning assumptions derived from a transparent formula model, not external forecasts.",
     "tam": "Total Addressable Market (TAM)",
     "sam": "Serviceable Addressable Market (SAM)",
@@ -268,22 +268,22 @@
     "title": "Use-Case Atlas",
     "subtitle": "{prioritised} prioritised use cases across sectors, tiers, and deployment modes ({excluded} excluded)",
     "all": "All",
-    "tier1": "Tier 1 — Launch immediately",
-    "tier2": "Tier 2 — Launch with stronger governance",
-    "tier3": "Tier 3 — Later or restricted",
+    "tier1": "Tier 1: Launch immediately",
+    "tier2": "Tier 2: Launch with stronger governance",
+    "tier3": "Tier 3: Later or restricted",
     "excluded": "Do Not Launch Initially",
-    "excludedTitle": "Do Not Launch — AI Act Restrictions",
+    "excludedTitle": "Do Not Launch: AI Act Restrictions",
     "excludedNote": "These use cases are explicitly excluded from initial launch due to AI Act high-risk classification or fundamental-rights concerns.",
     "tiers": {
-      "t1": "Tier 1 — Launch immediately",
-      "t2": "Tier 2 — Launch with stronger governance",
-      "t3": "Tier 3 — Later or restricted",
+      "t1": "Tier 1: Launch immediately",
+      "t2": "Tier 2: Launch with stronger governance",
+      "t3": "Tier 3: Later or restricted",
       "excluded": "Do Not Launch Initially"
     }
   },
   "competition": {
     "title": "Competition Arena",
-    "subtitle": "Directional capability scores — analyst assessments, editable",
+    "subtitle": "Directional capability scores, analyst assessments, editable",
     "scoresNote": "Scores are directional analyst assessments on a 1–5 scale. Editable planning assumptions, not validated benchmarks.",
     "pricing": {
       "priceWarning": "API prices change frequently. Verify against the provider's current pricing page before commercial commitments."
@@ -331,11 +331,11 @@
     },
     "stageGates": {
       "title": "Stage Gates",
-      "gateA": "Gate A — EU GA",
-      "gateB": "Gate B — Enterprise launch",
-      "gateC": "Gate C — Regulated verticals",
-      "gateD": "Gate D — Sovereignty claim",
-      "gateE": "Gate E — Private K3"
+      "gateA": "Gate A: EU GA",
+      "gateB": "Gate B: Enterprise launch",
+      "gateC": "Gate C: Regulated verticals",
+      "gateD": "Gate D: Sovereignty claim",
+      "gateE": "Gate E: Private K3"
     }
   },
   "gtm": {
@@ -375,7 +375,7 @@
   },
   "financials": {
     "title": "Revenue, Sales Capacity & Investment",
-    "subtitle": "Editable financial model — all margin values are planning assumptions",
+    "subtitle": "Editable financial model, all margin values are planning assumptions",
     "costs": {
       "note": "Gross margin is not seeded as a fact. All cost values are editable planning assumptions."
     }
@@ -401,7 +401,7 @@
   },
   "sources": {
     "title": "Source Library",
-    "subtitle": "{count} seeded sources — S1 to S{count}",
+    "subtitle": "{count} seeded sources (S1 to S{count})",
     "confidenceLabel": "confidence",
     "retrievedLabel": "Retrieved",
     "originalLabel": "Original",
@@ -566,11 +566,11 @@
   }
 ,
   "intro": {
-    "headline": "How I would build Kimi's European API revenue — from zero.",
+    "headline": "How I would build Kimi's European API revenue, starting from zero.",
     "byline": "An interactive strategy analysis by Thomas Zijlstra, August 2026",
     "question": "How much revenue could you bring in, and how would you navigate the European market?",
     "questionSource": "Candidate analysis, August 2026",
-    "thesis": "Start with UK developers, anchor in the Netherlands, scale through German enterprise — and build an EU trust architecture that no US hyperscaler or Chinese competitor can match.",
+    "thesis": "Start with UK developers, anchor in the Netherlands, scale through German enterprise, and build an EU trust architecture that no current competitor can match.",
     "viewCV": "View CV",
     "enterStrategy": "Enter the strategy",
     "aboutAnalysis": "About this analysis",

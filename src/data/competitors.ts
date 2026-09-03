@@ -17,8 +17,8 @@ export type CompetitorDimension = (typeof COMPETITOR_DIMENSIONS)[number];
 
 // BenchLM is a candidate-constructed scoring model, not a published external benchmark.
 export const DIMENSION_SOURCES: Record<CompetitorDimension, string> = {
-  frontier_quality: "Candidate model (BenchLM v5.2, Sept 2026) — directional only",
-  agentic_coding: "Candidate model (BenchLM v5.2, Sept 2026) — directional only",
+  frontier_quality: "Candidate model (BenchLM v5.2, Sept 2026), directional only",
+  agentic_coding: "Candidate model (BenchLM v5.2, Sept 2026), directional only",
   long_context: "Candidate model; Kimi: 1M-token published spec",
   task_economics: "Public API pricing pages, Aug 2026",
   open_deployment: "License terms; Hugging Face",
@@ -71,11 +71,11 @@ export const COMPETITORS: Competitor[] = [
     // BenchLM K3: overall 80.78 (#5), AG=74, CO=80. Long context: 1M-token spec.
     scores: buildScores([4.8, 4.8, 5.0, 3.6, 5.0, 1.5, 2.4, 2.8, 2.0, 2.0]),
     notes:
-      "Kimi K3 — BenchLM rank #5 (80.78 BenchAlign). AG=74, CO=80. 1M-token context window (specification, unmatched in open weights). EU hosting not yet live; enterprise controls and trust compliance to be built out.",
+      "Kimi K3, BenchLM rank #5 (80.78 BenchAlign). AG=74, CO=80. 1M-token context window (specification, unmatched in open weights). EU hosting not yet live; enterprise controls and trust compliance to be built out.",
   },
   {
     id: "kimi_target",
-    name: "Kimi (target — 2027)",
+    name: "Kimi (target, 2027)",
     shortName: "Kimi Target",
     color: "#a855f7",
     isKimi: true,
@@ -92,7 +92,7 @@ export const COMPETITORS: Competitor[] = [
     // BenchLM GPT-5.6 Sol: overall 82.39 (#4), AG=69, CO=80, RE=85, MA=97
     scores: buildScores([4.9, 4.6, 4.4, 3.4, 2.0, 4.5, 5.0, 5.0, 4.7, 4.0]),
     notes:
-      "GPT-5.6 Sol — BenchLM rank #4 (82.39 BenchAlign). AG=69, CO=80, RE=85. Dominant distribution. Strong enterprise controls via Azure EU regions. Closed weights.",
+      "GPT-5.6 Sol, BenchLM rank #4 (82.39 BenchAlign). AG=69, CO=80, RE=85. Dominant distribution. Strong enterprise controls via Azure EU regions. Closed weights.",
   },
   {
     id: "anthropic",
@@ -102,17 +102,17 @@ export const COMPETITORS: Competitor[] = [
     // BenchLM Claude Fable 5: 83.32 (#2); Claude Opus 5: 83.24 (#3). AG=80, CO=82, RE=84, KN=97
     scores: buildScores([5.0, 4.9, 4.4, 3.2, 1.5, 4.3, 4.8, 4.6, 5.0, 4.2]),
     notes:
-      "Claude Fable 5 / Opus 5 — BenchLM rank #2/#3 (83.24–83.32). Best AG=80, CO=82, KN=97. Agentic coding leader. Premium pricing. Via AWS EU regions. Closed weights.",
+      "Claude Fable 5 / Opus 5, BenchLM rank #2/#3 (83.24–83.32). Best AG=80, CO=82, KN=97. Agentic coding leader. Premium pricing. Via AWS EU regions. Closed weights.",
   },
   {
     id: "google",
     name: "Google / Gemini",
     shortName: "Google",
     color: "#3b82f6",
-    // BenchLM Gemini 3.6 Flash: overall 75.84 (#10), AG=38, CO=66, KN=69. Flash model — Pro would rank higher.
+    // BenchLM Gemini 3.6 Flash: overall 75.84 (#10), AG=38, CO=66, KN=69. Flash model; Pro would rank higher.
     scores: buildScores([4.5, 3.2, 4.6, 4.3, 2.0, 4.7, 5.0, 5.0, 4.8, 4.5]),
     notes:
-      "Gemini 3.6 Flash — BenchLM rank #10 (75.84). Flash model: AG=38, CO=66 (Pro model would score higher on agentic). Strong EU cloud footprint (GCP). Best multimodal. Competitive Flash pricing.",
+      "Gemini 3.6 Flash, BenchLM rank #10 (75.84). Flash model: AG=38, CO=66 (Pro model would score higher on agentic). Strong EU cloud footprint (GCP). Best multimodal. Competitive Flash pricing.",
   },
   {
     id: "mistral",
@@ -122,7 +122,7 @@ export const COMPETITORS: Competitor[] = [
     // Not in BenchLM top 25 — scores are analyst estimates
     scores: buildScores([4.0, 4.1, 4.0, 5.0, 5.0, 5.0, 4.5, 3.8, 4.8, 5.0]),
     notes:
-      "Not in BenchLM top 25 (Sept 2026) — frontier quality and capability scores are analyst estimates. French company, EU-native. Best EU hosting story. Open weights (Apache 2.0). Price leader. Home turf advantage in France/Germany.",
+      "Not in BenchLM top 25 (Sept 2026); frontier quality and capability scores are analyst estimates. French company, EU-native. Best EU hosting story. Open weights (Apache 2.0). Price leader. Home turf advantage in France/Germany.",
   },
   {
     id: "qwen",
@@ -132,7 +132,7 @@ export const COMPETITORS: Competitor[] = [
     // BenchLM Qwen3.8 Max: overall 79.4 (#7), AG=75, CO=67, RE=96 (top!), IF=94
     scores: buildScores([4.8, 4.4, 5.0, 4.7, 5.0, 3.7, 3.2, 4.0, 3.1, 2.8]),
     notes:
-      "Qwen3.8 Max — BenchLM rank #7 (79.4). RE=96 (top performer — LongBench v2, MRCRv2), IF=94, AG=75. Open weights. China-origin data concern. Limited EU go-to-market infrastructure.",
+      "Qwen3.8 Max, BenchLM rank #7 (79.4). RE=96 (top performer on LongBench v2, MRCRv2), IF=94, AG=75. Open weights. China-origin data concern. Limited EU go-to-market infrastructure.",
   },
   {
     id: "deepseek",
@@ -142,7 +142,7 @@ export const COMPETITORS: Competitor[] = [
     // Not in BenchLM top 25 — scores are analyst estimates
     scores: buildScores([4.1, 4.3, 4.2, 5.0, 5.0, 2.5, 2.5, 3.8, 2.5, 2.5]),
     notes:
-      "Not in BenchLM top 25 (Sept 2026) — capability scores are analyst estimates. Price leader on open weights. China-origin trust concern. Limited EU infrastructure or enterprise controls.",
+      "Not in BenchLM top 25 (Sept 2026); capability scores are analyst estimates. Price leader on open weights. China-origin trust concern. Limited EU infrastructure or enterprise controls.",
   },
 ];
 

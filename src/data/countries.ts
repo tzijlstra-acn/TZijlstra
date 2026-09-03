@@ -108,7 +108,7 @@ export const COUNTRIES: Country[] = [
     aiReadiness: 80,
     regulatoryComplexity: "high",
     notes:
-      "Strong AI research ecosystem (Inria, IDRIS). National sovereignty concerns around AI. Public sector may require French-hosted deployment. Mistral home market — strong competition.",
+      "Strong AI research ecosystem (Inria, IDRIS). National sovereignty concerns around AI. Public sector may require French-hosted deployment. Mistral home market; strong competition.",
   },
   {
     id: "ch",
@@ -129,7 +129,7 @@ export const COUNTRIES: Country[] = [
     aiReadiness: 87,
     regulatoryComplexity: "medium",
     notes:
-      "Not EU member — separate data protection (nDSG). High willingness to pay. Pharma and banking concentrate in Basel/Zurich. Private deployment often required.",
+      "Not EU member; separate data protection (nDSG). High willingness to pay. Pharma and banking concentrate in Basel/Zurich. Private deployment often required.",
   },
   {
     id: "nordics",
@@ -150,7 +150,7 @@ export const COUNTRIES: Country[] = [
     aiReadiness: 90,
     regulatoryComplexity: "medium",
     notes:
-      "Highly digitized markets. Sweden and Denmark are EU members with AI Act applicability. Norway/Iceland via EEA. Strong sustainability values — energy efficiency of models matters.",
+      "Highly digitized markets. Sweden and Denmark are EU members with AI Act applicability. Norway/Iceland via EEA. Strong sustainability values; energy efficiency of models matters.",
   },
   {
     id: "es",
@@ -213,7 +213,7 @@ export const COUNTRIES: Country[] = [
     aiReadiness: 74,
     regulatoryComplexity: "medium",
     notes:
-      "Major nearshore tech hub for EU. Large developer community. Strong SI ecosystem (Accenture, Capgemini, Infosys CEE presence). Price-sensitive market — K2.7 Code sweet spot.",
+      "Major nearshore tech hub for EU. Large developer community. Strong SI ecosystem (Accenture, Capgemini, Infosys CEE presence). Price-sensitive market; K2.7 Code sweet spot.",
   },
   {
     id: "dk",
@@ -375,7 +375,7 @@ export const COUNTRIES: Country[] = [
     flag: "🇭🇺",
     score: 40,
     role: "CEE Watch",
-    entryMode: "Deferred — high political risk",
+    entryMode: "Deferred, high political risk",
     launchPhase: "later",
     workloads: ["Manufacturing", "Automotive"],
     gdpBn: 200,
@@ -553,7 +553,7 @@ export const COUNTRY_DETAIL: Record<string, {
   },
   'CH': {
     iso2: 'CH',
-    headline: 'Switzerland is a high-value trust-sensitive market where private deployment capability is the primary enabler — financial services and pharma are the beachhead.',
+    headline: 'Switzerland is a high-value trust-sensitive market where private deployment capability is the primary enabler; financial services and pharma are the beachhead.',
     whyNow: 'Basel/Zurich concentration of pharma and private banking creates high-value, high-willingness-to-pay accounts. Swiss nDSG separate from EU AI Act.',
     rightToWin: 'Private VPC deployment capability. Pharmaceutical R&D document processing. High WTP removes price pressure.',
     mainBlocker: 'nDSG compliance requires Swiss data residency. Small absolute market size. Premium positioning requires proof from UK/DE.',
@@ -623,9 +623,9 @@ export const COUNTRY_DETAIL: Record<string, {
   },
   'BE': {
     iso2: 'BE',
-    headline: 'Belgium is strategically important as the seat of EU institutions — a Kimi deployment here carries outsized reputational and regulatory signal value.',
+    headline: 'Belgium is strategically important as the seat of EU institutions; a Kimi deployment here carries outsized reputational and regulatory signal value.',
     whyNow: 'Brussels is the EU AI regulation epicentre. Bilingual market (FR/NL) leverages existing localisation. Strong B2B services sector creates near-term demand.',
-    rightToWin: 'Brussels = EU AI regulation epicentre. Bilingual market (FR/NL) — leverages existing localisation. Strong B2B services sector.',
+    rightToWin: 'Brussels = EU AI regulation epicentre. Bilingual market (FR/NL); leverages existing localisation. Strong B2B services sector.',
     mainBlocker: 'Overlap with French and Dutch markets reduces standalone priority',
     whatWouldChange: 'A partnership with an EU institution or major EU policy consultancy would create a unique anchor. Decision required: should Belgium be the site of a Kimi EU AI Act compliance demonstration pilot?',
     revenuePotentialM: { conservative: 10, base: 20, upside: 38 },

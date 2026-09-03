@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useCallback } from "react";
 import { useQueryState } from "nuqs";
@@ -112,8 +112,7 @@ function Scene1() {
             The immediate prerequisite
           </div>
           <p className="text-sm leading-relaxed" style={{ color: "var(--lunar-text-primary)" }}>
-            Phase 0 — legal entity, data centre path, GPAI classification, and initial
-            market listening — creates the conditions from which sustainable commercial
+            Phase 0 (legal entity, data centre path, GPAI classification, and initial market listening) creates the conditions from which sustainable commercial
             activity can grow with confidence. This foundation work allows Phase 1 to proceed
             from genuine market understanding, with each legal and commercial prerequisite
             in place before resources are deployed.
@@ -136,7 +135,7 @@ function Scene1() {
             What I bring
           </div>
           <p className="text-sm leading-relaxed" style={{ color: "var(--lunar-text-primary)" }}>
-            What I hope to contribute is careful, evidence-based market development — not a
+            What I hope to contribute is careful, evidence-based market development; not a
             pre-set plan. My background across European enterprise markets gives me familiarity
             with how AI is being evaluated and procured in this region, and with the regulatory
             context that shapes those decisions. The first 90 days would be spent listening and
@@ -159,7 +158,7 @@ function Scene2() {
       observation:
         "EU AI Act GPAI obligations took effect in 2025–2026, with enforcement ramping through 2027.",
       implication:
-        "An organisation that establishes a complete, audited EU compliance architecture now will earn meaningful shortlisting consideration at enterprise level — while this remains a genuine differentiator rather than table stakes.",
+        "An organisation that establishes a complete, audited EU compliance architecture now will earn meaningful shortlisting consideration at enterprise level, while this remains a genuine differentiator rather than table stakes.",
       color: "var(--lunar-violet)",
     },
     {
@@ -176,7 +175,7 @@ function Scene2() {
       observation:
         "EU enterprises face growing pressure to reduce dependence on US-only AI hyperscalers, combined with reluctance to adopt China-origin models without EU data controls.",
       implication:
-        "Kimi's combination of frontier capability, open weights, and EU data residency creates a structurally distinctive position — one that no current provider has yet established.",
+        "Kimi's combination of frontier capability, open weights, and EU data residency creates a structurally distinctive position; no current provider has yet established this.",
       color: "var(--lunar-green)",
     },
   ];
@@ -260,7 +259,7 @@ function Scene3() {
       score: 84,
       role: "Developer & API growth engine",
       rationale:
-        "Post-Brexit regulatory environment more permissive than EU. Highest developer density in Europe. AI Action Plan signals government support. Outside EU AI Act in 2026 — no compliance gate for initial traction.",
+        "Post-Brexit regulatory environment more permissive than EU. Highest developer density in Europe. AI Action Plan signals government support. Outside EU AI Act in 2026; no compliance gate for initial traction.",
     },
     {
       id: "de",
@@ -269,7 +268,7 @@ function Scene3() {
       score: 83,
       role: "EU enterprise & industrial anchor",
       rationale:
-        "Largest EU economy. SAP, Siemens, VW — high-context AI workloads requiring EU data residency. Enterprise credibility market. Compliance capability becomes commercial filter.",
+        "Largest EU economy. SAP, Siemens, VW; high-context AI workloads requiring EU data residency. Enterprise credibility market. Compliance capability becomes commercial filter.",
     },
     {
       id: "nl",
@@ -278,7 +277,7 @@ function Scene3() {
       score: 79,
       role: "EU operating, cloud, ISV hub",
       rationale:
-        "Natural EU HQ location. Amsterdam: primary EU data center target. ASML, ING, Booking.com — strong ISV ecosystem. Coordination hub for EU operating model.",
+        "Natural EU HQ location. Amsterdam: primary EU data center target. ASML, ING, Booking.com; strong ISV ecosystem. Coordination hub for EU operating model.",
     },
   ];
 
@@ -293,7 +292,7 @@ function Scene3() {
     "Government, defence, and critical infrastructure (prohibited category risk)",
     "Southern and eastern Europe in Phase 1 (resource constraint)",
     "Sovereign/on-prem deployments before Gate A (EU data boundary) satisfied",
-    "Consumer market (B2C) — enterprise-first to build trust foundation",
+    "Consumer market (B2C); enterprise-first to build trust foundation",
   ];
 
   return (
@@ -456,7 +455,7 @@ function Scene4() {
   ];
 
   const keyAssumptions = [
-    { label: "EU data residency live", value: "Gate A — follows onboarding", confidence: "CRITICAL PATH" },
+    { label: "EU data residency live", value: "Gate A (follows onboarding)", confidence: "CRITICAL PATH" },
     { label: "Enterprise sales cycle", value: "~120 days", confidence: "ASSUMPTION" },
     { label: "Benchmark customer usage growth", value: "Leading indicator at 6 months", confidence: "KEY METRIC" },
     { label: "Avg contract value (planning proxy)", value: "€250K ARR", confidence: "ASSUMPTION" },
@@ -480,7 +479,7 @@ function Scene4() {
           Lead metric:
         </span>
         <span style={{ color: "var(--lunar-text-secondary)" }}>
-          Monthly customer consumption — qualified workloads running on Kimi, usage growing month on month.
+          Monthly customer consumption: qualified workloads running on Kimi, usage growing month on month.
           ARR is a planning proxy. The real validation is a benchmark customer showing continuous, increasing usage at six months.
         </span>
       </div>
@@ -583,7 +582,7 @@ function Scene4() {
           className="text-xs leading-relaxed mt-3 pt-3"
           style={{ color: "var(--lunar-text-muted)", borderTop: "1px solid var(--lunar-border-subtle)" }}
         >
-          Note: Success is measured by actual customer consumption (usage), not contracted amounts —
+          Note: Success is measured by actual customer consumption (usage), not contracted amounts,
           consistent with a MaaS model. ARR figures above are a planning proxy; real traction is
           validated by benchmark customers showing continuous, growing usage over time.
         </p>
@@ -613,7 +612,7 @@ function Scene5() {
       earliestSignal:
         "EU AI Office pre-classification notification for systemic-risk review",
       killCriterion:
-        "Systemic-risk classification without compliance program ready — delays all EU commercial activity",
+        "Systemic-risk classification without compliance program ready; delays all EU commercial activity",
     },
   ];
 
@@ -631,7 +630,7 @@ function Scene5() {
           className="text-xs font-semibold uppercase tracking-widest mb-2"
           style={{ color: "var(--lunar-red)" }}
         >
-          Red team — top 3 risks
+          Red team: top 3 risks
         </div>
         <h2
           className="text-2xl font-bold leading-snug mb-1"
@@ -740,15 +739,15 @@ function Scene6() {
   ];
 
   const ninetyDays = [
-    { output: "Gate A complete: all prerequisites met", kpi: "Go/No-Go for Phase 1 — timing agreed following onboarding", decision: "Phase 1 proceeds from a verified foundation, with each prerequisite genuinely confirmed" },
+    { output: "Gate A complete: all prerequisites met", kpi: "Go/No-Go for Phase 1, timing agreed following onboarding", decision: "Phase 1 proceeds from a verified foundation, with each prerequisite genuinely confirmed" },
     { output: "First 3 to 5 design-partner conversations active, usage potential visible", kpi: "Early consumption signals from benchmark customers", decision: "Growth trajectory begins to take shape; first indicators of genuine usage emerging" },
     { output: "6-month and 12-month success milestones agreed with leadership", kpi: "Shared and jointly agreed definition of progress", decision: "Measurement framework centred on consumption growth, agreed together with leadership" },
   ];
 
   const executiveQuestions = [
-    "What signals within the first 90 days would confirm — or reshape — the country sequence? What would a good outcome at that joint decision point look like?",
-    "How should we define benchmark customer usage at 6 months — what consumption growth validates the approach before scaling resources?",
-    "How should we understand the value created by Phase 0, given that its contribution is a verified foundation and a shared view of the right markets — and what would give leadership confidence that this preparation had been well placed?",
+    "What signals within the first 90 days would confirm or reshape the country sequence? What would a good outcome at that joint decision point look like?",
+    "How should we define benchmark customer usage at 6 months; what consumption growth validates the approach before scaling resources?",
+    "How should we understand the value created by Phase 0, given that its contribution is a verified foundation and a shared view of the right markets, and what would give leadership confidence that this preparation had been well placed?",
   ];
 
   return (
@@ -769,7 +768,7 @@ function Scene6() {
         <p className="text-sm" style={{ color: "var(--lunar-text-secondary)" }}>
           Phase 0 is a preparation phase with no revenue target. It begins with Beijing
           alignment, then moves into careful market discovery. Progress is understood through
-          customer consumption growth over time. Gate A completion enables Phase 1 — timing
+          customer consumption growth over time. Gate A completion enables Phase 1, timing
           to be agreed following role commencement.
         </p>
       </div>

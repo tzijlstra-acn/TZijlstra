@@ -163,7 +163,7 @@ function SequencePageInner() {
   const handleSaveToLog = () => {
     const sequenceStr = countries.map((c, i) => `${i + 1}. ${c.flag} ${c.name}`).join(', ');
     addDecision({
-      text: `Entry Sequence: ${scenarioLabel} — ${sequenceStr}`,
+      text: `Entry Sequence: ${scenarioLabel}: ${sequenceStr}`,
       status: 'proposed',
       owner: 'Strategy Team',
       date: new Date().toISOString().slice(0, 10),
@@ -215,7 +215,7 @@ function SequencePageInner() {
             className="px-4 py-3 border-b text-xs font-semibold"
             style={{ borderColor: 'var(--lunar-border-subtle)', color: 'var(--lunar-text-muted)' }}
           >
-            Drag to reorder — priority sequence
+            Drag to reorder (priority sequence)
           </div>
           <ol className="divide-y" style={{ borderColor: 'var(--lunar-border-subtle)' }}>
             {countries.map((country, idx) => (
@@ -235,7 +235,7 @@ function SequencePageInner() {
                   cursor: 'grab',
                   borderLeft: idx === 0 ? '3px solid var(--lunar-cyan)' : '3px solid transparent',
                 }}
-                aria-label={`${idx + 1}. ${country.name} — drag to reorder`}
+                aria-label={`${idx + 1}. ${country.name}: drag to reorder`}
               >
                 {/* Rank */}
                 <span
@@ -318,7 +318,7 @@ function SequencePageInner() {
               </p>
               <div className="text-xs mt-2 flex items-center gap-1" style={{ color: 'var(--lunar-text-muted)' }}>
                 {countries[0] && <FlagIcon iso2={countries[0].iso2} size={16} />}
-                {countries[0]?.name} — #{1} in sequence
+                {countries[0]?.name}, #{1} in sequence
               </div>
             </div>
             <div className="lunar-card">

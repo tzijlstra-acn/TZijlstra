@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useTranslations } from "next-intl";
 import { useAppStore } from "@/store";
@@ -219,7 +219,7 @@ export default function FinancialsPage() {
           <h2 className="text-sm font-semibold" style={{ color: "var(--lunar-text-primary)" }}>
             2027 Revenue Bridge
           </h2>
-          <EvidenceBadge type="ASSUMPTION" reasoning="Model assumption — not a committed forecast. Board approval required before treating as plan." />
+          <EvidenceBadge type="ASSUMPTION" reasoning="Model assumption; not a committed forecast. Board approval required before treating as plan." />
         </div>
         <p className="text-xs mb-4" style={{ color: "var(--lunar-amber)" }}>
           {REVENUE_BRIDGE_2027.note}

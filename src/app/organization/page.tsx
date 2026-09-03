@@ -173,7 +173,7 @@ export default function OrganizationPage() {
       <div className="lunar-card">
         <h2 className="text-sm font-semibold mb-3" style={{ color: "var(--lunar-text-primary)" }}>
           Team Cost Assumptions
-          <EvidenceBadge type="ASSUMPTION" className="ml-2" reasoning="Fully-loaded cost estimates for planning only — market rates vary by location and seniority" />
+          <EvidenceBadge type="ASSUMPTION" className="ml-2" reasoning="Fully-loaded cost estimates for planning only; market rates vary by location and seniority" />
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs">
           <div className="p-2 rounded" style={{ background: "var(--lunar-elevated)" }}>

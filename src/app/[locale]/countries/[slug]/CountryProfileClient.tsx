@@ -350,7 +350,7 @@ export default function CountryPage() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-2 text-xs" style={{ color: 'var(--lunar-text-muted)' }}>Illustrative targets — not confirmed customers</div>
+                  <div className="mt-2 text-xs" style={{ color: 'var(--lunar-text-muted)' }}>Illustrative targets; not confirmed customers</div>
                 </div>
               );
             })()}
@@ -372,7 +372,7 @@ export default function CountryPage() {
           <div className="space-y-4">
             <div className="lunar-card">
               <h2 className="text-sm font-semibold mb-4" style={{ color: 'var(--lunar-text-primary)' }}>
-                Market & Industries — {names.en}
+                Market & Industries: {names.en}
               </h2>
               {countryData && (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
@@ -438,14 +438,14 @@ export default function CountryPage() {
                       Target Accounts
                     </h3>
                     <span className="text-xs px-2 py-0.5 rounded" style={{ background: 'rgba(239,68,68,0.1)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.2)' }}>
-                      Illustrative — not confirmed customers
+                      Illustrative; not confirmed customers
                     </span>
                   </div>
 
                   {/* Tier 1 */}
                   {tier1.length > 0 && (
                     <div className="mb-4">
-                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-green)' }}>Tier 1 — Strategic Priority</div>
+                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-green)' }}>Tier 1: Strategic Priority</div>
                       <div className="space-y-2">
                         {tier1.map(company => (
                           <div
@@ -470,7 +470,7 @@ export default function CountryPage() {
                   {/* Tier 2 */}
                   {tier2.length > 0 && (
                     <div className="mb-4">
-                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-cyan)' }}>Tier 2 — Secondary</div>
+                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-cyan)' }}>Tier 2: Secondary</div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {tier2.map(company => (
                           <div
@@ -492,7 +492,7 @@ export default function CountryPage() {
                   {/* Tier 3 */}
                   {tier3.length > 0 && (
                     <div>
-                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-text-muted)' }}>Tier 3 — Longer Arc</div>
+                      <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--lunar-text-muted)' }}>Tier 3: Longer Arc</div>
                       <div className="flex flex-wrap gap-2">
                         {tier3.map(company => (
                           <div
@@ -509,7 +509,7 @@ export default function CountryPage() {
                   )}
 
                   <div className="mt-3 text-xs" style={{ color: 'var(--lunar-text-muted)' }}>
-                    Moonshot AI Europe Target Account Intelligence · Illustrative — not confirmed customers
+                    Moonshot AI Europe Target Account Intelligence · Illustrative; not confirmed customers
                   </div>
                 </div>
               );
@@ -576,7 +576,7 @@ export default function CountryPage() {
           <div className="space-y-4">
             <div className="lunar-card">
               <h2 className="text-sm font-semibold mb-4" style={{ color: 'var(--lunar-text-primary)' }}>
-                Product & Commercial — {names.en}
+                Product & Commercial: {names.en}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -605,7 +605,7 @@ export default function CountryPage() {
           <div className="space-y-4">
             <div className="lunar-card">
               <h2 className="text-sm font-semibold mb-4" style={{ color: 'var(--lunar-text-primary)' }}>
-                Regulation & Trust — {names.en}
+                Regulation & Trust: {names.en}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -644,7 +644,7 @@ export default function CountryPage() {
           <div className="space-y-4">
             <div className="lunar-card">
               <h2 className="text-sm font-semibold mb-4" style={{ color: 'var(--lunar-text-primary)' }}>
-                Economics — {names.en}
+                Economics: {names.en}
               </h2>
               <EvidenceBadge type="ASSUMPTION" reasoning="All values are editable planning assumptions" />
               <div className="grid grid-cols-3 gap-6 mt-4">
@@ -675,7 +675,7 @@ export default function CountryPage() {
           <div className="space-y-4">
             <div className="lunar-card">
               <h2 className="text-sm font-semibold mb-4" style={{ color: 'var(--lunar-text-primary)' }}>
-                Roadmap & Team — {names.en}
+                Roadmap & Team: {names.en}
               </h2>
               <div className="space-y-4">
                 <div>
@@ -709,7 +709,7 @@ export default function CountryPage() {
           <div className="space-y-4">
             <div className="lunar-card">
               <h2 className="text-sm font-semibold mb-4" style={{ color: 'var(--lunar-text-primary)' }}>
-                Evidence & Sources — {names.en}
+                Evidence & Sources: {names.en}
               </h2>
               <p className="text-sm" style={{ color: 'var(--lunar-text-secondary)' }}>
                 Country assessments draw from the following source categories:

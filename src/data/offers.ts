@@ -21,7 +21,7 @@ export type Offer = z.infer<typeof OfferSchema>;
 export const OFFERS: Offer[] = [
   {
     id: "kimi_api_payg",
-    name: "Kimi API — Pay-as-you-go",
+    name: "Kimi API: Pay-as-you-go",
     tier: "developer",
     buyer: "Developer / Startup / Researcher",
     revenueModel: "Token consumption ($/M tokens)",
@@ -41,7 +41,7 @@ export const OFFERS: Offer[] = [
   },
   {
     id: "kimi_api_committed",
-    name: "Kimi API — Committed Consumption",
+    name: "Kimi API: Committed Consumption",
     tier: "business",
     buyer: "Scale-up / ISV / Mid-market",
     revenueModel: "Annual committed spend + overage",
@@ -136,7 +136,7 @@ export const OFFERS: Offer[] = [
     name: "Kimi Managed VPC",
     tier: "enterprise",
     buyer: "CISO / CTO regulated enterprise",
-    revenueModel: "Annual subscription — infrastructure + model access",
+    revenueModel: "Annual subscription, infrastructure and model access",
     launchDate: "2028",
     priceRange: "€500K–€5M+ ACV",
     currency: "EUR",
@@ -215,7 +215,7 @@ export const MODEL_ROUTING = [
   {
     workload: "Long-context analysis (> 200K tokens)",
     recommended: "K3",
-    escalation: "N/A — K3 handles up to 1M tokens natively",
+    escalation: "N/A; K3 handles up to 1M tokens natively",
   },
   {
     workload: "Customer support chat",

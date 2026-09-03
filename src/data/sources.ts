@@ -67,7 +67,7 @@ export const SOURCES: Source[] = [
   },
   {
     id: "S6",
-    title: "Eurostat Structural Business Statistics — ICT & software spend",
+    title: "Eurostat Structural Business Statistics: ICT and software spend",
     publisher: "Eurostat / European Commission",
     url: "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Structural_business_statistics_overview",
     retrievalDate: "2026-08-22",
@@ -78,13 +78,13 @@ export const SOURCES: Source[] = [
   },
   {
     id: "S7",
-    title: "EU AI Act — full text and enforcement timeline",
+    title: "EU AI Act: full text and enforcement timeline",
     publisher: "European Commission",
     url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
     retrievalDate: "2026-08-22",
     entities: ["AI Act", "GPAI", "high-risk AI"],
     confidence: "high",
-    excerpt: "Regulation (EU) 2024/1689 — enforcement dates and obligations",
+    excerpt: "Regulation (EU) 2024/1689, enforcement dates and obligations",
   },
   {
     id: "S8",
@@ -131,7 +131,7 @@ export const SOURCES: Source[] = [
   },
   {
     id: "S12",
-    title: "NIS2 Directive — network and information security",
+    title: "NIS2 Directive: network and information security",
     publisher: "European Commission",
     url: "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive",
     retrievalDate: "2026-08-22",
@@ -214,7 +214,7 @@ export const SOURCES: Source[] = [
   },
   {
     id: "S20",
-    title: "Alibaba Cloud Model Studio — Qwen pricing",
+    title: "Alibaba Cloud Model Studio: Qwen pricing",
     publisher: "Alibaba Cloud",
     url: "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
     retrievalDate: "2026-08-22",

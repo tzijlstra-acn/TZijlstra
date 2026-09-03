@@ -38,11 +38,11 @@ export default function StrategyPage() {
           </div>
           <div className="space-y-1">
             <div className="text-xs font-semibold" style={{ color: "#a855f7" }}>Enterprise buyer: compliant by design</div>
-            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>EU procurement teams are not buying AI — they are managing risk. The narrative is not &apos;best model&apos; but &apos;only model with a native EU data trust architecture that procurement can sign off without a 6-month legal review.&apos;</p>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>EU procurement teams are not buying AI; they are managing risk. The narrative is not &apos;best model&apos; but &apos;only model with a native EU data trust architecture that procurement can sign off without a 6-month legal review.&apos;</p>
           </div>
           <div className="space-y-1">
             <div className="text-xs font-semibold" style={{ color: "var(--lunar-amber)" }}>Developer: best context per dollar</div>
-            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>1M-token context window at sub-GPT-4o pricing. For developers building document-intensive applications — legal, financial, pharma — this is not a marginal improvement; it is the only model that makes their use case technically feasible.</p>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lunar-text-secondary)" }}>1M-token context window at sub-GPT-4o pricing. For developers building document-intensive applications (legal, financial, pharma); this is not a marginal improvement; it is the only model that makes their use case technically feasible.</p>
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@ export default function StrategyPage() {
 
       {/* Narrative cards by audience */}
       <div>
-        <h2 className="section-header mb-4 flex items-center gap-1">{t("narrativesTitle")} <InfoTooltip text="The same underlying strategy is framed three ways — one for each audience. Each narrative is truthful; each speaks to different decision criteria." /></h2>
+        <h2 className="section-header mb-4 flex items-center gap-1">{t("narrativesTitle")} <InfoTooltip text="The same underlying strategy is framed three ways: one for each audience. Each narrative is truthful; each speaks to different decision criteria." /></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="lunar-card">
             <div className="stat-label mb-2" style={{ color: "var(--lunar-violet)" }}>{t("boardNarrative")}</div>

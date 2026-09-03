@@ -5,16 +5,16 @@ export interface SwotItem {
 
 export const SWOT_ANALYSIS = {
   strengths: [
-    { title: "Open-weight sovereignty", body: "K2.6, K2.7, K3 under Modified MIT. EU enterprises self-host on EU infrastructure — zero GDPR/Schrems II transfer risk." },
-    { title: "1M-token context window", body: "8× GPT-5.6, 4× Claude. Genuine differentiator for legal documents, codebases, and clinical literature — no competitor matches this in open weights." },
+    { title: "Open-weight sovereignty", body: "K2.6, K2.7, K3 under Modified MIT. EU enterprises self-host on EU infrastructure, with zero GDPR/Schrems II transfer risk." },
+    { title: "1M-token context window", body: "8× GPT-5.6, 4× Claude. Genuine differentiator for legal documents, codebases, and clinical literature; no competitor matches this in open weights." },
     { title: "Cost-per-task efficiency", body: "Favourable cost-per-task on multi-step workloads based on candidate modelling. Exact task-unit economics vary by workload and must be validated against customer requirements." },
-    { title: "AWS Marketplace + EU infrastructure", body: "Immediate enterprise credibility. Procurement via existing AWS contracts — no new vendor onboarding required." },
+    { title: "AWS Marketplace + EU infrastructure", body: "Immediate enterprise credibility. Procurement via existing AWS contracts; no new vendor onboarding required." },
     { title: "Agentic capabilities", body: "Native 300-sub-agent swarm (K2.6+), Kimi Work desktop agent. Ahead of most open-weight providers on agentic AI." },
     { title: "Capital position", body: "Reported strong capitalisation and valuation (figures from public reporting, unverified by candidate). Signals long-term stability to risk-averse European procurement teams." },
-    { title: "Proven Western traction", body: "Cursor, DoorDash, Coinbase, Airbnb, Thinking Machines Lab. Not 'cheap alternative' — 'better quality, lower cost.'" },
+    { title: "Proven Western traction", body: "Cursor, DoorDash, Coinbase, Airbnb, Thinking Machines Lab. Not 'cheap alternative': 'better quality, lower cost.'" },
   ] as SwotItem[],
   weaknesses: [
-    { title: "Geopolitical origin", body: "Chinese-origin AI faces regulatory scrutiny in Western markets. US regulatory environment has been challenging; EU procurement teams typically run additional legal and security review. Specific regulatory actions evolve — verify current status before citing." },
+    { title: "Geopolitical origin", body: "Chinese-origin AI faces regulatory scrutiny in Western markets. US regulatory environment has been challenging; EU procurement teams typically run additional legal and security review. Specific regulatory actions evolve; verify current status before citing." },
     { title: "Compliance certification gap", body: "No published SOC 2, HITRUST, HIPAA BAA, or ISO 27001 for hosted API. Enterprise tier claims privacy but lacks independent attestation." },
     { title: "Hosted API data residency", body: "API operated by Moonshot AI PTE. LTD. (Singapore), data stored in Singapore. GDPR-blocking for EU-covered data without self-hosting." },
     { title: "Ecosystem immaturity", body: "Fewer tutorials, integrations, community resources than OpenAI/Anthropic. EU developer teams hit thinner support when edge-casing." },
@@ -24,19 +24,19 @@ export const SWOT_ANALYSIS = {
   ] as SwotItem[],
   opportunities: [
     { title: "Sovereign AI megatrend", body: "Strong enterprise demand signal for AI sovereignty driven by EU AI Act and Schrems II compliance requirements. Market research figures circulate widely in this space; candidate has not independently verified specific survey statistics." },
-    { title: "European AI adoption gap", body: "EU enterprise AI adoption at 13.48% (2024). The gap is not lack of interest — it is data governance. Self-hosted open-weight models close this." },
+    { title: "European AI adoption gap", body: "EU enterprise AI adoption at 13.48% (2024). The gap is not lack of interest; it is data governance. Self-hosted open-weight models close this." },
     { title: "SI channel opportunity", body: "European SIs (Accenture, Capgemini, Deloitte) need competitive, sovereign AI models to build practices around. Open weights mean no vendor lock-in for them." },
     { title: "EU AI Act compliance window", body: "Phased enforcement beginning August 2026. Enterprises need audit trails, transparency, data control. Self-hosted Kimi + local logging = compliant architecture." },
-    { title: "Price arbitrage vs. US incumbents", body: "K3 at $15/M output vs. comparable premium frontier alternatives. European enterprises under margin pressure — compelling CFO conversation. Pricing from public API pages as of August 2026." },
+    { title: "Price arbitrage vs. US incumbents", body: "K3 at $15/M output vs. comparable premium frontier alternatives. European enterprises under margin pressure, a compelling CFO conversation. Pricing from public API pages as of August 2026." },
     { title: "AWS Marketplace acceleration", body: "European AWS customers discover and procure through existing cloud contracts, bypassing lengthy vendor onboarding processes." },
     { title: "Open-source ecosystem lock-in", body: "If Kimi becomes the default open-weight model for EU developers (via Ollama, vLLM, Hugging Face), creates stickiness that transcends geopolitical concerns." },
   ] as SwotItem[],
   threats: [
     { title: "Mistral: the 'safe' EU alternative", body: "French/German government framework agreements (2026–2030), HSBC, Stellantis, Veolia, Apache 2.0. For risk-averse CISOs, Mistral is the default sovereign choice." },
-    { title: "EU AI Act systemic risk classification", body: "If K3 training run crosses 10^25 FLOP threshold, triggers additional compliance burdens — red-teaming, incident reporting — slowing enterprise adoption." },
+    { title: "EU AI Act systemic risk classification", body: "If K3 training run crosses 10^25 FLOP threshold, triggers additional compliance burdens (red-teaming, incident reporting), slowing enterprise adoption." },
     { title: "Geopolitical escalation", body: "If EU governments follow the US lead and restrict Chinese AI models on sensitive infrastructure, Moonshot faces de facto bans in public sector and critical infrastructure." },
     { title: "DeepSeek on price", body: "DeepSeek pricing is the budget benchmark in public AI pricing. For pure cost plays, Moonshot is vulnerable at the low end. DeepSeek pricing from public channels as of August 2026." },
-    { title: "Open-weight monetisation challenge", body: "Enterprises self-hosting K3 pay $0 API fees. Must capture value through support, fine-tuning, or the $20M+ revenue-sharing clause — enforcement is untested." },
+    { title: "Open-weight monetisation challenge", body: "Enterprises self-hosting K3 pay $0 API fees. Must capture value through support, fine-tuning, or the $20M+ revenue-sharing clause; enforcement is untested." },
     { title: "Safety and reputation risk", body: "Open weights can be misused. One high-profile incident (deepfakes, cyberattack tooling) triggers regulatory backlash against all Chinese open-weight models." },
     { title: "US CLOUD Act perception", body: "Even when self-hosted, some European buyers conflate 'Chinese model' with 'foreign surveillance risk.' Mistral benefits from EU-native, no CLOUD Act exposure." },
   ] as SwotItem[],
@@ -52,7 +52,7 @@ export const TACTICAL_PLAYS: TacticalPlay[] = [
   {
     number: 1,
     title: "The Frankfurt Self-Host Narrative",
-    quote: "For every Tier 2 and 3 prospect, the first meeting should end with a technical workshop on running K3 on AWS Frankfurt — not a pricing discussion. Once they see it running on their own VPC, the geopolitical objection evaporates.",
+    quote: "For every Tier 2 and 3 prospect, the first meeting should end with a technical workshop on running K3 on AWS Frankfurt, not a pricing discussion. Once they see it running on their own VPC, the geopolitical objection evaporates.",
   },
   {
     number: 2,
@@ -67,7 +67,7 @@ export const TACTICAL_PLAYS: TacticalPlay[] = [
   {
     number: 4,
     title: "The Mistral Defense",
-    quote: "When prospects say 'but we're talking to Mistral,' respond: 'Mistral is excellent for French chat and government framework deals. For 1M-token document analysis, coding agents, and multimodal industrial use cases, K3 benchmarks higher — and unlike Mistral's largest models, K3 is available as open weights today.'",
+    quote: "When prospects say 'but we're talking to Mistral,' respond: 'Mistral is excellent for French chat and government framework deals. For 1M-token document analysis, coding agents, and multimodal industrial use cases, K3 benchmarks higher; and unlike Mistral's largest models, K3 is available as open weights today.'",
   },
   {
     number: 5,
@@ -86,10 +86,10 @@ export interface RegionalCity {
 
 export const REGIONAL_MATRIX: RegionalCity[] = [
   { region: "London, UK", priority: "P0", why: "Densest LegalTech, FinTech, AI startup, and SI cluster in Europe. English-native market.", verticals: "LegalTech, RegTech, DevTools, SIs", density: "Highest" },
-  { region: "Paris, France", priority: "P0", why: "Enterprise HQ density (CAC40). Government AI framework opportunities. Mistral's backyard — must compete here.", verticals: "Enterprise, Luxury, Government, AI Research", density: "Highest" },
+  { region: "Paris, France", priority: "P0", why: "Enterprise HQ density (CAC40). Government AI framework opportunities. Mistral's backyard; must compete here.", verticals: "Enterprise, Luxury, Government, AI Research", density: "Highest" },
   { region: "Munich / Berlin, Germany", priority: "P0", why: "Industrial giants (Siemens, BMW, Bosch). Mittelstand manufacturing. Strong self-hosting culture.", verticals: "Industrial, Automotive, SaaS", density: "Highest" },
-  { region: "Amsterdam, Netherlands", priority: "P1", why: "EU HQ for US tech — ideal for 'sovereign alternative' pitch. AWS EU-West-1 region. Fintech hub.", verticals: "FinTech, SaaS, Enterprise EU HQs", density: "High" },
-  { region: "Zurich / Geneva, Switzerland", priority: "P1", why: "Pharma (Roche, Novartis), banking, high ACV, privacy-obsessed. Not EU — different regulatory frame.", verticals: "Pharma, Banking, Research", density: "High" },
+  { region: "Amsterdam, Netherlands", priority: "P1", why: "EU HQ for US tech, ideal for 'sovereign alternative' pitch. AWS EU-West-1 region. Fintech hub.", verticals: "FinTech, SaaS, Enterprise EU HQs", density: "High" },
+  { region: "Zurich / Geneva, Switzerland", priority: "P1", why: "Pharma (Roche, Novartis), banking, high ACV, privacy-obsessed. Not EU member; different regulatory frame.", verticals: "Pharma, Banking, Research", density: "High" },
   { region: "Stockholm / Copenhagen, Nordics", priority: "P1", why: "SaaS unicorn factory (Spotify, Klarna legacy). English-fluent. Early tech adopters.", verticals: "SaaS, FinTech, Industrial", density: "Medium-High" },
   { region: "Dublin, Ireland", priority: "P1", why: "EU HQ for US RegTech/Fintech. AWS/Azure EU presence. Low corporate tax = high enterprise density.", verticals: "RegTech, Enterprise EU HQs", density: "Medium" },
   { region: "Cambridge / Oxford, UK", priority: "P1", why: "DeepTech, biotech, AI research. University spinouts with venture funding.", verticals: "Biotech, Research, LegalTech", density: "Medium" },
@@ -106,7 +106,7 @@ export interface NoFitSegment {
 export const NO_FIT_SEGMENTS: NoFitSegment[] = [
   { name: "EU Defense / Military", reason: "Mistral has French Armed Forces framework agreement through 2030. Procurement is politically and commercially locked down." },
   { name: "EU Government Critical Infrastructure", reason: "Likely to face de facto bans on Chinese-origin AI models in sensitive sectors. National security review will block." },
-  { name: "Small Startups Without MLOps", reason: "K3 requires 64+ accelerators to self-host. Without that capability, hosted API at $15/M output is premium pricing — they default to cheaper APIs." },
+  { name: "Small Startups Without MLOps", reason: "K3 requires 64+ accelerators to self-host. Without that capability, hosted API at $15/M output is premium pricing; they default to cheaper APIs." },
   { name: "Pure-Play Multilingual EU Content", reason: "If the primary use case is French legal drafting or German customer service, Mistral outperforms Kimi. Do not compete where you are weakest." },
   { name: "Healthcare Providers (Patient-Facing)", reason: "No HIPAA BAA, no HITRUST, no EU health data compliance certification. Until Moonshot publishes these, patient data is a no-go for hosted API." },
   { name: "US Government Contractors (EU Subsidiaries)", reason: "US export controls and FAR/DFARS clauses may prohibit use of Chinese-origin models. Procurement compliance will block." },

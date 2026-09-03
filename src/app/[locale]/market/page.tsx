@@ -174,7 +174,7 @@ export default function MarketPage() {
       {/* KPIs */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="lunar-card">
-          <div className="stat-label flex items-center gap-1">{t("tam2026")} <InfoTooltip text="Total Addressable Market — the theoretical maximum revenue if Kimi captured 100% of European enterprise AI spend." /></div>
+          <div className="stat-label flex items-center gap-1">{t("tam2026")} <InfoTooltip text="Total Addressable Market: the theoretical maximum revenue if Kimi captured 100% of European enterprise AI spend." /></div>
           <div className="stat-number" style={{ color: "var(--lunar-text-secondary)" }}>€{TAM_2026_BASE.toFixed(2)}B</div>
           <EvidenceBadge type="MODEL" formula="Sum of 5 spend pools" />
         </div>
@@ -184,7 +184,7 @@ export default function MarketPage() {
           <EvidenceBadge type="MODEL" formula={`CAGR ~${marketAssumptions.tamGrowthRate}%`} />
         </div>
         <div className="lunar-card">
-          <div className="stat-label flex items-center gap-1">{t("sam2030")} <InfoTooltip text="Serviceable Addressable Market — the portion of TAM reachable given Kimi's target countries, product fit, and procurement constraints. Editable above." /></div>
+          <div className="stat-label flex items-center gap-1">{t("sam2030")} <InfoTooltip text="Serviceable Addressable Market: the portion of TAM reachable given Kimi's target countries, product fit, and procurement constraints. Editable above." /></div>
           <div className="stat-number" style={{ color: "var(--lunar-violet)" }}>€{sam.toFixed(2)}B</div>
           <EvidenceBadge type="MODEL" formula="TAM × country × fit × procurement" />
         </div>
@@ -339,7 +339,7 @@ export default function MarketPage() {
       </div>
 
       <div className="text-xs rounded-lg p-3" style={{ background: "var(--lunar-elevated)", color: "var(--lunar-text-muted)", border: "1px solid var(--lunar-border-subtle)" }}>
-        <strong style={{ color: "var(--lunar-amber)" }}>{t("methodologyNote")}:</strong> TAM figures are analyst estimates based on Eurostat enterprise ICT spend data (S6) and EU AI adoption research (S15), adjusted for AI-specific segments. CAGR assumptions reflect observed cloud and AI market growth trajectories. All figures are working assumptions — not audited forecasts. SAM filter parameters are editable above.
+        <strong style={{ color: "var(--lunar-amber)" }}>{t("methodologyNote")}:</strong> TAM figures are analyst estimates based on Eurostat enterprise ICT spend data (S6) and EU AI adoption research (S15), adjusted for AI-specific segments. CAGR assumptions reflect observed cloud and AI market growth trajectories. All figures are working assumptions; not audited forecasts. SAM filter parameters are editable above.
       </div>
     </div>
   );

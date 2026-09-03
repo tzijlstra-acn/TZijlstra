@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useAppStore } from "@/store";
 import { REVENUE_SCENARIOS, TAM_2030_BASE, calcSAM } from "@/data/market";
@@ -166,7 +166,7 @@ export default function CockpitPage() {
             Thomas Zijlstra · Moonshot AI · September 2026
           </div>
           <div className="text-xs leading-relaxed" style={{ color: 'var(--lunar-text-secondary)' }}>
-            Prepared as a foundation for shared exploration of Kimi&apos;s European opportunity — offered as a starting point for discussion, not a final answer.
+            Prepared as a foundation for shared exploration of Kimi&apos;s European opportunity, offered as a starting point for discussion, not a final answer.
           </div>
         </div>
       </div>
@@ -235,7 +235,7 @@ export default function CockpitPage() {
           <StatCard
             label="2030 EU TAM"
             value={`€${TAM_2030_BASE.toFixed(1)}B`}
-            sub="Total addressable market — 5 spend pools"
+            sub="Total addressable market (5 spend pools)"
             evidenceType="MODEL"
             formula="workspace + api + private + oem + services"
             color="var(--lunar-cyan)"
@@ -255,7 +255,7 @@ export default function CockpitPage() {
           <StatCard
             label={`${scenario.label} Revenue 2030`}
             value={`€${scenario.revenue2030}M`}
-            sub={`${scenario.samShare}% of SAM — ${activeScenario} scenario`}
+            sub={`${scenario.samShare}% of SAM, ${activeScenario} scenario`}
             evidenceType="ASSUMPTION"
             formula="SAM × market_share_pct"
             color={activeScenario === "conservative" ? "#7a90b0" : activeScenario === "base" ? "var(--lunar-cyan)" : "var(--lunar-green)"}
@@ -265,7 +265,7 @@ export default function CockpitPage() {
           <StatCard
             label="Market Share (base 2030)"
             value="4.1%"
-            sub="Of €13.3B SAM — base scenario"
+            sub="Of €13.3B SAM, base scenario"
             evidenceType="ASSUMPTION"
             color="var(--lunar-amber)"
           />
@@ -473,7 +473,7 @@ export default function CockpitPage() {
               <h2 className="text-sm font-semibold" style={{ color: "var(--lunar-text-primary)" }}>
                 Competitive Position
               </h2>
-              <EvidenceBadge type="RECOMMENDATION" reasoning="Strategic positioning judgment — not a validated external benchmark." />
+              <EvidenceBadge type="RECOMMENDATION" reasoning="Strategic positioning judgment; not a validated external benchmark." />
             </div>
             <p className="text-sm font-medium leading-snug" style={{ color: "#8b5cf6" }}>
               {COMPETITIVE_MOAT.headline}

@@ -3,9 +3,9 @@ import { z } from "zod";
 // Candidate hypothesis on organisational structure, August 2026. To be validated with Moonshot AI leadership.
 export const GTM_STRUCTURE = {
   reportingLine: "Head of Commercialisation or President",
-  structure: "Deliberately flat — sales, solution, product, and engineering collaborate directly, without hierarchical layers",
+  structure: "Deliberately flat: sales, solution, product, and engineering collaborate directly, without hierarchical layers",
   beijingOnboarding: "HQ alignment period proposed for international hires; timing and format to be agreed with leadership.",
-  successMeasurement: "Measured by actual customer consumption (usage), not contracted amounts. No rigid quotas — the priority is the growth trajectory established over 6 and 12 months.",
+  successMeasurement: "Measured by actual customer consumption (usage), not contracted amounts. No rigid quotas; the priority is the growth trajectory established over 6 and 12 months.",
   milestones: {
     sixMonths: "Clear customer profiles established; target market coverage demonstrated; first benchmark customers showing continuous, growing usage",
     twelveMonths: "Replicable advancement paths; verified cooperation models with SI partners; clear regulatory position confirmed",
@@ -81,7 +81,7 @@ export const ROLES = [
   },
   {
     id: "ae_uk_1",
-    title: "Account Executive — UK (Enterprise)",
+    title: "Account Executive: UK (Enterprise)",
     function: "sales_cs",
     priority: "high",
     hiringPhase: "Phase 1",
@@ -91,7 +91,7 @@ export const ROLES = [
   },
   {
     id: "ae_de_1",
-    title: "Account Executive — Germany (Enterprise)",
+    title: "Account Executive: Germany (Enterprise)",
     function: "sales_cs",
     priority: "high",
     hiringPhase: "Phase 1",
@@ -111,7 +111,7 @@ export const ROLES = [
   },
   {
     id: "devrel_lead",
-    title: "Developer Relations Lead — EU",
+    title: "Developer Relations Lead: EU",
     function: "devrel_marketing",
     priority: "high",
     hiringPhase: "Phase 1",

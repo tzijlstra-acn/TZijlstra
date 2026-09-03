@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Link } from "@/lib/navigation";
 import { BookOpen, ArrowRight, Shield } from "lucide-react";
@@ -31,7 +31,7 @@ export default function EntryPage() {
           className="text-sm leading-relaxed max-w-md mx-auto"
           style={{ color: "var(--lunar-text-secondary)" }}
         >
-          A structured analysis of Kimi&apos;s European market entry — covering market
+          A structured analysis of Kimi&apos;s European market entry, covering market
           sizing, country prioritization, regulatory requirements, GTM strategy,
           and a 90-day execution plan.
         </p>

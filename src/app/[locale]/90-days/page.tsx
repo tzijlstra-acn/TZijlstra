@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useTranslations } from "next-intl";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
@@ -45,7 +45,7 @@ const PHASES: Phase[] = [
     accentColor: "#00d4ff",
     actions: [
       {
-        text: "Meet the top 3 internal teams (Product, Engineering, Legal) within week 1 — understand current EU state",
+        text: "Meet the top 3 internal teams (Product, Engineering, Legal) within week 1: understand current EU state",
         badgeType: "RECOMMENDATION",
       },
       {
@@ -61,7 +61,7 @@ const PHASES: Phase[] = [
         badgeType: "RECOMMENDATION",
       },
       {
-        text: "Complete a personal listening tour — 20 conversations with EU prospects, analysts, and ecosystem stakeholders",
+        text: "Complete a personal listening tour: 20 conversations with EU prospects, analysts, and ecosystem stakeholders",
         badgeType: "ASSUMPTION",
       },
       {
@@ -76,7 +76,7 @@ const PHASES: Phase[] = [
     deliverable:
       "Stakeholder map + EU readiness gap assessment (internal memo, 10 pages)",
     risk: "Announcing strategy before understanding internal constraints and partner landscape",
-    logLabel: "Phase 1: Listen, Map, Trust — 90-Day Thesis",
+    logLabel: "Phase 1: Listen, Map, Trust (90-Day Thesis)",
   },
   {
     number: 2,
@@ -88,15 +88,15 @@ const PHASES: Phase[] = [
     accentColor: "#a855f7",
     actions: [
       {
-        text: "Lock in the primary market entry mode for the UK and Germany — direct-led vs partner-led requires a committed decision, not a hedge",
+        text: "Lock in the primary market entry mode for the UK and Germany; direct-led vs partner-led requires a committed decision, not a hedge",
         badgeType: "RECOMMENDATION",
       },
       {
-        text: "Run the first 3 design-partner workshops — get signed LOIs or walk away",
+        text: "Run the first 3 design-partner workshops; get signed LOIs or walk away",
         badgeType: "ASSUMPTION",
       },
       {
-        text: "Draft and socialise the Legal Entity Architecture: UK Ltd + Netherlands BV + trust framework (Subject to Phase 1 legal-entity review — UK Ltd + Netherlands BV is the recommended structure pending counsel validation)",
+        text: "Draft and socialise the Legal Entity Architecture: UK Ltd + Netherlands BV + trust framework (Subject to Phase 1 legal-entity review: UK Ltd + Netherlands BV is the recommended structure pending counsel validation)",
         badgeType: "RECOMMENDATION",
       },
       {
@@ -104,7 +104,7 @@ const PHASES: Phase[] = [
         badgeType: "ASSUMPTION",
       },
       {
-        text: "Establish the EU Pricing Committee with CFO involvement — pricing must be committed before any public commercial announcement",
+        text: "Establish the EU Pricing Committee with CFO involvement; pricing must be committed before any public commercial announcement",
         badgeType: "RECOMMENDATION",
       },
       {
@@ -119,7 +119,7 @@ const PHASES: Phase[] = [
     deliverable:
       "Signed design-partner LOIs (at least 2) + legal entity decision approved by CEO",
     risk: "Scaling sales motion before compliance architecture is confirmed",
-    logLabel: "Phase 2: Validate, Decide, Build — 90-Day Thesis",
+    logLabel: "Phase 2: Validate, Decide, Build (90-Day Thesis)",
   },
   {
     number: 3,
@@ -131,7 +131,7 @@ const PHASES: Phase[] = [
     accentColor: "#10b981",
     actions: [
       {
-        text: "Present a board-ready European expansion business case — investment ask, phased revenue model, headcount plan",
+        text: "Present a board-ready European expansion business case (investment ask,, phased revenue model, headcount plan",
         badgeType: "RECOMMENDATION",
       },
       {
@@ -139,19 +139,19 @@ const PHASES: Phase[] = [
         badgeType: "RECOMMENDATION",
       },
       {
-        text: "Announce first EU design partnership publicly (with partner consent) — builds credibility and triggers inbound",
+        text: "Announce first EU design partnership publicly (with partner consent); builds credibility and triggers inbound",
         badgeType: "ASSUMPTION",
       },
       {
-        text: "Establish a monthly EU Executive Review with CEO — keep Europe visible at the top",
+        text: "Establish a monthly EU Executive Review with CEO; keep Europe visible at the top",
         badgeType: "RECOMMENDATION",
       },
       {
-        text: "Complete GDPR DPA templates and EU-standard data processing addenda — pre-negotiated versions ready for sales",
+        text: "Complete GDPR DPA templates and EU-standard data processing addenda; pre-negotiated versions ready for sales",
         badgeType: "RECOMMENDATION",
       },
       {
-        text: "Close first paid pilot (even at nominal price) — real commercial signal outweighs 100 LOIs",
+        text: "Close first paid pilot (even at nominal price); real commercial signal outweighs 100 LOIs",
         badgeType: "ASSUMPTION",
       },
       {
@@ -163,22 +163,22 @@ const PHASES: Phase[] = [
       "Board presentation approved + first public EU announcement + first paid pilot signed",
     risk:
       "Over-committing to a country or partner before having operational capacity to deliver",
-    logLabel: "Phase 3: Anchor, Declare — 90-Day Thesis",
+    logLabel: "Phase 3: Anchor, Declare (90-Day Thesis)",
   },
 ];
 
 const PHASE_HYPOTHESIS: Record<number, { label: string; killCriteria: string }> = {
   1: {
     label: 'Hypothesis discovery: Are H1/H2/H3 viable at all? The listening tour is the experiment.',
-    killCriteria: 'If zero of 20 listening-tour conversations produce any buying signal, the EU market timing hypothesis is wrong — recommend delaying 12 months and revisiting.',
+    killCriteria: 'If zero of 20 listening-tour conversations produce any buying signal, the EU market timing hypothesis is wrong; recommend delaying 12 months and revisiting.',
   },
   2: {
-    label: 'Testing H1 — do UK developers pay? Testing H2 — do EU enterprises cite compliance as a driver?',
+    label: 'Testing H1: do UK developers pay? Testing H2: do EU enterprises cite compliance as a driver?',
     killCriteria: 'If H1 produces fewer than 3 paying developer teams after 30 qualified conversations, exit the UK beachhead and redirect resources to NL enterprise via H2.',
   },
   3: {
     label: 'Scaling: Apply learnings from H1/H2. Kill what failed; double down on what shows signal.',
-    killCriteria: 'If the board case cannot be supported by real LOIs — only modelled projections — delay the board presentation. It will not survive scrutiny.',
+    killCriteria: 'If the board case cannot be supported by real LOIs (only modelled projections); delay the board presentation. It will not survive scrutiny.',
   },
 };
 
@@ -232,7 +232,7 @@ export default function NinetyDaysPage() {
             </h1>
             <EvidenceBadge
               type="RECOMMENDATION"
-              reasoning="Structured 90-day onboarding plan for the strategic EU expansion role. Phases are sequential — don't skip to Phase 3."
+              reasoning="Structured 90-day onboarding plan for the strategic EU expansion role. Phases are sequential; don't skip to Phase 3."
             />
           </div>
           <p
@@ -260,11 +260,11 @@ export default function NinetyDaysPage() {
           className="text-sm leading-relaxed"
           style={{ color: 'var(--lunar-text-secondary)' }}
         >
-          The sequence is deliberate. The first 30 days are dedicated to internal listening — a credible European
+          The sequence is deliberate. The first 30 days are dedicated to internal listening; a credible European
           strategy cannot be written without first understanding Moonshot AI&apos;s actual constraints, relationships, and
           priorities. Phase 2 flows directly from Phase 1&apos;s stakeholder map: the LOI targets emerge from the listening
           tour, not from assumptions. Phase 3&apos;s board presentation carries weight only if it rests on real signed
-          commitments — not modelled projections. Every phase gate is a genuine go/no-go checkpoint.
+          commitments, not modelled projections. Every phase gate is a genuine go/no-go checkpoint.
         </p>
       </div>
 

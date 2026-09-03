@@ -57,7 +57,7 @@ export const RISKS: Risk[] = [
     likelihood: "high",
     mitigation:
       "Block personal data from EU API until data boundary live. Implement SCCs + TIA immediately. Hire DPO. EU-region infrastructure as Gate A prerequisite. Data boundary is Phase 0 critical path.",
-    mitigationStatus: "Phase 0 critical path — not yet live",
+    mitigationStatus: "Phase 0 critical path, not yet live",
     owner: "Legal / DPO / Engineering",
     linkedWorkstreams: ["data_protection", "international_transfers", "data_boundary"],
   },
@@ -151,7 +151,7 @@ export const RISKS: Risk[] = [
     likelihood: "high",
     mitigation:
       "Launch third-party evaluation programme with independent EU-based evaluators. Publish customer-specific benchmark results. Partner with academic institutions. Gate C requires evaluation programme to be active.",
-    mitigationStatus: "Planned — not started",
+    mitigationStatus: "Planned, not started",
     owner: "Safety / Sales",
     linkedWorkstreams: ["evaluation_program"],
   },

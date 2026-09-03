@@ -289,7 +289,7 @@ export default function MarketPage() {
       </div>
 
       <div className="text-xs rounded-lg p-3" style={{ background: "var(--lunar-elevated)", color: "var(--lunar-text-muted)", border: "1px solid var(--lunar-border-subtle)" }}>
-        <strong style={{ color: "var(--lunar-amber)" }}>Methodology note:</strong> TAM figures are analyst estimates based on Eurostat enterprise ICT spend data (S6) and EU AI adoption research (S15), adjusted for AI-specific segments. CAGR assumptions reflect observed cloud and AI market growth trajectories. All figures are working assumptions — not audited forecasts. SAM filter parameters are editable above.
+        <strong style={{ color: "var(--lunar-amber)" }}>Methodology note:</strong> TAM figures are analyst estimates based on Eurostat enterprise ICT spend data (S6) and EU AI adoption research (S15), adjusted for AI-specific segments. CAGR assumptions reflect observed cloud and AI market growth trajectories. All figures are working assumptions; not audited forecasts. SAM filter parameters are editable above.
       </div>
     </div>
   );

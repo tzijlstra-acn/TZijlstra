@@ -90,7 +90,7 @@ export default function RisksPage() {
           Risk Register
         </h1>
         <p className="text-sm mt-1" style={{ color: "var(--lunar-text-secondary)" }}>
-          12 principal risks. Severity is editable — changes are persisted to localStorage.
+          12 principal risks. Severity is editable; changes are persisted to localStorage.
           <EvidenceBadge type="RECOMMENDATION" className="ml-2" reasoning="Risk assessments are analyst judgments as of Aug 2026" />
         </p>
       </div>

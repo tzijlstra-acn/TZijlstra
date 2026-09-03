@@ -20,12 +20,12 @@ export const PHASES: Phase[] = [
   {
     id: "phase_0",
     name: "Phase 0",
-    label: "Foundation — Become Launchable",
+    label: "Foundation: Become Launchable",
     dateRange: "Sep–Dec 2026",
     startDate: "2026-09-01",
     endDate: "2026-12-31",
     objective:
-      "Build the minimum legal, infrastructure, and commercial foundation required to launch in the EU/UK. No revenue target — this is a preparation phase.",
+      "Build the minimum legal, infrastructure, and commercial foundation required to launch in the EU/UK. No revenue target; this is a preparation phase.",
     milestones: [
       "EU data centre agreement signed (Amsterdam or Frankfurt target)",
       "GPAI classification legal opinion received",

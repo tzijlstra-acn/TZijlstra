@@ -140,7 +140,7 @@ function ComparePageInner() {
             Country Comparison
           </h1>
           <p className="text-sm mt-0.5" style={{ color: 'var(--lunar-text-secondary)' }}>
-            Side-by-side analysis — up to 4 countries
+            Side-by-side analysis (up to 4 countries)
           </p>
         </div>
         <EvidenceBadge type="RECOMMENDATION" reasoning="Comparison data based on analyst assessments" />
@@ -234,31 +234,31 @@ function ComparePageInner() {
                   {[
                     { label: 'Score', render: (iso2: string) => {
                       const d = COUNTRY_DETAIL[iso2];
-                      return d ? <span className="font-mono font-bold" style={{ color: 'var(--lunar-cyan)' }}>{d.score}/100</span> : '—';
+                      return d ? <span className="font-mono font-bold" style={{ color: 'var(--lunar-cyan)' }}>{d.score}/100</span> : '–';
                     }},
                     { label: 'Launch Wave', render: (iso2: string) => {
                       const d = COUNTRY_DETAIL[iso2];
-                      if (!d) return '—';
+                      if (!d) return '–';
                       const color = PHASE_COLORS[d.wave as keyof typeof PHASE_COLORS] ?? '#4a5a7a';
                       return <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${color}18`, color }}>{d.wave}</span>;
                     }},
                     { label: 'Strategic Role', render: (iso2: string) => {
                       const d = COUNTRY_DETAIL[iso2];
-                      return <span className="text-xs" style={{ color: 'var(--lunar-text-secondary)' }}>{d?.role ?? '—'}</span>;
+                      return <span className="text-xs" style={{ color: 'var(--lunar-text-secondary)' }}>{d?.role ?? '–'}</span>;
                     }},
                     { label: 'Rev. Potential (Base)', render: (iso2: string) => {
                       const d = COUNTRY_DETAIL[iso2];
-                      return d ? <span className="font-mono text-xs" style={{ color: 'var(--lunar-green)' }}>€{d.revenuePotentialM.base}M</span> : '—';
+                      return d ? <span className="font-mono text-xs" style={{ color: 'var(--lunar-green)' }}>€{d.revenuePotentialM.base}M</span> : '–';
                     }},
                     { label: 'Regulatory', render: (iso2: string) => {
                       const d = COUNTRY_DETAIL[iso2];
-                      if (!d) return '—';
+                      if (!d) return '–';
                       const color = d.regulatoryComplexity === 'high' ? 'var(--lunar-red)' : d.regulatoryComplexity === 'medium' ? 'var(--lunar-amber)' : 'var(--lunar-green)';
                       return <span className="text-xs capitalize" style={{ color }}>{d.regulatoryComplexity}</span>;
                     }},
                     { label: 'Main Blocker', render: (iso2: string) => {
                       const d = COUNTRY_DETAIL[iso2];
-                      return <span className="text-xs" style={{ color: 'var(--lunar-amber)' }}>{d?.mainBlocker ? d.mainBlocker.slice(0, 60) + '...' : '—'}</span>;
+                      return <span className="text-xs" style={{ color: 'var(--lunar-amber)' }}>{d?.mainBlocker ? d.mainBlocker.slice(0, 60) + '...' : '–'}</span>;
                     }},
                   ].map(row => (
                     <tr key={row.label} style={{ borderBottom: '1px solid var(--lunar-border-subtle)' }}>
