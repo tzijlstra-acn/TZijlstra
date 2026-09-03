@@ -39,6 +39,7 @@ jobs:
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
           NEXT_PUBLIC_BASE_PATH: /TZijlstra
+          NEXT_PUBLIC_GATE_PASS_HASH: ${{ secrets.GATE_PASS_HASH }}
 
       - name: List output
         run: ls -la out/ | head -20

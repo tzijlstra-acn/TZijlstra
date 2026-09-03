@@ -1,10 +1,10 @@
 import { z } from "zod";
 
-// Reflects Alan Pak (Moonshot AI), 31 Aug 2026 — HR alignment conversation
+// Candidate hypothesis on organisational structure, August 2026. To be validated with Moonshot AI leadership.
 export const GTM_STRUCTURE = {
   reportingLine: "Head of Commercialisation or President",
   structure: "Deliberately flat — sales, solution, product, and engineering collaborate directly, without hierarchical layers",
-  beijingOnboarding: "International hires work embedded with the core team in Beijing for the first 3 to 6 months, then return to their respective regions.",
+  beijingOnboarding: "HQ alignment period proposed for international hires; timing and format to be agreed with leadership.",
   successMeasurement: "Measured by actual customer consumption (usage), not contracted amounts. No rigid quotas — the priority is the growth trajectory established over 6 and 12 months.",
   milestones: {
     sixMonths: "Clear customer profiles established; target market coverage demonstrated; first benchmark customers showing continuous, growing usage",
@@ -34,9 +34,9 @@ export const ROLES = [
     function: "leadership_ops",
     priority: "critical",
     hiringPhase: "Phase 0",
-    rationale: "Bridge between Beijing and Europe. Shapes country sequence with leadership in first 90 days based on real market feedback. Begins with 3–6 month Beijing alignment before regional deployment.",
+    rationale: "Bridge between HQ and Europe. Shapes country sequence with leadership in first 90 days based on real market feedback.",
     reportingTo: "Head of Commercialisation or President",
-    locationRequirement: "Beijing (first 3–6 months), then EU-based",
+    locationRequirement: "EU-based (HQ alignment period TBD with leadership)",
     beijingOnboarding: true,
   },
   {

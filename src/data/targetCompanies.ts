@@ -1,7 +1,7 @@
 // Unified account database — single source of truth for all target accounts.
 // Used by: Country Profiles (filtered by iso2) and Prospect Intelligence (filtered by subVertical).
 // Tier 1 = Immediate strategic priority | Tier 2 = Secondary | Tier 3 = Longer arc / self-hosted
-// Source: Moonshot AI Europe Target Account Intelligence — August 2026
+// Source: Candidate analysis of publicly-known EU technology and enterprise companies, August 2026
 
 export interface Account {
   name: string;
