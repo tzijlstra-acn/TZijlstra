@@ -145,7 +145,7 @@ export const STRATEGIC_NARRATIVES = {
   forBoard:
     "Kimi enters Europe at the right moment: the EU AI market is large, growing, and structurally underserved by providers willing to commit to EU data sovereignty. K3's technical differentiation (1M context, open weight, frontier coding) is real. But the path to €550M base revenue requires executing on trust architecture before revenue — a €5–8M Phase 0 investment to unlock a €13B SAM.",
   forEnterpriseBuyer:
-    "Kimi gives European enterprises access to frontier AI capability — including the industry's leading long-context model — with EU data residency, GPAI-compliant governance, and the transparency of open weights. Unlike US-only providers, Kimi is designed for European regulatory requirements from day one.",
+    "Kimi gives European enterprises access to frontier AI capability — including a 1M-token context window unmatched in open weights at launch — with EU data residency, GPAI-compliant governance, and the transparency of open weights. Unlike US-only providers, Kimi is designed for European regulatory requirements from day one.",
   forDeveloper:
     "K2.7 Code delivers the best coding price/performance ratio in the market, and K3 gives you 1M tokens of context to analyse entire codebases in a single call. Open weights mean you can run, evaluate, and customise models without depending on one provider's API availability.",
 };

@@ -112,6 +112,19 @@ export default function CompetitionPage() {
         </p>
       </div>
 
+      {/* BenchLM disclaimer */}
+      <div
+        className="text-xs px-4 py-3 rounded-lg"
+        style={{
+          background: "rgba(245,158,11,0.06)",
+          border: "1px solid rgba(245,158,11,0.2)",
+          color: "var(--lunar-text-muted)",
+        }}
+      >
+        <span style={{ color: "rgba(245,158,11,0.9)", fontWeight: 600 }}>Candidate-constructed model: </span>
+        Capability scores are a directional scoring model built by the candidate (BenchLM v5.2, September 2026), not a published external benchmark. Scores are editable and intended to structure the conversation, not to substitute for independent verification.
+      </div>
+
       {/* Competitor selector */}
       <div className="lunar-card">
         <h2 className="stat-label mb-3">{t("chart.selectCompetitors")}</h2>

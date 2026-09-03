@@ -54,7 +54,7 @@ export const OFFERS: Offer[] = [
     keyFeatures: [
       "Volume discount (15–35%)",
       "Priority capacity allocation",
-      "99.9% uptime SLA",
+      "99.9% uptime SLA (illustrative, subject to infrastructure roadmap)",
       "Business hours support",
       "EUR invoicing",
       "Basic DPA included",
@@ -72,7 +72,7 @@ export const OFFERS: Offer[] = [
     priceRange: "€20–€35 / seat / month",
     currency: "EUR",
     description:
-      "Team workspace product with chat, document analysis, knowledge base, and Kimi Code integration. EU data residency included.",
+      "Team workspace product with chat, document analysis, knowledge base, and Kimi Code integration. EU data residency planned, subject to Gate A.",
     models: ["K2.6", "K3"],
     keyFeatures: [
       "Team workspace & sharing",
@@ -125,7 +125,7 @@ export const OFFERS: Offer[] = [
       "Audit log export (SIEM)",
       "DPA + security attestation",
       "Dedicated Customer Success",
-      "Priority SLA (99.95%)",
+      "Priority SLA (99.95%) (illustrative, subject to infrastructure roadmap)",
       "EUR invoicing + PO support",
     ],
     minimumCommitment: "€200K / year platform fee",

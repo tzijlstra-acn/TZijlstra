@@ -15,10 +15,11 @@ export const COMPETITOR_DIMENSIONS = [
 
 export type CompetitorDimension = (typeof COMPETITOR_DIMENSIONS)[number];
 
+// BenchLM is a candidate-constructed scoring model, not a published external benchmark.
 export const DIMENSION_SOURCES: Record<CompetitorDimension, string> = {
-  frontier_quality: "BenchLM BenchAlign v5.2, Sept 2026",
-  agentic_coding: "BenchLM AG + CO categories, Sept 2026",
-  long_context: "BenchLM Reasoning (LongBench v2); Kimi: 1M-token spec",
+  frontier_quality: "Candidate model (BenchLM v5.2, Sept 2026) — directional only",
+  agentic_coding: "Candidate model (BenchLM v5.2, Sept 2026) — directional only",
+  long_context: "Candidate model; Kimi: 1M-token published spec",
   task_economics: "Public API pricing pages, Aug 2026",
   open_deployment: "License terms; Hugging Face",
   eu_hosting: "Provider datacenter pages",
