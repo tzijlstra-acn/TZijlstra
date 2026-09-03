@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useEffect, useRef, Suspense } from "react";
+import { useState, useEffect, useRef, useCallback, Suspense } from "react";
 import { useRouter } from "@/lib/navigation";
 import { useAuthStore } from "@/store/auth";
 import { useSearchParams } from "next/navigation";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 async function hashPassword(password: string): Promise<string> {
   const encoder = new TextEncoder();
@@ -14,29 +16,177 @@ async function hashPassword(password: string): Promise<string> {
     .join("");
 }
 
+function NeuralCanvas() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animId: number;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    type Orb = { x: number; y: number; vx: number; vy: number; r: number; phase: number; cyan: boolean };
+    const ORBS: Orb[] = Array.from({ length: 7 }, (_, i) => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.18,
+      vy: (Math.random() - 0.5) * 0.18,
+      r: 180 + Math.random() * 220,
+      phase: (i / 7) * Math.PI * 2,
+      cyan: i % 3 !== 0,
+    }));
+
+    type Node = { x: number; y: number; vx: number; vy: number; r: number; pulse: number; cyan: boolean };
+    const NODES: Node[] = Array.from({ length: 55 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.28,
+      vy: (Math.random() - 0.5) * 0.28,
+      r: Math.random() * 1.5 + 0.8,
+      pulse: Math.random() * Math.PI * 2,
+      cyan: Math.random() > 0.35,
+    }));
+
+    const CONNECT_DIST = 130;
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.globalCompositeOperation = "lighter";
+      for (const orb of ORBS) {
+        orb.x += orb.vx;
+        orb.y += orb.vy;
+        if (orb.x < -orb.r) orb.x = canvas.width + orb.r;
+        if (orb.x > canvas.width + orb.r) orb.x = -orb.r;
+        if (orb.y < -orb.r) orb.y = canvas.height + orb.r;
+        if (orb.y > canvas.height + orb.r) orb.y = -orb.r;
+        orb.phase += 0.004;
+        const breath = 0.75 + Math.sin(orb.phase) * 0.25;
+        const g = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.r * breath);
+        if (orb.cyan) {
+          g.addColorStop(0,   "rgba(0,200,255,0.055)");
+          g.addColorStop(0.4, "rgba(0,180,240,0.028)");
+          g.addColorStop(1,   "transparent");
+        } else {
+          g.addColorStop(0,   "rgba(168,85,247,0.048)");
+          g.addColorStop(0.4, "rgba(140,60,220,0.022)");
+          g.addColorStop(1,   "transparent");
+        }
+        ctx.beginPath();
+        ctx.arc(orb.x, orb.y, orb.r * breath, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+      }
+
+      ctx.globalCompositeOperation = "source-over";
+      for (let i = 0; i < NODES.length; i++) {
+        for (let j = i + 1; j < NODES.length; j++) {
+          const dx = NODES[i].x - NODES[j].x;
+          const dy = NODES[i].y - NODES[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < CONNECT_DIST) {
+            const a = (1 - dist / CONNECT_DIST) * 0.14;
+            const gr = ctx.createLinearGradient(NODES[i].x, NODES[i].y, NODES[j].x, NODES[j].y);
+            gr.addColorStop(0, `rgba(0,212,255,${a})`);
+            gr.addColorStop(1, `rgba(168,85,247,${a})`);
+            ctx.beginPath();
+            ctx.moveTo(NODES[i].x, NODES[i].y);
+            ctx.lineTo(NODES[j].x, NODES[j].y);
+            ctx.strokeStyle = gr;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+
+      ctx.globalCompositeOperation = "lighter";
+      for (const n of NODES) {
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+        if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+        n.pulse += 0.025;
+        const glow = (Math.sin(n.pulse) + 1) / 2;
+        const glowR = n.r * (8 + glow * 6);
+        const rg = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, glowR);
+        if (n.cyan) {
+          rg.addColorStop(0,   `rgba(0,230,255,${0.22 + glow * 0.18})`);
+          rg.addColorStop(0.3, `rgba(0,180,255,${0.06 + glow * 0.06})`);
+          rg.addColorStop(1,   "transparent");
+        } else {
+          rg.addColorStop(0,   `rgba(185,100,255,${0.18 + glow * 0.16})`);
+          rg.addColorStop(0.3, `rgba(150,70,240,${0.05 + glow * 0.05})`);
+          rg.addColorStop(1,   "transparent");
+        }
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, glowR, 0, Math.PI * 2);
+        ctx.fillStyle = rg;
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = n.cyan
+          ? `rgba(180,240,255,${0.6 + glow * 0.4})`
+          : `rgba(220,160,255,${0.5 + glow * 0.4})`;
+        ctx.fill();
+      }
+
+      ctx.globalCompositeOperation = "source-over";
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+      const vig = ctx.createRadialGradient(cx, cy, canvas.height * 0.18, cx, cy, canvas.height * 0.9);
+      vig.addColorStop(0, "transparent");
+      vig.addColorStop(1, "rgba(3,7,14,0.78)");
+      ctx.fillStyle = vig;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      animId = requestAnimationFrame(draw);
+    };
+
+    draw();
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 pointer-events-none"
+      style={{ zIndex: 1 }}
+    />
+  );
+}
+
 function GateForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [shake, setShake] = useState(false);
   const { login, isAuthenticated } = useAuthStore();
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const searchParams = useSearchParams();
   const from = searchParams.get("from") || "/entry";
 
-  // Redirect if already authenticated
   useEffect(() => {
-    if (isAuthenticated) {
-      router.replace(from);
-    }
+    if (isAuthenticated) router.replace(from);
   }, [isAuthenticated, router, from]);
 
-  // Focus input on mount
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
-  async function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     if (!password.trim()) return;
     setSubmitting(true);
@@ -46,10 +196,6 @@ function GateForm() {
       const expectedHash = process.env.NEXT_PUBLIC_GATE_PASS_HASH;
 
       if (!expectedHash) {
-        // Development mode: no hash configured — accept any non-empty password
-        console.warn(
-          "[Gate] NEXT_PUBLIC_GATE_PASS_HASH not set — development mode, any password accepted"
-        );
         login();
         router.replace(from);
         return;
@@ -60,7 +206,9 @@ function GateForm() {
         login();
         router.replace(from);
       } else {
-        setError("Incorrect password. Please try again.");
+        setError("Incorrect access code");
+        setShake(true);
+        setTimeout(() => setShake(false), 600);
         setPassword("");
         inputRef.current?.focus();
       }
@@ -69,82 +217,107 @@ function GateForm() {
     } finally {
       setSubmitting(false);
     }
-  }
+  }, [password, login, router, from]);
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center px-4"
-      style={{ background: "var(--lunar-bg)" }}
-    >
-      <div className="w-full max-w-sm">
-        {/* Brand mark */}
-        <div className="flex flex-col items-center mb-8">
-          <div className="kimi-mark mb-4" aria-hidden="true" />
-          <h1
-            className="text-lg font-bold tracking-widest uppercase"
-            style={{ color: "var(--lunar-text-primary)" }}
-          >
-            Moonshot AI
-          </h1>
-          <p className="text-xs mt-1" style={{ color: "var(--lunar-text-muted)" }}>
-            Kimi EU Strategy OS · Protected presentation
-          </p>
-        </div>
+    <>
+      {/* Base background */}
+      <div className="fixed inset-0" style={{ background: "#05090f", zIndex: 0 }} />
 
+      {/* Neural canvas */}
+      <NeuralCanvas />
+
+      {/* Scan line */}
+      <div
+        className="fixed top-0 left-0 right-0 h-px"
+        style={{
+          background: "linear-gradient(90deg, transparent 0%, rgba(0,212,255,0.6) 50%, transparent 100%)",
+          animation: "scan 4s linear infinite",
+          zIndex: 2,
+        }}
+      />
+
+      {/* Centered card */}
+      <div
+        className="fixed inset-0 flex flex-col items-center justify-center px-4"
+        style={{ zIndex: 3 }}
+      >
         <div
-          className="p-6 rounded-xl"
+          className="w-full max-w-sm flex flex-col items-center text-center px-10 py-12 rounded-2xl"
           style={{
-            background: "var(--lunar-surface)",
-            border: "1px solid var(--lunar-border-strong)",
+            background: "rgba(8,14,28,0.82)",
+            border: "1px solid rgba(0,212,255,0.18)",
+            boxShadow: "0 0 80px rgba(0,212,255,0.07), 0 0 0 1px rgba(0,212,255,0.06)",
+            backdropFilter: "blur(20px)",
+            animation: shake ? "shake 0.5s cubic-bezier(.36,.07,.19,.97)" : undefined,
           }}
         >
-          <p
-            className="text-xs text-center mb-6"
-            style={{ color: "var(--lunar-text-secondary)" }}
-          >
-            This is a password-protected candidate analysis. Enter the session
-            password to continue.
-          </p>
+          {/* Moonshot AI logo */}
+          <div className="mb-6 flex flex-col items-center">
+            <img
+              src={`${BASE}/logos/moonshot-wordmark.svg`}
+              alt="Moonshot AI"
+              className="mb-2"
+              style={{ height: 28, opacity: 0.95 }}
+            />
+            <div
+              className="text-xs tracking-widest"
+              style={{ color: "rgba(120,145,180,0.7)", letterSpacing: "0.15em" }}
+            >
+              EU STRATEGY OS
+            </div>
+          </div>
 
-          <form onSubmit={handleSubmit} noValidate>
+          {/* Divider */}
+          <div
+            className="w-full mb-7"
+            style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(0,212,255,0.25), transparent)" }}
+          />
+
+          <div
+            className="text-xl font-bold mb-1"
+            style={{ color: "#e8eef8", letterSpacing: "-0.01em" }}
+          >
+            Restricted Access
+          </div>
+          <div
+            className="text-xs mb-8 leading-relaxed"
+            style={{ color: "rgba(120,145,180,0.75)", maxWidth: 260 }}
+          >
+            Confidential strategy analysis prepared for Moonshot AI. Enter your access code to continue.
+          </div>
+
+          <form onSubmit={handleSubmit} noValidate className="w-full">
             <div className="mb-1">
-              <label
-                htmlFor="gate-password"
-                className="block text-xs font-medium mb-1.5"
-                style={{ color: "var(--lunar-text-secondary)" }}
-              >
-                Session password
-              </label>
               <input
                 id="gate-password"
                 ref={inputRef}
                 type="password"
                 autoComplete="current-password"
                 value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  setError("");
-                }}
-                className="w-full px-3 py-2.5 rounded-lg text-sm outline-none transition-all focus-visible:ring-2 focus-visible:ring-cyan-400/50"
+                onChange={(e) => { setPassword(e.target.value); setError(""); }}
+                className="w-full text-center text-sm font-mono rounded-xl px-4 py-3 outline-none transition-all"
                 style={{
-                  background: "var(--lunar-elevated)",
-                  border: `1px solid ${error ? "var(--lunar-red)" : "var(--lunar-border-strong)"}`,
-                  color: "var(--lunar-text-primary)",
+                  background: error ? "rgba(239,68,68,0.07)" : "rgba(0,212,255,0.04)",
+                  border: error ? "1px solid rgba(239,68,68,0.45)" : "1px solid rgba(0,212,255,0.2)",
+                  color: error ? "#ef4444" : "#e8eef8",
+                  boxShadow: error ? "0 0 16px rgba(239,68,68,0.12)" : "0 0 0 transparent",
+                  letterSpacing: "0.2em",
+                  caretColor: "#00d4ff",
                 }}
-                placeholder="Enter password"
+                placeholder="Access code"
                 disabled={submitting}
                 aria-invalid={!!error}
                 aria-describedby="gate-error"
               />
             </div>
 
-            {/* Accessible error feedback */}
             <div
               id="gate-error"
               role="alert"
               aria-live="assertive"
-              className="mb-4 mt-2 text-xs min-h-[1.25rem]"
-              style={{ color: "var(--lunar-red)" }}
+              className="mb-4 mt-2 text-xs min-h-[1.25rem] text-center"
+              style={{ color: "rgba(239,68,68,0.8)" }}
             >
               {error}
             </div>
@@ -152,27 +325,45 @@ function GateForm() {
             <button
               type="submit"
               disabled={submitting || !password.trim()}
-              className="w-full py-2.5 rounded-lg text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50"
+              className="w-full py-3 rounded-xl text-sm font-semibold tracking-wide transition-all"
               style={{
-                background: "var(--lunar-cyan)",
-                color: "#000",
+                background: submitting
+                  ? "linear-gradient(135deg, rgba(0,212,255,0.3) 0%, rgba(168,85,247,0.3) 100%)"
+                  : "linear-gradient(135deg, rgba(0,212,255,0.18) 0%, rgba(168,85,247,0.18) 100%)",
+                border: "1px solid rgba(0,212,255,0.3)",
+                color: "#00d4ff",
+                boxShadow: "0 0 20px rgba(0,212,255,0.08)",
+                letterSpacing: "0.08em",
                 opacity: submitting || !password.trim() ? 0.6 : 1,
                 cursor: submitting || !password.trim() ? "not-allowed" : "pointer",
               }}
             >
-              {submitting ? "Verifying…" : "Enter"}
+              {submitting ? "VERIFYING ···" : "ENTER"}
             </button>
           </form>
-        </div>
 
-        <p
-          className="text-xs text-center mt-6"
-          style={{ color: "var(--lunar-text-muted)" }}
-        >
-          Independent candidate analysis · Not commissioned or endorsed by Moonshot AI
-        </p>
+          <div
+            className="mt-8 text-xs"
+            style={{ color: "rgba(90,110,145,0.6)", letterSpacing: "0.05em" }}
+          >
+            Independent analysis · Not commissioned by Moonshot AI
+          </div>
+        </div>
       </div>
-    </div>
+
+      <style>{`
+        @keyframes scan {
+          0% { transform: translateY(0); opacity: 1; }
+          100% { transform: translateY(100vh); opacity: 0; }
+        }
+        @keyframes shake {
+          10%, 90% { transform: translateX(-2px); }
+          20%, 80% { transform: translateX(4px); }
+          30%, 50%, 70% { transform: translateX(-6px); }
+          40%, 60% { transform: translateX(6px); }
+        }
+      `}</style>
+    </>
   );
 }
 
@@ -180,12 +371,7 @@ export default function GatePage() {
   return (
     <Suspense
       fallback={
-        <div
-          className="min-h-screen flex items-center justify-center"
-          style={{ background: "var(--lunar-bg)" }}
-        >
-          <div className="kimi-mark" aria-hidden="true" />
-        </div>
+        <div className="fixed inset-0" style={{ background: "#05090f" }} />
       }
     >
       <GateForm />
