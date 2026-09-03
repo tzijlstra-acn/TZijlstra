@@ -176,17 +176,19 @@ export function Sidebar({ open, isMobile = false, onNavClick }: SidebarProps) {
         className="flex items-center gap-3 px-3 py-4 border-b"
         style={{ borderColor: "var(--lunar-border-subtle)" }}
       >
-        <div className="kimi-mark" aria-hidden="true" />
+        <img
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logos/moonshot-wordmark.svg`}
+          alt="Moonshot AI"
+          aria-hidden={open ? undefined : true}
+          style={{ height: open ? 16 : 20, opacity: 0.9, flexShrink: 0 }}
+        />
         {open && (
           <div>
-            <div className="text-xs font-bold tracking-wider text-cyan">
-              MOONSHOT AI
-            </div>
             <div
               className="text-xs font-medium"
               style={{ color: "var(--lunar-text-muted)" }}
             >
-              Kimi EU Strategy OS
+              EU Strategy OS
             </div>
             <div className="mt-1.5 flex items-center gap-1.5">
               <div
