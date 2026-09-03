@@ -271,6 +271,10 @@ export default function CockpitPage() {
           />
         </Link>
       </div>
+      <p className="text-xs" style={{ color: "var(--lunar-text-muted)" }}>
+        <span style={{ color: "var(--lunar-cyan)", fontWeight: 600 }}>Lead metric:</span>{" "}
+        monthly customer API consumption growth. ARR figures above are planning proxies; real traction is validated by benchmark customers showing continuous, growing usage.
+      </p>
 
       {/* Main 2-column layout */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
